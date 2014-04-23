@@ -105,20 +105,20 @@ apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unatte
 ########################################################################
 #Autres paquets utiles pour la version XFCE (non inclus par défaut) 
 ########################################################################
-apt-get install -y libreoffice vlc gedit
+apt-get install -y libreoffice vlc
 
 ########################################################################
-#Optimisation/Finalisation Xubuntu
+#Optimisation/Finalisation Xubuntu / désactivé par défaut
 ########################################################################
-apt-get dist-upgrade
+#apt-get -y dist-upgrade
 #apt-get install -y xfce4-goodies
 #apt-get install -y xfwm4-themes
-apt-get install -y xubuntu-restricted-addons
-apt-get install -y xubuntu-restricted-extras
+#apt-get install -y xubuntu-restricted-addons
+#apt-get install -y xubuntu-restricted-extras
 #apt-get install -y xscreensaver-data-extra && sudo apt-get install -y xscreensaver-gl-extra
-apt-get remove -y leafpad
-apt-get remove -y gnumeric
-apt-get remove -y abiword
+#apt-get remove -y leafpad
+#apt-get remove -y gnumeric
+#apt-get remove -y abiword
 #apt-get install -y wine
 #apt-get install -y cairo-dock cairo-dock-plug-ins
 
