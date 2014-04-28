@@ -1,4 +1,4 @@
-##### Scripts pour Client Scribe (x)Ubuntu 12.04 ou 14.04 
+## Scripts pour Client Scribe (x)Ubuntu 12.04 ou 14.04 
 
 Ce **script** permet d'intégrer **(x)Ubuntu 12.04 ou 14.04** dans un environnement Eole-Scribe 2.2 ou 2.3.
 
@@ -15,13 +15,13 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
 	sudo ./client_scribe_ubuntu_14.04.sh
 
-##**Remarques :** 
+###**Remarques :** 
 
-### Personnalisation des valeurs par défaut
+#### Personnalisation des valeurs par défaut
 
 vous pouvez éditer les valeurs par défaut en début de script afin de les adapter à votre environnement.
 
-### Personnalisation des menus
+#### Personnalisation des menus
 
 Pour personnaliser le menu à tous les utilisateurs, chercher dans le script ces lignes :
 
@@ -45,7 +45,7 @@ Pour voir à quelle application cela correspond, avec l'explorateur, il faut se 
 
 A noter que chaque élève ou enseignant peut personnaliser son menu.
 
-## TO DO :
+### TO DO :
 
 - gestion centralisée des profils (navigateurs, session...)
 - gestion des mises à jour centralisées des postes clients
