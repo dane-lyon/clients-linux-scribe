@@ -292,14 +292,14 @@ def main(argv):
 	# Parse and install packages
 	for pkg_type, pkg_list in config.items("packages"):
 		if (pkg_type.startswith("remove_")):
-		    showexec ("Suppression des paquets"+pkg_type.lstrip("remove_"), _APT_REMOVE+" "+pkg_list)
+		    showexec ("Suppression des paquets "+pkg_type.lstrip("remove_"), _APT_REMOVE+" "+pkg_list)
 		else:
 		    showexec ("Installation des paquets "+pkg_type, _APT_INSTALL+" "+pkg_list)
 	
 	# Installation des paquets des dépôts
 	#~ print pkg_list_others
 	for pkg in pkg_list_others.keys():
-		showexec ("Installation des paquets des depots"+pkg, _APT_INSTALL+" "+pkg_list_others[pkg])
+		showexec ("Installation des paquets des depots "+pkg, _APT_INSTALL+" "+pkg_list_others[pkg])
 
 	# Allow user to read DVD (CSS)
 	showexec ("DVDs CSS encryption reader", "sh /usr/share/doc/libdvdread4/install-css.sh")
@@ -339,10 +339,9 @@ def main(argv):
 
 	# Installation des paquets deb en installant ligne par ligne
 	for pkg_type, pkg_list in config.items("debs"):
-		showexec ("Telechargement de"+pkg_type, _WGET+" -O /tmp/"+pkg_type)
-		showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type)
+		showexec ("Telechargement de"+pkg_type, _WGET+" -O /tmp/"+pkg_type".deb "+config.get("debs", +pkg_type)
+		showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type".deb"))
 		
-
 	# Gnome 3 configuration
 	if (config.has_section("gnome3")):
 		# Set the default theme
