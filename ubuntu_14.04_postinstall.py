@@ -339,8 +339,9 @@ def main(argv):
 
 	# Installation des paquets deb en installant ligne par ligne
 	for pkg_type, pkg_list in config.items("debs"):
-		showexec ("Telechargement de "+pkg_type, _WGET+" -O /tmp/"+pkg_type".deb "+config.get("debs", pkg_type))
-		showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type".deb")
+		showexec ("Telechargement de "+pkg_type, _WGET+" -O /tmp/"+pkg_type".deb")
+		#+config.get("debs", pkg_type))
+		#showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type".deb")
 		
 	# Gnome 3 configuration
 	if (config.has_section("gnome3")):
