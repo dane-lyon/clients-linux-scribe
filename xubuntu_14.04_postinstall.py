@@ -22,7 +22,7 @@ import os, sys, platform, getopt, shutil, logging, getpass, ConfigParser
 _VERSION="0.6b"
 _DEBUG = 1
 _LOG_FILE = "/tmp/ubuntu-14.04-postinstall.log"
-_CONF_FILE = "https://raw.github.com/dane-lyon/clients-linux-scribe/master/xubuntu-14.04-postinstall.cfg"
+_CONF_FILE = "https://raw.github.com/dane-lyon/clients-linux-scribe/master/xubuntu_14.04_postinstall.cfg"
 
 # System commands
 #-----------------------------------------------------------------------------
