@@ -323,15 +323,29 @@ def main(argv):
 			showexec ("Install the Htop configuration file", _WGET+" -O $HOME/.htoprc "+config.get("dotfiles", "htoprc"))
 
 	# Installation des paquets deb
-	if (config.has_section("debs")):
+	#if (config.has_section("debs")):
 		# TeamViewer
-		if (config.has_option("debs", "pkg_teamviewer")):
-			showexec ("Téléchargement de TeamViewer", _WGET+" -O /tmp/teamviewer.deb "+config.get("debs", "pkg_teamviewer"))
-			showexec ("Installation de TeamViewer", _DPKG_INSTALL+" /tmp/teamviewer.deb ")
+	#	if (config.has_option("debs", "pkg_teamviewer")):
+	#		showexec ("Téléchargement de TeamViewer", _WGET+" -O /tmp/teamviewer.deb "+config.get("debs", "pkg_teamviewer"))
+	#		showexec ("Installation de TeamViewer", _DPKG_INSTALL+" /tmp/teamviewer.deb ")
 		# Skype
-		if (config.has_option("debs", "pkg_skype")):
-			showexec ("Téléchargement de Skype", _WGET+" -O /tmp/skype.deb "+config.get("debs", "pkg_skype"))
-			showexec ("Installation de Skype", _DPKG_INSTALL+" /tmp/skype.deb ")
+	#	if (config.has_option("debs", "pkg_skype")):
+	#		showexec ("Téléchargement de Skype", _WGET+" -O /tmp/skype.deb "+config.get("debs", "pkg_skype"))
+	#		showexec ("Installation de Skype", _DPKG_INSTALL+" /tmp/skype.deb ")
+
+	# Installation des paquets deb en installant ligne par ligne
+	for pkg_type, pkg_list in config.items("debs"):
+		showexec ("Telechargement de"+pkg_type, _WGET+" -O /tmp/"+pkg_type)
+		showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type)
+		# TeamViewer
+	#	if (config.has_option("debs", "pkg_teamviewer")):
+	#		showexec ("Téléchargement de TeamViewer", _WGET+" -O /tmp/teamviewer.deb "+config.get("debs", "pkg_teamviewer"))
+	#		showexec ("Installation de TeamViewer", _DPKG_INSTALL+" /tmp/teamviewer.deb ")
+		# Skype
+	#	if (config.has_option("debs", "pkg_skype")):
+	#		showexec ("Téléchargement de Skype", _WGET+" -O /tmp/skype.deb "+config.get("debs", "pkg_skype"))
+	#		showexec ("Installation de Skype", _DPKG_INSTALL+" /tmp/skype.deb ")
+
 
 
 	# Gnome 3 configuration
