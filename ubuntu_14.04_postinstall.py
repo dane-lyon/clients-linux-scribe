@@ -285,6 +285,10 @@ def main(argv):
 	# Activation licence JAVA
 	showexec ("Activation licence Java...", "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections")
 
+	# Activation licence EULA pour les polices Microsoft
+	showexec ("Activation licence Polices MS...", "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo /usr/bin/debconf-set-selections")
+
+
 	# Parse and install packages
 	for pkg_type, pkg_list in config.items("packages"):
 		if (pkg_type.startswith("remove_")):
