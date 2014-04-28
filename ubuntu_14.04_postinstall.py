@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Mon script de post installation Ubuntu 14.04 LTS
-# Francise par Bristow
+# Script de post installation Ubuntu 14.04 LTS
+# Francise par Bristow pour la DANE DE LYON
 # Syntax: # sudo ./ubuntupostinstall-14.04.sh
 #
 # Nicolargo (aka) Nicolas Hennion
@@ -22,7 +22,7 @@ import os, sys, platform, getopt, shutil, logging, getpass, ConfigParser
 _VERSION="0.6b"
 _DEBUG = 1
 _LOG_FILE = "/tmp/ubuntu-14.04-postinstall.log"
-_CONF_FILE = "https://raw.github.com/bristow/ubuntupostinstall/master/ubuntu-14.04-unity-postinstall.cfg"
+_CONF_FILE = "https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu_14.04_postinstall.cfg"
 
 # System commands
 #-----------------------------------------------------------------------------
@@ -292,13 +292,17 @@ def main(argv):
 		else:
 		    showexec ("Installation des paquets "+pkg_type, _APT_INSTALL+" "+pkg_list)
 	
-	# Install packages related to repositories
+	# Installation des paquets des dépôts
 	#~ print pkg_list_others
 	for pkg in pkg_list_others.keys():
-		showexec ("Installation des paquets"+pkg, _APT_INSTALL+" "+pkg_list_others[pkg])
+		showexec ("Installation des paquets des depots"+pkg, _APT_INSTALL+" "+pkg_list_others[pkg])
 
 	# Allow user to read DVD (CSS)
 	showexec ("DVDs CSS encryption reader", "sh /usr/share/doc/libdvdread4/install-css.sh")
+
+	# Resolution des problemes de dependances
+	showexec ("Resolution pb dependances", _APT_INSTALL)
+
 
 	# Download and install dotfiles: vimrc, prompt...
 	if (config.has_section("dotfiles")):
