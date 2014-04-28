@@ -17,6 +17,11 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
 ###**Remarques :** 
 
+#### Script de post-installation
+
+Pour gagner du temps lors de la création du poste modèle, on pourra utiliser un script de post-installation qui installera le système avec toutes les applications souhaitées : https://github.com/bristow/ubuntupostinstall
+
+
 #### Personnalisation des valeurs par défaut
 
 vous pouvez éditer les valeurs par défaut en début de script afin de les adapter à votre environnement.
