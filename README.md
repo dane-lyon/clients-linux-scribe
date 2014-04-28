@@ -1,4 +1,4 @@
-#### Scripts pour Client Scribe (x)Ubuntu 12.04 ou 14.04 
+##### Scripts pour Client Scribe (x)Ubuntu 12.04 ou 14.04 
 
 Ce **script** permet d'intégrer **(x)Ubuntu 12.04 ou 14.04** dans un environnement Eole-Scribe 2.2 ou 2.3.
 
