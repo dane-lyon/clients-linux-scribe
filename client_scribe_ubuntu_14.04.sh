@@ -342,6 +342,7 @@ apt-get remove indicator-messages -y
 #suppression du panel de clavier
 ########################################################################
 apt-get remove indicator-keyboard -y
+#rajout des dependances supprimees par la commande precedente
 apt-get install ubuntu-desktop unity-control-center unity-control-center-signon webaccounts-extension-common xul-ext-webaccounts
 
 ########################################################################
