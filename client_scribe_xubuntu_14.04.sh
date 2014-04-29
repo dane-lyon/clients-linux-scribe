@@ -13,7 +13,7 @@
 # - Installation des paquets libreoffice et vlc (non inclus par défaut dans Xubuntu)
 # - La ligne "greeter-session=unity-greeter" est retiré car sinon elle empèche le démarrage de Xubuntu
 # - La partie spécifique a Unity est supprimé (suppression applet / paramétrage laucher unity).
-# - Déinstallation des logiciels par défaut suivant : abiword, gnumeric, thunderbird, transmission, xchat
+# - Déinstallation des logiciels par défaut suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
 ###########################################################################
 
 
@@ -107,7 +107,7 @@ apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unatte
 #Autres paquets utiles pour la version XFCE (non inclus par défaut) 
 ########################################################################
 apt-get install -y libreoffice vlc
-apt-get purge -y abiword gnumeric thunderbird transmission xchat
+apt-get purge -y abiword gnumeric thunderbird transmission xchat pidgin
 
 ########################################################################
 #Optimisation/Finalisation Xubuntu / désactivé par défaut
