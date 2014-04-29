@@ -252,7 +252,7 @@ def main(argv):
 	
 	# Read the configuration file
 	if (config_file == ""):
-		config_file = "/tmp/ubuntu-14.04-postinstall.cfg"
+		config_file = "/tmp/ubuntu_14.04_postinstall.cfg"
 		showexec ("Telechargement du fichier de configuration", "rm -f "+config_file+" ; "+_WGET+" -O "+config_file+" "+config_url)		
 	config = ConfigParser.RawConfigParser()
 	config.read(config_file)
@@ -292,14 +292,14 @@ def main(argv):
 	# Parse and install packages
 	for pkg_type, pkg_list in config.items("packages"):
 		if (pkg_type.startswith("remove_")):
-		    showexec ("Suppression des paquets"+pkg_type.lstrip("remove_"), _APT_REMOVE+" "+pkg_list)
+		    showexec ("Suppression des paquets "+pkg_type.lstrip("remove_"), _APT_REMOVE+" "+pkg_list)
 		else:
 		    showexec ("Installation des paquets "+pkg_type, _APT_INSTALL+" "+pkg_list)
 	
-	# Install packages related to repositories
+	# Installation des paquets des dépôts
 	#~ print pkg_list_others
 	for pkg in pkg_list_others.keys():
-		showexec ("Installation des paquets"+pkg, _APT_INSTALL+" "+pkg_list_others[pkg])
+		showexec ("Installation des paquets des depots "+pkg, _APT_INSTALL+" "+pkg_list_others[pkg])
 
 	# Allow user to read DVD (CSS)
 	showexec ("DVDs CSS encryption reader", "sh /usr/share/doc/libdvdread4/install-css.sh")
@@ -322,18 +322,18 @@ def main(argv):
 		if (config.has_option("dotfiles", "htoprc")):
 			showexec ("Install the Htop configuration file", _WGET+" -O $HOME/.htoprc "+config.get("dotfiles", "htoprc"))
 
-	# Installation des paquets deb
-	if (config.has_section("debs")):
-		# TeamViewer
-		if (config.has_option("debs", "pkg_teamviewer")):
-			showexec ("Téléchargement de TeamViewer", _WGET+" -O /tmp/teamviewer.deb "+config.get("debs", "pkg_teamviewer"))
-			showexec ("Installation de TeamViewer", _DPKG_INSTALL+" /tmp/teamviewer.deb ")
-		# Skype
-		if (config.has_option("debs", "pkg_skype")):
-			showexec ("Téléchargement de Skype", _WGET+" -O /tmp/skype.deb "+config.get("debs", "pkg_skype"))
-			showexec ("Installation de Skype", _DPKG_INSTALL+" /tmp/skype.deb ")
 
+	# Installation des paquets deb en installant ligne par ligne
+	for pkg_type, pkg_list in config.items("debs"):
+		showexec ("Telechargement de "+pkg_type, _WGET+" -O /tmp/"+pkg_type+".deb "+pkg_list)
+		showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type+".deb")
+		
+		
+	# Resolution des problemes de dependances
+	showexec ("Resolution pb dependances", _APT_INSTALL)
 
+		
+		
 	# Gnome 3 configuration
 	if (config.has_section("gnome3")):
 		# Set the default theme
