@@ -6,14 +6,14 @@
 ## Changement apporté (simon) pour la version 14.04 par rapport a la 12.04 :
 
 # - valeur de vérification 12.04 remplacé par 14.04
-# - paquet installé smbfs remplacé par cifs-utils
+# - paquet smbfs remplacé par cifs-utils
 
-## Autres changements spécifique à la version XFCE 'Xubuntu' :
+## Autres changements spécifiques à la version XFCE :
 
 # - Installation des paquets libreoffice et vlc (non inclus par défaut dans Xubuntu)
 # - La ligne "greeter-session=unity-greeter" est retiré car sinon elle empèche le démarrage de Xubuntu
 # - La partie spécifique a Unity est supprimé (suppression applet / paramétrage laucher unity).
-# - Déinstallation des logiciels par défaut suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
+# - Désinstallation des logiciels par défaut suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
 ###########################################################################
 
 
@@ -24,7 +24,7 @@
 #Script d'integration de station Xubuntu 14.04 sur un scribe 2.3
 #testé avec Scribe 2.3
 #############################################
-# version 1.2.1 (avec proxy system)
+# version 1.2.2 (avec proxy system)
 
 ###########################################################################
 #Paramétrage par défaut
@@ -107,7 +107,11 @@ apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unatte
 #Autres paquets utiles pour la version XFCE (non inclus par défaut) 
 ########################################################################
 apt-get install -y libreoffice vlc
-apt-get purge -y abiword gnumeric thunderbird transmission xchat pidgin
+
+###################################################################################
+#Désinstallation de paquet installé par défaut mais inutile dans un cadre scolaire
+###################################################################################
+apt-get purge -y abiword gnumeric thunderbird transmission-gtk xchat pidgin
 
 ########################################################################
 #Optimisation/Finalisation Xubuntu / désactivé par défaut
@@ -118,9 +122,6 @@ apt-get purge -y abiword gnumeric thunderbird transmission xchat pidgin
 #apt-get install -y xubuntu-restricted-addons
 #apt-get install -y xubuntu-restricted-extras
 #apt-get install -y xscreensaver-data-extra && sudo apt-get install -y xscreensaver-gl-extra
-#apt-get remove -y leafpad
-#apt-get remove -y gnumeric
-#apt-get remove -y abiword
 #apt-get install -y wine
 #apt-get install -y cairo-dock cairo-dock-plug-ins
 
@@ -302,6 +303,7 @@ echo "[SeatDefaults]
 ########################################################################
 #supression de l'applet switch-user pour ne pas voir les derniers connectés
 #paramétrage d'un laucher unity par défaut : nautilus, firefox, libreoffice, calculatrice, editeur de texte et capture d'ecran
+#doit être désactivé pour Xubuntu 
 ########################################################################
 #echo "[com.canonical.indicator.session]
 #user-show-menu=false
