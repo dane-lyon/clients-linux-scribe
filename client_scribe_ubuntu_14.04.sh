@@ -331,12 +331,18 @@ echo "enabled=0" >/etc/default/apport
 ########################################################################
 #suppression de l'applet network-manager
 ########################################################################
-sed -i "s/X-GNOME-Autostart-enabled=true/X-GNOME-Autostart-enabled=false/g" /etc/xdg/autostart/nm-applet.desktop
+mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 
 ########################################################################
 #suppression du menu messages
 ########################################################################
 apt-get remove indicator-messages -y
+
+########################################################################
+#suppression du panel de clavier
+########################################################################
+apt-get remove indicator-keyboard -y
+apt-get install ubuntu-desktop unity-control-center unity-control-center-signon webaccounts-extension-common xul-ext-webaccounts
 
 ########################################################################
 #nettoyage station avant clonage
