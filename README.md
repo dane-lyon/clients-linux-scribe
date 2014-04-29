@@ -7,8 +7,8 @@ Il est plutôt adapté à Unity mais adaptable éventullement pour d'autres envi
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
-  - Télécharger et décompresser le script :
-  - (pour Ubuntu 14.04) : https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh
+  - Télécharger le script, exemple pour le client Ubuntu 14.04 : 
+	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh
   - Se placer dans le répertoire courant puis lancer les commandes :
 
 	chmod +x client_scribe_ubuntu_14.04.sh
