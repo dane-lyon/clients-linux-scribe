@@ -343,7 +343,7 @@ apt-get remove indicator-messages -y
 ########################################################################
 apt-get remove indicator-keyboard -y
 #rajout des dependances supprimees par la commande precedente
-apt-get -y install ubuntu-desktop unity-control-center unity-control-center-signon webaccounts-extension-common xul-ext-webaccounts
+apt-get install -y ubuntu-desktop unity-control-center unity-control-center-signon webaccounts-extension-common xul-ext-webaccounts
 
 ########################################################################
 #nettoyage station avant clonage
