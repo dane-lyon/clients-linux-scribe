@@ -106,7 +106,8 @@ apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unatte
 ########################################################################
 #Autres paquets utiles pour la version XFCE (non inclus par défaut) 
 ########################################################################
-apt-get install -y libreoffice vlc
+apt-get install -y libreoffice vlc 
+apt-get install -y libreoffice-help-fr libreoffice-l10n-fr hyphen-fr mythes-fr hunspell-fr
 
 ###################################################################################
 #Désinstallation de paquet installé par défaut mais inutile dans un cadre scolaire
