@@ -261,14 +261,12 @@ fi
 #activation du pave numerique par greeter-setup-script=/usr/bin/numlockx on
 ########################################################################
 echo "[SeatDefaults]
-    user-session=ubuntu
-    greeter-session=unity-greeter
     allow-guest=false
     greeter-show-manual-login=true
     greeter-hide-users=true
     session-setup-script=/etc/lightdm/logonscript.sh
     session-cleanup-script=/etc/lightdm/logoffscript.sh
-    greeter-setup-script=/usr/bin/numlockx on" > /etc/lightdm/lightdm.conf
+    greeter-setup-script=/usr/bin/numlockx on" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
 
 ########################################################################
 #supression de l'applet switch-user pour ne pas voir les derniers connectés
