@@ -304,10 +304,6 @@ def main(argv):
 	# Allow user to read DVD (CSS)
 	showexec ("DVDs CSS encryption reader", "sh /usr/share/doc/libdvdread4/install-css.sh")
 
-	# Resolution des problemes de dependances
-	showexec ("Resolution pb dependances", _APT_INSTALL)
-
-
 	# Download and install dotfiles: vimrc, prompt...
 	if (config.has_section("dotfiles")):
 		# Create the bashrc.d subfolder
@@ -331,6 +327,12 @@ def main(argv):
 	for pkg_type, pkg_list in config.items("debs"):
 		showexec ("Telechargement de "+pkg_type, _WGET+" -O /tmp/"+pkg_type+".deb "+pkg_list)
 		showexec ("Installation du paquet "+pkg_type, _DPKG_INSTALL+" /tmp/"+pkg_type+".deb")
+		
+		
+	# Resolution des problemes de dependances
+	showexec ("Resolution pb dependances", _APT_INSTALL)
+
+		
 		
 	# Gnome 3 configuration
 	if (config.has_section("gnome3")):
