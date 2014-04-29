@@ -252,7 +252,7 @@ def main(argv):
 	
 	# Read the configuration file
 	if (config_file == ""):
-		config_file = "/tmp/ubuntu-14.04-postinstall.cfg"
+		config_file = "/tmp/ubuntu_14.04_postinstall.cfg"
 		showexec ("Telechargement du fichier de configuration", "rm -f "+config_file+" ; "+_WGET+" -O "+config_file+" "+config_url)		
 	config = ConfigParser.RawConfigParser()
 	config.read(config_file)
