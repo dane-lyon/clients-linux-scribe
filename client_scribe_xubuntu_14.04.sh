@@ -365,7 +365,7 @@ echo "enabled=0" >/etc/default/apport
 ########################################################################
 #suppression de l'applet network-manager
 ########################################################################
-sed -i "s/X-GNOME-Autostart-enabled=true/X-GNOME-Autostart-enabled=false/g" /etc/xdg/autostart/nm-applet.desktop
+mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 
 ########################################################################
 #suppression du menu messages
