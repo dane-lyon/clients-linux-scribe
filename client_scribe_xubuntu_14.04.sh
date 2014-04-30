@@ -373,6 +373,12 @@ sed -i "s/X-GNOME-Autostart-enabled=true/X-GNOME-Autostart-enabled=false/g" /etc
 apt-get remove indicator-messages -y
 
 ########################################################################
+#suppression de logiciels inutiles
+########################################################################
+apt-get remove thunderbird -y
+
+
+########################################################################
 #nettoyage station avant clonage
 ########################################################################
 apt-get -y autoclean
