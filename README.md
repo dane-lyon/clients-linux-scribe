@@ -19,7 +19,7 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
 #### Script de post-installation
 
-Pour gagner du temps lors de la création du poste modèle, on pourra utiliser un script de post-installation qui installera le système avec toutes les applications souhaitées : https://github.com/bristow/ubuntupostinstall
+Pour gagner du temps lors de la création du poste modèle, on pourra utiliser un script de post-installation qui installera le système avec toutes les applications souhaitées : https://github.com/dane-lyon/clients-linux-scribe/blob/master/ubuntu_14.04_postinstall.py
 
 
 #### Personnalisation des valeurs par défaut
