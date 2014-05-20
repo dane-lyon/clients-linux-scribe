@@ -48,6 +48,10 @@ Pour connaitre le nom des raccourcis, faire dans un terminal : ls /usr/share/app
 
 Pour voir à quelle application cela correspond, avec l'explorateur, il faut se déplacer dans /usr/share/applications/
 
+Pour appliquer les modifications, il faut lancer la commande :
+
+	sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
 A noter que chaque élève ou enseignant peut personnaliser son menu.
 
 ### TO DO :
