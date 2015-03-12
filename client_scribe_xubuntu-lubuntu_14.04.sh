@@ -1,6 +1,6 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3 pour Xubuntu 14.04 LTS #########
+######### Intégration client scribe 2.3 pour Xubuntu (XFCE) ou Lubuntu (LXDE/OpenBox) 14.04 LTS #########
 
 ###########################################################################
 ## Changement apporté (simon) pour la version 14.04 par rapport a la 12.04 :
@@ -8,7 +8,7 @@
 # - valeur de vérification 12.04 remplacé par 14.04
 # - paquet smbfs remplacé par cifs-utils
 
-## Autres changements spécifiques à la version XFCE :
+## Autres changements spécifiques à la version XFCE/LXDE :
 
 # - Installation des paquets libreoffice et vlc (non inclus par défaut dans Xubuntu)
 # - La ligne "greeter-session=unity-greeter" est retiré car sinon elle empèche le démarrage de Xubuntu
@@ -52,7 +52,7 @@ fi
 . /etc/lsb-release
 if [ "$DISTRIB_RELEASE" != "14.04" ]
 then
-  echo " pas Xubuntu 14.04"
+  echo "pas Xubuntu ou Lubuntu 14.04"
   exit
 fi
 
