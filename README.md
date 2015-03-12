@@ -1,6 +1,10 @@
 ## Scripts pour Client Scribe (x)Ubuntu 12.04 ou 14.04 
 
-Ce **script** permet d'intégrer **(x)Ubuntu 12.04 ou 14.04** dans un environnement Eole-Scribe 2.2 ou 2.3.
+Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.2 ou 2.3. Les clients supportés sont les suivants :
+- Ubuntu (Environnement Unity) 12.04 et 14.04
+- Xubuntu (Environnement XFCE) 14.04
+- Lubuntu (Environnement LXDE) 14.04
+- Linux (Environnement Mate ou Cinammon) Mint 17 ou 17.1
 
 Il est plutôt adapté à Unity mais adaptable éventullement pour d'autres environnements graphiques.
 
