@@ -1,0 +1,13 @@
+#Pour pouvoir utiliser les scripts clients linux avec tous les partages sur un scribe 2.4, il faut patcher samba.
+
+#Pour cela :
+
+# copier le fichier smb.conf de /usr/share/eole/creole/distrib dans /usr/share/eole/creole/modif
+cp /usr/share/eole/creole/distrib/smb.conf /usr/share/eole/creole/modif/
+
+# Activer le patch
+gen_patch
+
+# Lancer un reconfigure (obligatoire)
+reconfigure
+
