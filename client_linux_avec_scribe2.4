@@ -5,7 +5,25 @@
 # copier le fichier smb.conf de /usr/share/eole/creole/distrib dans /usr/share/eole/creole/modif
 cp /usr/share/eole/creole/distrib/smb.conf /usr/share/eole/creole/modif/
 
-# Activer le patch
+# Modifier le fichier smb.conf du répertoire /usr/share/eole/creole/modif/ et y ajouter a la fin :
+
+[eclairng]
+path = %H/.ftp
+comment = disque personnel pour 98 et 95
+read only = no
+browseable = no
+invalid users = nobody guest
+inherit permissions = yes
+inherit acls = yes
+create mask = 0664
+directory mask = 0775
+valid users = %U
+write list = %U
+guest ok = no
+hide files = /config_eole/ 
+
+
+# Sauvegarder puis activer le patch
 gen_patch
 
 # Lancer un reconfigure (obligatoire)
