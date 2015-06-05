@@ -1,13 +1,9 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3 pour Linux Mint 17 ou 17.1 #########
+######### Intégration client scribe 2.3/2.4 pour Linux Mint 17 ou 17.1 #########
 ############################################################################
 
 ### IMPORTANT - A LIRE ###
-# - Script conçu pour un Scribe 2.3 uniquement (ne pas utiliser avec un 2.4 => pas de partage sinon)
-
-# - Fonctionne aussi avec la 17.1 mais la case "Activation du shell : gestion client linux" doit être coché
-
 # - Pour ne pas voir la liste des utilisateurs a l'écran de session, aller dans "panneau de configuration"
 #puis "fenêtre de connexion" et choisir un "thème sans liste" comme "Arc-Brave" par exemple.
 
