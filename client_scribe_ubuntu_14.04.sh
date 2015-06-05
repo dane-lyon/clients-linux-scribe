@@ -1,6 +1,6 @@
 #!/bin/bash
 
-###### Intégration client scribe 2.3 pour Ubuntu 14.04 LTS ###### 
+###### Intégration client scribe 2.3/2.4 pour Ubuntu 14.04 LTS ###### 
 
 #### changement apporté pour la version 14.04 (simon) ####
 # - valeur de vérification 12.04 remplacé par 14.04
@@ -10,13 +10,17 @@
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
 #Xavier GAREL - Mission Tice Ac-lyon
+#Simon BERNARD - Dane Lyon
+
 #############################################
 #Script d'integration de station ubuntu 12.04 sur un scribe 2.x
 #testé avec Scribe 2.3
 #############################################
 # version 1.1 (avec proxy system)
 
-
+# Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
+# tous les partages (communs, matière etc...) il faut faire cette petite manip sur votre scribe :
+# https://raw.githubusercontent.com/sibe39/divers/master/scribe24_avoir_les_partages
 
 ###########################################################################
 #Paramétrage par défaut
