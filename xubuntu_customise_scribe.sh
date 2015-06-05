@@ -4,6 +4,8 @@
 # XUBUNTU 14.04 LTS CUSTOMISE (par Simon BERNARD)
 #############################################################################
 
+# Aperçu du bureau ici : http://nsa37.casimages.com/img/2015/06/05/150605114538855711.png
+
 #Ce script a pour but d'obtenir un Xubuntu pleinement fonctionnel et customisé
 #pour être jolie de base, nouveauté par rapport au script non customisé :
 
