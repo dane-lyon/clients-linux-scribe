@@ -1,6 +1,6 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3 pour Xubuntu (XFCE) 14.04 LTS #########
+######### Intégration client scribe 2.3/2.4 pour Xubuntu (XFCE) 14.04 LTS #########
 
 ###########################################################################
 ## Changement apporté (simon) pour la version 14.04 par rapport a la 12.04 :
@@ -25,8 +25,8 @@
 #Xavier GAREL - Mission Tice Ac-lyon
 #Simon BERNARD - Dane Lyon
 #############################################
-#Script d'integration de station Xubuntu 14.04 sur un scribe 2.3
-#testé avec Scribe 2.3
+#Script d'integration de station Xubuntu 14.04 sur un scribe 2.3/2.4
+#testé avec Scribe 2.3 et 2.4
 #############################################
 # version 1.2.2 (avec proxy system)
 
