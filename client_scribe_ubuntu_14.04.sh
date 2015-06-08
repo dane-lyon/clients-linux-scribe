@@ -13,7 +13,7 @@
 #Simon BERNARD - Dane Lyon
 
 #############################################
-#Script d'integration de station ubuntu 12.04 sur un scribe 2.x
+#Script d'integration de station ubuntu 12.04 sur un scribe 2.3/2.4
 #testé avec Scribe 2.3
 #############################################
 # version 1.1 (avec proxy system)
