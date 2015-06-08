@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#############################################################################
-# XUBUNTU 14.04 LTS CUSTOMISE (par Simon BERNARD)
-#############################################################################
+#######################################################################################
+# XUBUNTU 14.04 LTS CUSTOMISE (par Simon BERNARD) dans environnement Scribe 2.3 ou 2.4
+#######################################################################################
 
 # Aperçu du bureau ici : http://nsa37.casimages.com/img/2015/06/05/150605114538855711.png
 
@@ -19,8 +19,6 @@
 #- les logiciels inutile de xubuntu pour un établissement scolaire (comme jeu de mines, sudoku, xchat) désinstallé
 #- les addons/extra (xubuntu-restricted-extra) installé (flash, java, codec...)
 
-#note
-#squeak (dev) bug => a supprimer
 ######### Intégration client scribe 2.3 et 2.4 pour Xubuntu14.04 LTS - script CUSTOM #########
 
 # Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
@@ -153,7 +151,7 @@ apt-get -y install plank
 # Autres logiciels utiles dans un établissement scolaire 
 
 # [[ MULTIMEDIA ]]
-apt-get -y install pinta imagination openshot audacity inkscape gthumb vlc x264 ffmpeg2theora oggvideotools mplayer hugin gimp ogmrip flac vorbis-tools lame mypaint libdvdread4
+apt-get -y install pinta imagination openshot audacity inkscape gthumb vlc x264 ffmpeg2theora oggvideotools hugin gimp ogmrip flac vorbis-tools lame mypaint libdvdread4
 
 # [[ SYSTEME ]]
 apt-get -y install htop gparted vim pyrenamer rar unrar
@@ -169,13 +167,14 @@ apt-get -y install geogebra algobox carmetal
 
 # [[ SCIENCES ]]
 apt-get -y install stellarium celestia avogadro
+
 # Google Earth
 apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386 ;
 wget http://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb && dpkg -i google-earth-stable_current_i386.deb ;
 apt-get -fy install ;
 
 # [[ PROGRAMMATION ]]
-apt-get -y install scratch idle-python2.7 vim anjuta bluefish
+apt-get -y install scratch vim anjuta bluefish
 
 ########################################################################
 # Optimisation / Finalisation Xubuntu
@@ -429,7 +428,7 @@ rm -rf skel_custom.tar.gz
 #nettoyage station avant clonage
 ########################################################################
 apt-get -y autoremove --purge
-apt-get -y autoclean
+apt-get -y clean
 
 ########################################################################
 #FIN
