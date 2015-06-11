@@ -20,6 +20,8 @@
 # - La partie spécifique a Unity est supprimé (suppression applet / paramétrage laucher unity) car inutile pour Mint
 # - La partie spécifique a XFCE est supprimé.
 # - La partie spécifique a LightDM est supprimé (MDM)
+# - Le thème graphique de MDM est modifié pour mieux convenir dans un environnement professionel (login non affiché a l'écran) 
+
 ########################################################################
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
@@ -329,6 +331,14 @@ mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 #suppression du menu messages
 ########################################################################
 apt-get remove indicator-messages -y
+
+####################################
+# Modif spécifique a Mint
+####################################
+
+# Changement de 2 réglages pour le gestionnaire de session "MDM"
+wget http://nux87.free.fr/dane-lyon/mdm.conf 
+mv mdm.conf /etc/mdm/
 
 ########################################################################
 #nettoyage station avant clonage
