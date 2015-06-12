@@ -77,9 +77,6 @@ echo "Adresse du serveur Scribe = $ip_scribe"
 #####################################
 # Existe-t-il un proxy à paramétrer ?
 #####################################
-
-read -p "Important : pensez a lire le paragraphe en commentaire au début du script en l'éditant avant de le lancer || Appuyer sur 'entrée' pour continuer."
-
 read -p "Faut-il enregistrer l'utilisation d'un proxy ? [O/n] " rep_proxy
 if [ "$rep_proxy" = "O" ] || [ "$rep_proxy" = "o" ] || [ "$rep_proxy" = "" ] ; then
   read -p "Donnez l'adresse ip du proxy ? [$proxy_def_ip] " ip_proxy
