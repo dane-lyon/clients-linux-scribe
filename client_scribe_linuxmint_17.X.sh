@@ -337,11 +337,23 @@ apt-get remove indicator-messages -y
 wget http://nux87.free.fr/dane-lyon/mdm.conf 
 mv mdm.conf /etc/mdm/
 
+###################################################################
+# Paquets inutiles dans Linux Mint pour un établissement scolaire
+###################################################################
+
+# Suppression de l'écran d'acceuil de bienvenue (sinon lancé pour chaque utilisateur)
+apt-get -y remove mintwelcome
+
+# Suppression des logiciels inutiles pour un lyçée/collège 
+apt-get -y remove hexchat pidgin transmission-gtk banshee 
+
+
 ########################################################################
 #nettoyage station avant clonage
 ########################################################################
-apt-get -y autoclean
 apt-get -y autoremove --purge
+apt-get -y clean
+
 
 ########################################################################
 #FIN
