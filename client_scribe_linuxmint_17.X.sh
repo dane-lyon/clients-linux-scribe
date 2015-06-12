@@ -1,37 +1,26 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3/2.4 pour Linux Mint 17 ou 17.1 #########
-############################################################################
+######### Intégration client scribe 2.3/2.4 pour Linux Mint branche 17.X #########
+##################################################################################
+# dernière modif : 12/06/2015 (Simon B)
 
-### IMPORTANT - A LIRE ###
-# - Pour ne pas voir la liste des utilisateurs a l'écran de session, aller dans "panneau de configuration"
-#puis "fenêtre de connexion" et choisir un "thème sans liste" comme "Arc-Brave" par exemple.
+# - Script compatible/testé avec les versions "Cinnamon" et "Mate"
+# - Basé sur le script d'intégration de Xubuntu 14.04 
 
-# - Script compatible avec la version "Cinnamon" et "Mate" 
-##########################
-
-# Basé sur le script d'intégration de Xubuntu 14.04 avec des modifs par Simon.B :
-# - valeur de vérification remplacé pour que cela soit compatible avec Mint 17.X
-# - paquet smbfs remplacé par cifs-utils (nom du paquet changé depuis la base 14.04).
-
-## Autres changements :
-
-# - La ligne "greeter-session=unity-greeter" est retiré car inutile pour Mint.
-# - La partie spécifique a Unity est supprimé (suppression applet / paramétrage laucher unity) car inutile pour Mint
+###############################################################################
+# Changement spécifique a Linux Mint par rapport a la version du script pour Xubuntu 
+###############################################################################
 # - La partie spécifique a XFCE est supprimé.
-# - La partie spécifique a LightDM est supprimé (MDM)
-# - Le thème graphique de MDM est modifié pour mieux convenir dans un environnement professionel (login non affiché a l'écran) 
+# - La partie spécifique a LightDM est supprimé (car le gestionnaire de session utilisé est MDM)
+# - Le thème graphique par défaut de MDM est modifié pour mieux convenir dans un environnement professionel (login non affiché a l'écran)
+# - L'écran d'acceuil de bienvenue (mintWelcome) est supprimé car est inutile et gênant (lancé pour chaque user)
+# - Quelques logiciels par défaut de Mint supprimé car inutile dans un contexte professionnel
 
 ########################################################################
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
 #Xavier GAREL - Mission Tice Ac-lyon
-#Modifié par Simon.B
-#############################################
-
-
-#Script d'integration de station Linux Mint 17.X sur un scribe 2.3
-#testé avec Scribe 2.3 
+#Simon BERNARD - Dane Reseau
 #############################################
 # version 2.0 (avec proxy system)
 
@@ -61,7 +50,7 @@ fi
 . /etc/lsb-release
 if [ "$DISTRIB_RELEASE" != "17" ] && [ "$DISTRIB_RELEASE" != "17.1" ]
 then
-  echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17 ou 17.1 !!"
+  echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17 ou 17.1 !"
   exit
 fi
 
