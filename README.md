@@ -4,7 +4,7 @@ Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eol
 - Ubuntu (Environnement Unity) 12.04 et 14.04
 - Xubuntu (Environnement XFCE) 14.04
 - Lubuntu (Environnement LXDE) 14.04
-- Linux (Environnement Mate ou Cinammon) Mint 17 ou 17.1
+- Linux (Environnement Mate ou Cinammon) Mint 17 ou 17.1 ou 17.2
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
