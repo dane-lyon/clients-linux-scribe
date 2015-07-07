@@ -48,9 +48,9 @@ fi
 #vérification de la bonne version d'Ubuntu
 ########################################################################
 . /etc/lsb-release
-if [ "$DISTRIB_RELEASE" != "17" ] && [ "$DISTRIB_RELEASE" != "17.1" ]
+if [ "$DISTRIB_RELEASE" != "17" ] && [ "$DISTRIB_RELEASE" != "17.1" ] && [ "$DISTRIB_RELEASE" != "17.2" ]
 then
-  echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17 ou 17.1 !"
+  echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17, 17.1 ou 17.2 !"
   exit
 fi
 
