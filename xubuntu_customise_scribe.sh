@@ -424,6 +424,10 @@ wget http://nux87.online.fr/xubuntu-customise/skel_custom.tar.gz
 tar xzvf skel_custom.tar.gz -C /etc
 rm -rf skel_custom.tar.gz
 
+# Wallpaper
+wget http://nux87.online.fr/xubuntu-customise/xubuntu-wallpaper.png
+mv -f xubuntu-wallpaper.png /usr/share/xfce4/backdrops/
+
 ########################################################################
 #nettoyage station avant clonage
 ########################################################################
