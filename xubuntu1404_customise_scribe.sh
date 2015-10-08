@@ -12,21 +12,22 @@
 #- dock (Plank) en bas du bureau avec les raccourcis des principales applications (firefox, chromium, libreoffice...) pour plus de confort
 #- raccourcis du dossier perso et des partages directement sur le bureau
 #- changement du wallpaper par défaut
-#- marque-page des moteurs de recherche google + ixquick intégré dans Firefox + barre des raccourci activé
 #- thème graphique modifié et transparence activé sur le menu en haut
-#- la toute dernière version de LibreOffice intégré (via PPA) (4.4.2.X actuellement) + bonus libreoffice : modèle présentation supplémentaire etc...
+#- la toute dernière version de LibreOffice intégré (via PPA) + bonus libreoffice : modèle présentation supplémentaire etc...
 #- les logiciels utiles pour un établissement scolaire déjà intégré (pas besoin de passer le script post install après)
 #- les logiciels inutile de xubuntu pour un établissement scolaire (comme jeu de mines, sudoku, xchat) désinstallé
 #- les addons/extra (xubuntu-restricted-extra) installé (flash, java, codec...)
 
-######### Intégration client scribe 2.3 et 2.4 pour Xubuntu14.04 LTS - script CUSTOM #########
+# Si il y a des logiciels que vous jugez inutile dans le script, n'hésitez pas a modifié le script avant de le lancer !
+
+######### Intégration client pour Scribe 2.3 et 2.4 pour Xubuntu 14.04 LTS - script CUSTOM #########
 
 # Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
 # tous les partages (communs, matière etc...) il faut faire cette petite manip sur votre scribe :
 # https://raw.githubusercontent.com/sibe39/divers/master/scribe24_avoir_les_partages
 
 ###########################################################################
-## Changement apporté (simon) pour la version 14.04 par rapport a la 12.04 :
+## Changement apporté (simon) pour la version 14.04 par rapport a la 12.04 pour la partie spécifique a l'intégration au domaine :
 
 # - valeur de vérification 12.04 remplacé par 14.04
 # - paquet smbfs remplacé par cifs-utils
@@ -43,9 +44,6 @@
 #Xavier GAREL - Mission Tice Ac-lyon
 #Simon BERNARD - Dane Reseau - Lyon
 #############################################
-
-#############################################
-# version 0.1 (avec proxy system)
 
 ###########################################################################
 #Paramétrage par défaut
@@ -334,7 +332,8 @@ export LANGUAGE=fr_FR.utf8
 sed -i "s/enabled=True/enabled=False/g" /etc/xdg/user-dirs.conf
 
 ########################################################################
-# les profs peuvent sudo
+# les profs peuvent sudo => supprimer cette partie si vous ne voulez pas que ça soit possible !
+# Rappel : pour pouvoir lancer le terminal, la case "activer client shell linux doit être activé dans l'EAD pour l'utilisateur
 ########################################################################
 grep "%professeurs ALL=(ALL) ALL" /etc/sudoers > /dev/null
 if [ $?!=0 ]
