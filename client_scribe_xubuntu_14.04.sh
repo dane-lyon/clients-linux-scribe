@@ -10,7 +10,6 @@
 
 ## Autres changements spécifiques à la version XFCE :
 
-# - Installation des paquets libreoffice et vlc (non inclus par défaut dans Xubuntu)
 # - La ligne "greeter-session=unity-greeter" est retiré car sinon elle empèche le démarrage de Xubuntu
 # - La partie spécifique a Unity est supprimé (suppression applet / paramétrage laucher unity).
 # - Désinstallation des logiciels par défaut suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
@@ -106,30 +105,13 @@ ntpdate $ip_scribe
 #unattended-upgrades pour forcer les mises à jour de sécurité à se faire
 ########################################################################
 apt-get update
+apt-get -y dist-upgrade
 apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unattended-upgrades
-
-########################################################################
-#Autres paquets utiles pour la version XFCE (non inclus par défaut) 
-########################################################################
-apt-get install -y libreoffice vlc 
-apt-get install -y libreoffice-help-fr libreoffice-l10n-fr hyphen-fr mythes-fr hunspell-fr
 
 ###################################################################################
 #Désinstallation de paquet installé par défaut mais inutile dans un cadre scolaire
 ###################################################################################
 apt-get purge -y abiword gnumeric thunderbird transmission-gtk xchat pidgin
-
-########################################################################
-#Optimisation/Finalisation Xubuntu / désactivé par défaut
-########################################################################
-#apt-get -y dist-upgrade
-#apt-get install -y xfce4-goodies
-#apt-get install -y xfwm4-themes
-#apt-get install -y xubuntu-restricted-addons
-#apt-get install -y xubuntu-restricted-extras
-#apt-get install -y xscreensaver-data-extra && sudo apt-get install -y xscreensaver-gl-extra
-#apt-get install -y wine
-#apt-get install -y cairo-dock cairo-dock-plug-ins
 
 ########################################################################
 # activation auto des mises à jour de sécu
