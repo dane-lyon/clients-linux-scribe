@@ -180,7 +180,7 @@ apt-get -y install scratch vim anjuta bluefish
 
 apt-get -y install xfce4-goodies xfwm4-themes
 apt-get -y install xubuntu-restricted-addons xubuntu-restricted-extras
-apt-get -y install xscreensaver-data-extra xscreensaver-gl-extra
+#apt-get -y install xscreensaver-data-extra xscreensaver-gl-extra
 
 ########################################################################
 # activation auto des mises à jour de sécu
