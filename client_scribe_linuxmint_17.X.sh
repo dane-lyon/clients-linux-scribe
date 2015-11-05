@@ -50,7 +50,7 @@ fi
 . /etc/lsb-release
 if [ "$DISTRIB_RELEASE" != "17" ] && [ "$DISTRIB_RELEASE" != "17.1" ] && [ "$DISTRIB_RELEASE" != "17.2" ] && [ "$DISTRIB_RELEASE" != "17.3" ]
 then
-  echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17, 17.1 ou 17.2 !"
+  echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17.X"
   exit
 fi
 
