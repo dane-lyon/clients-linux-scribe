@@ -2,7 +2,7 @@
 
 ######### Intégration client scribe 2.3/2.4 pour Linux Mint branche 17.X #########
 ##################################################################################
-# dernière modif : 12/06/2015 (Simon B)
+# dernière modif : 05/11/2015 (Simon B)
 
 # - Script compatible/testé avec les versions "Cinnamon" et "Mate"
 # - Basé sur le script d'intégration de Xubuntu 14.04 
@@ -48,7 +48,7 @@ fi
 #vérification de la bonne version d'Ubuntu
 ########################################################################
 . /etc/lsb-release
-if [ "$DISTRIB_RELEASE" != "17" ] && [ "$DISTRIB_RELEASE" != "17.1" ] && [ "$DISTRIB_RELEASE" != "17.2" ]
+if [ "$DISTRIB_RELEASE" != "17" ] && [ "$DISTRIB_RELEASE" != "17.1" ] && [ "$DISTRIB_RELEASE" != "17.2" ] && [ "$DISTRIB_RELEASE" != "17.3" ]
 then
   echo "Lancement du script impossible, vous n'êtes pas sous Linux Mint en version 17, 17.1 ou 17.2 !"
   exit
