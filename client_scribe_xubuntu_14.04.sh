@@ -365,11 +365,13 @@ echo "dialout" >> /etc/security/group.conf
 ########################################################################
 #nettoyage station avant clonage
 ########################################################################
+
+apt-get -y remove abiword gnumeric thunderbird transmission xchat pidgin
 apt-get -y autoclean
 apt-get -y autoremove --purge
 
 ########################################################################
-#FIN
+# FIN
 ########################################################################
 echo "C'est fini ! Un reboot est nécessaire..."
 read -p "Voulez-vous redémarrer immédiatement ? [O/n] " rep_reboot
