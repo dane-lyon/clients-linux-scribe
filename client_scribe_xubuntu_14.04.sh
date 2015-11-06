@@ -1,19 +1,19 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3/2.4 pour Xubuntu (XFCE) 14.04 LTS #########
+######### Intégration client scribe 2.3/2.4/2.5 pour Xubuntu (environnement XFCE) 14.04.X LTS #########
 
-###########################################################################
-## Changement apporté (simon) pour la version 14.04 par rapport a la 12.04 :
+###################################################
+# Changements par rapport a la précédente version
+###################################################
 
 # - valeur de vérification 12.04 remplacé par 14.04
 # - paquet smbfs remplacé par cifs-utils
-
-## Autres changements spécifiques à la version XFCE :
-
-# - La ligne "greeter-session=unity-greeter" est retiré car sinon elle empèche le démarrage de Xubuntu
+# - La ligne "greeter-session=unity-greeter" est retiré 
 # - La partie spécifique a Unity est supprimé (suppression applet / paramétrage laucher unity).
-# - Désinstallation des logiciels par défaut suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
-###########################################################################
+# - Désinstallation des logiciels sous Xub suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
+# - Ajout au groupe "dialout" des utilisateurs pour utiliser avec un Arduino (demande de Cedric)
+
+###################################################
 
 # Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
 # tous les partages (communs, matière etc...) il faut faire cette petite manip sur votre scribe :
@@ -23,12 +23,8 @@
 #Cédric Frayssinet - Mission Tice Ac-lyon
 #Xavier GAREL - Mission Tice Ac-lyon
 #Simon BERNARD - Dane Lyon
-#############################################
-#Script d'integration de station Xubuntu 14.04 sur un scribe 2.3/2.4
-#testé avec Scribe 2.3 et 2.4
-#############################################
-# version 1.2.2 (avec proxy system)
 
+# ------------------------------------------------------------------------------------------------------------------
 
 ###########################################################################
 #Paramétrage par défaut
@@ -358,6 +354,13 @@ mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 #suppression du menu messages
 ########################################################################
 apt-get remove indicator-messages -y
+
+########################################################################
+# Nouveau changement a partir de Novembre 2015
+########################################################################
+
+# Ajout nouveau utilisateur dans groupe dialout pour les besoins du Arduino
+echo "dialout" >> /etc/security/group.conf
 
 ########################################################################
 #nettoyage station avant clonage
