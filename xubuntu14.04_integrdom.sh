@@ -8,9 +8,12 @@
 ##### COMPATIBILITE #####
 
 ## Variante Ubuntu
-# Xubuntu 14.04 :
-# Lubuntu 14.04 :
-# Ubuntu Mate 14.04 :
+# Ubuntu 14.04 (Unity)
+# Xubuntu 14.04 (Xfce) :
+# Lubuntu 14.04 (Lxde) :
+# Ubuntu Mate 14.04 (Mate) :
+# Ubuntu Gnome 14.04 (Gnome 3) :
+# Kubuntu 14.04 (Kde) :
 
 ## Version serveur Scribe
 # Scribe 2.3 : validé
