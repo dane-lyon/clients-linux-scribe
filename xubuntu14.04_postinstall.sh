@@ -4,32 +4,35 @@
 # Installation de logiciel supplémentaire 
 #-----------------------------------------
 
-#[[xubuntu-restrictive]]
-apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons 
+#[[spécifique a XFCE ]]
+apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
+# si Lubuntu (LXDE), remplacer cette ligne par :
+#apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 
 #[[multimedia]]
-apt-get -y install pinta imagination openshot audacity inkscape gthumb vlc x264 ffmpeg2theora oggvideotools mplayer hugin gimp ogmrip flac vorbis-tools lame mypaint libdvdread4
+apt-get -y install gimp pinta imagination openshot audacity inkscape gthumb vlc x264 ffmpeg2theora flac vorbis-tools lame mypaint libdvdread4
 
 #[[systeme]]
-apt-get -y install gparted vim pyrenamer rar xfce4-goodies xfwm4-themes
+apt-get -y install gparted vim pyrenamer unrar htop shutter
 
 #[[web]]
-apt-get -y install chromium-browser flashplugin-downloader ttf-mscorefonts-installer
+apt-get -y install firefox chromium-browser flashplugin-downloader pepperflashplugin-nonfree 
 
 #[[mathematiques]]
 apt-get -y install geogebra algobox carmetal
 
 #[[sciences]]
-apt-get -y install stellarium celestia avogadro marble
+apt-get -y install stellarium celestia avogadro
 
 #[[bureautique]]
-apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr freeplane shutter scribus
+apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr ttf-mscorefonts-installer freeplane scribus
 
 #[[programmation]]
 apt-get -y install scratch idle-python2.7
 
+
 #-----------------------------------------
-# Customisation Xubuntu 
+# Customisation graphique Xubuntu 
 #-----------------------------------------
 
 # A venir...
