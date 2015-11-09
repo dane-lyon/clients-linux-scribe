@@ -25,3 +25,10 @@ apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr freeplane
 
 #[[programmation]]
 apt-get -y install scratch idle-python2.7
+
+
+echo "L'installation est terminé, voulez vous rebooter ?"
+read -p "Voulez-vous redémarrer immédiatement ? [O/n] " rep_reboot
+if [ "$rep_reboot" = "O" ] || [ "$rep_reboot" = "o" ] || [ "$rep_reboot" = "" ] ; then
+  reboot
+fi
