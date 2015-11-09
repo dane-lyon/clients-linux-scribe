@@ -1,6 +1,21 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3/2.4/2.5 pour Xubuntu (environnement XFCE) 14.04.X LTS #########
+######### Intégration client au domaine scribe 2.3/2.4/2.5 pour Xubuntu et variante en 14.04.X LTS #########
+
+# ATTENTION : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutile, 
+#avoir une customisation graphique, il faut dans ce cas utiliser le 2e script facultatif "xubuntu14.04_postinstall"
+
+##### COMPATIBILITE #####
+
+## Variante Ubuntu
+# Xubuntu 14.04 :
+# Lubuntu 14.04 :
+# Ubuntu Mate 14.04 :
+
+## Version serveur Scribe
+# Scribe 2.3 : validé
+# Scribe 2.4 : validé a condition de faire la manip supplémentaire cf ligne 33/35 de ce script pour avoir les partages
+# Scribe 2.5 : non vérifié encore
 
 ###################################################
 # Changements par rapport a la précédente version
