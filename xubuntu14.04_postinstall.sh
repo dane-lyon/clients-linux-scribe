@@ -1,6 +1,8 @@
 #!/bin/bash
 
-#[packages]
+#-----------------------------------------
+# Installation de logiciel supplémentaire 
+#-----------------------------------------
 
 #[[xubuntu-restrictive]]
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons 
@@ -26,6 +28,16 @@ apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr freeplane
 #[[programmation]]
 apt-get -y install scratch idle-python2.7
 
+#-----------------------------------------
+# Customisation Xubuntu 
+#-----------------------------------------
+
+# A venir...
+
+
+#-----------------------------------------
+# Fin
+#-----------------------------------------
 
 echo "L'installation est terminé, voulez vous rebooter ?"
 read -p "Voulez-vous redémarrer immédiatement ? [O/n] " rep_reboot
