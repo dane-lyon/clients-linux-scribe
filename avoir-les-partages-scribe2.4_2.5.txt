@@ -1,0 +1,25 @@
+#Pour avoir les partages avec un client linux et un scribe 2.4 ou 2.5, il suffit d'ajouter un 
+#fichier de conf dans le conf.d de samba, par exemple :
+
+touch /etc/samba/conf.d/partage-linux.conf
+
+#et mettre dedans comme contenu :
+
+[eclairng]
+path = %H/.ftp
+comment = espace personnel
+read only = no
+browseable = no
+invalid users = nobody guest
+inherit permissions = yes
+inherit acls = yes
+create mask = 0664
+directory mask = 0775
+valid users = %U
+write list = %U
+guest ok = no
+hide files = /config_eole/ 
+
+#enfin pour prendre en compte le changement, il faudra faire un reconfigure
+
+reconfigure
