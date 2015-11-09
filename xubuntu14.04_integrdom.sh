@@ -32,7 +32,7 @@
 
 # Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
 # tous les partages (communs, matière etc...) il faut faire cette petite manip sur votre scribe :
-# https://raw.githubusercontent.com/sibe39/divers/master/scribe24_avoir_les_partages
+# https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/avoir-les-partages-scribe2.4_2.5.txt
 
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
