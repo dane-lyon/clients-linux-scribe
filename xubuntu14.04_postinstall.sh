@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#############################################
+# Run using sudo, of course.
+#############################################
+if [ "$UID" -ne "0" ]
+then
+  echo "Il faut etre root pour executer ce script. ==> sudo "
+  exit 
+fi 
+
 #-----------------------------------------
 # Installation de logiciel supplémentaire 
 #-----------------------------------------
