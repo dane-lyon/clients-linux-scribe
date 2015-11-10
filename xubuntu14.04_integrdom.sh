@@ -2,8 +2,13 @@
 
 ######### Intégration client au domaine scribe 2.3/2.4/2.5 pour Xubuntu et variante en 14.04.X LTS #########
 
-# ATTENTION : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutile, 
-#avoir une customisation graphique, il faut dans ce cas utiliser le 2e script facultatif "xubuntu14.04_postinstall"
+# IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutiles, 
+#avoir une customisation graphique etc..., il faut dans ce cas utiliser le 2e script facultatif "xubuntu14.04_postinstall"
+
+### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 VEUILLEZ LIRE CECI ###
+# Ce script est compatible avec un Scribe 2.3, 2.4, 2.5 par contre si vous avez un scribe 2.4 ou 2.5, afin d'avoir
+# tous les partages (communs, groupes etc...) il faut faire la manip suivante 1 fois sur votre scribe :
+# https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/avoir-les-partages-scribe2.4_2.5.txt
 
 ##### COMPATIBILITE #####
 
@@ -17,7 +22,7 @@
 
 ## Version serveur Scribe
 # Scribe 2.3 : validé
-# Scribe 2.4 : validé a condition de faire la manip supplémentaire cf ligne 33/35 de ce script pour avoir les partages
+# Scribe 2.4 : validé a condition de faire la manip supplémentaire cf ligne 8/11 pour avoir les partages
 # Scribe 2.5 : non vérifié encore
 
 ###################################################
@@ -33,9 +38,6 @@
 
 ###################################################
 
-# Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
-# tous les partages (communs, matière etc...) il faut faire cette petite manip sur votre scribe :
-# https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/avoir-les-partages-scribe2.4_2.5.txt
 
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
