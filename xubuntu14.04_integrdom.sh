@@ -390,6 +390,10 @@ apt-get -y remove abiword gnumeric thunderbird transmission xchat pidgin
 apt-get -y autoclean
 apt-get -y autoremove --purge
 
+# [dev]
+#bug restant a corriger >
+# 1- erreur ligne 322 (conséquence inconnu) != opérateur unaire attendu
+
 ########################################################################
 # FIN
 ########################################################################
