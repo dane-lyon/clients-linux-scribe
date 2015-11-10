@@ -336,6 +336,8 @@ apt-get -y remove mintwelcome
 # Suppression des logiciels inutiles pour un lyçée/collège 
 apt-get -y remove hexchat pidgin transmission-gtk banshee 
 
+# pour arduino 
+sed -i 's/plugdev,scanner/plugdev,scanner,dialout/' /etc/security/group.conf
 
 ########################################################################
 #nettoyage station avant clonage
