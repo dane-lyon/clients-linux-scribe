@@ -17,8 +17,8 @@
 # Xubuntu 14.04 (Xfce) : validé 
 # Lubuntu 14.04 (Lxde) : validé
 # Ubuntu Mate 14.04 (Mate) : validé
-# Ubuntu Gnome 14.04 (Gnome 3) : test en cours...
-# Kubuntu 14.04 (Kde) : test en cours...
+# Ubuntu Gnome 14.04 (Gnome 3) : déconseillé (partage groupe pas ok + gestionnaire session GDM avec userlist mal réglé)
+# Kubuntu 14.04 (Kde) : incompatible (identification impossible même avec lighdm en mode classique)
 
 ## Version serveur Scribe
 # Scribe 2.3 : validé
