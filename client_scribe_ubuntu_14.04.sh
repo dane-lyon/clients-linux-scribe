@@ -352,6 +352,9 @@ apt-get remove indicator-messages -y
 apt-get -y autoclean
 apt-get -y autoremove --purge
 
+# pour arduino 
+sed -i 's/plugdev,scanner/plugdev,scanner,dialout/' /etc/security/group.conf
+
 ########################################################################
 #FIN
 ########################################################################
