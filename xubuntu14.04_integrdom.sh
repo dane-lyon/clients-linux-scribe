@@ -72,7 +72,7 @@ fi
 . /etc/lsb-release
 if [ "$DISTRIB_RELEASE" != "14.04" ]
 then
-  echo "pas Xubuntu 14.04"
+  echo "Vous n'êtes pas en version 14.04"
   exit
 fi
 
