@@ -380,7 +380,7 @@ apt-get remove indicator-messages -y
 ########################################################################
 
 # Ajout nouveau utilisateur dans groupe dialout pour les besoins du Arduino
-echo "dialout" >> /etc/security/group.conf
+sed -i 's/plugdev,scanner/plugdev,scanner,dialout/' /etc/security/group.conf
 
 ########################################################################
 #nettoyage station avant clonage
