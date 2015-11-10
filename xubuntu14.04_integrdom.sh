@@ -15,7 +15,7 @@
 ## Variante Ubuntu
 # Ubuntu 14.04 (Unity) : validé (mais de préférence, utilisez plutôt le script dédié a Unity : https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh)
 # Xubuntu 14.04 (Xfce) : validé 
-# Lubuntu 14.04 (Lxde) : test en cours...
+# Lubuntu 14.04 (Lxde) : validé
 # Ubuntu Mate 14.04 (Mate) : test en cours...
 # Ubuntu Gnome 14.04 (Gnome 3) : test en cours...
 # Kubuntu 14.04 (Kde) : test en cours...
@@ -113,6 +113,7 @@ export DEBIAN_PRIORITY="critical"
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
 ########################################################################
+apt-get -y install ntpdate #(dans le cas ou il ne serai pas installé sur certaine variante)
 ntpdate $ip_scribe
 
 ########################################################################
