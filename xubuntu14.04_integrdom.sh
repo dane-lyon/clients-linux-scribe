@@ -13,17 +13,17 @@
 ##### COMPATIBILITE #####
 
 ## Variante Ubuntu
-# Ubuntu 14.04 (Unity)
+# Ubuntu 14.04 (Unity) : test en cours...
 # Xubuntu 14.04 (Xfce) : validé 
-# Lubuntu 14.04 (Lxde) :
-# Ubuntu Mate 14.04 (Mate) :
-# Ubuntu Gnome 14.04 (Gnome 3) :
-# Kubuntu 14.04 (Kde) :
+# Lubuntu 14.04 (Lxde) : test en cours...
+# Ubuntu Mate 14.04 (Mate) : test en cours...
+# Ubuntu Gnome 14.04 (Gnome 3) : test en cours...
+# Kubuntu 14.04 (Kde) : test en cours...
 
 ## Version serveur Scribe
 # Scribe 2.3 : validé
 # Scribe 2.4 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
-# Scribe 2.5 : non vérifié encore
+# Scribe 2.5 : test en cours...
 
 ###################################################
 # Changements par rapport a la précédente version
