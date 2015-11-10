@@ -9,7 +9,7 @@
 
 ## Variante Ubuntu
 # Ubuntu 14.04 (Unity)
-# Xubuntu 14.04 (Xfce) :
+# Xubuntu 14.04 (Xfce) : validé 
 # Lubuntu 14.04 (Lxde) :
 # Ubuntu Mate 14.04 (Mate) :
 # Ubuntu Gnome 14.04 (Gnome 3) :
