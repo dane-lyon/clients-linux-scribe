@@ -387,7 +387,7 @@ sed -i 's/plugdev,scanner/plugdev,scanner,dialout/' /etc/security/group.conf
 #nettoyage station avant clonage
 ########################################################################
 
-apt-get -y remove abiword gnumeric thunderbird transmission xchat pidgin
+apt-get -y remove abiword gnumeric thunderbird transmission xchat pidgin parole gnome-mines gnome-sudoku gmusicbrowser
 apt-get -y autoclean
 apt-get -y autoremove --purge
 
