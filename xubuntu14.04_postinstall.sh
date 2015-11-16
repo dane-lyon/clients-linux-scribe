@@ -9,9 +9,15 @@ then
   exit 
 fi 
 
+# Vérification que le système est a jour
+apt-get update && apt-get -y dist-upgrade
+
 #-----------------------------------------
 # Installation de logiciel supplémentaire 
 #-----------------------------------------
+
+#[[Paquet demandant confirmation utilisateur ]]
+apt-get -y install ttf-mscorefonts-installer
 
 #[[spécifique a XFCE ]]
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
@@ -19,7 +25,7 @@ apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goo
 #apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 
 #[[bureautique]]
-apt-get -y install ttf-mscorefonts-installer libreoffice libreoffice-l10n-fr libreoffice-help-fr freeplane scribus
+apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr freeplane scribus
 
 #[[web]]
 apt-get -y install firefox chromium-browser flashplugin-downloader pepperflashplugin-nonfree
@@ -43,9 +49,8 @@ apt-get -y install scratch idle-python2.7
 # Customisation graphique Xubuntu 
 #-----------------------------------------
 
-# A venir...
-# wget http://nux87.free.fr/xubuntu-custom/skel.tar.gz
-# tar ......................
+wget http://nux87.online.fr/xubuntu-custom/skel.tar.gz
+tar xzvf skel.tar.gz -C /etc && rm -rf skel.tar.gz
 
 #-----------------------------------------
 # Fin
