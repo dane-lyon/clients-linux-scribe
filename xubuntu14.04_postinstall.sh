@@ -49,6 +49,7 @@ apt-get -y install scratch idle-python2.7
 # Customisation graphique Xubuntu 
 #-----------------------------------------
 
+apt-get -y install docky #dock
 wget http://nux87.online.fr/xubuntu-custom/skel.tar.gz
 tar xzvf skel.tar.gz -C /etc && rm -rf skel.tar.gz
 
