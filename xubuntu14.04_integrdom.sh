@@ -23,7 +23,7 @@
 ## Version serveur Scribe
 # Scribe 2.3 : validé
 # Scribe 2.4 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
-# Scribe 2.5 : validé sur 2.5.1rc (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
+# Scribe 2.5 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
 
 ###################################################
 # Changements par rapport a la précédente version
