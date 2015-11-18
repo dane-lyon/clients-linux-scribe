@@ -31,9 +31,16 @@ https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/xubuntu1
 
 Attention, avec un scribe 2.4 ou 2.5, par défaut vous n'aurez pas les partages (groupes, classes...), pour qu'il soit visible, vous devez faire une manipulation sur le serveur scribe décrite ici : http://eole.ac-dijon.fr/pub/Documentations/manuels/2.4/beta/partielles/ClientsGnuLinux/co/02-methodeSamba.html#cN1b8
 
-### Spécifique a Linux Mint
+### Infos supplémentaires
 
-La case "activation client shell linux" doit obligatoirement est coché pour tous les utilisateurs sinon ils ne pourront pas s'identifier (cela mettra un message comme quoi leur compte est désactivé par l'administrateur). Pas nécessaire sour Ubuntu & Xubuntu.
+Pour ne pas avoir de problème d'identification / partage, en plus de la manip indiqué ci-desssus pour les scribes en
+version 2.4 ou 2.5, il faut vérifier que :
+
+- l'utilisateur a déjà changé une fois son mot de passe depuis un poste windows
+OU
+- le changement de mot de passe n'est pas demandé (case décoché dans l'ead pour l'utilisateur)
+
+De plus, pour ceux qui utilisent Linux Mint, la case "client shell linux" doit obligatoirement est coché pour tous les utilisateurs sinon ils ne pourront pas s'identifier sous Mint (cela mettra un message comme quoi leur compte est désactivé par l'administrateur), ceci est spécifique a Mint (pas nécessaire sous Ubuntu, Xubuntu, Lubuntu, Ubuntu Mate)
 
 
 #### Personnalisation des valeurs par défaut
