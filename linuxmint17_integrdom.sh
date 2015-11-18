@@ -11,6 +11,9 @@
 # faire la manip suivante 1 fois sur votre scribe :
 # https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/avoir-les-partages-scribe2.4_2.5.txt
 
+# Si vous êtes sous "Rosa" (17.3) vous pouvez décommenter cette ligne pour avoir un fichier source optimale :
+#wget http://nux87.online.fr/dane-lyon/official-package-repositories.list && mv -f official-package-repositories.list /etc/apt/sources.list.d/
+
 ###############################################################################
 # Changement spécifique a Linux Mint par rapport a la version du script pour Xubuntu 
 ###############################################################################
