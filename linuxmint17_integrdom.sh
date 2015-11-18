@@ -1,11 +1,15 @@
 #!/bin/bash
 
-######### Intégration client scribe 2.3/2.4 pour Linux Mint branche 17.X #########
+######### Intégration client scribe 2.3/2.4/2.5 pour Linux Mint branche 17 (17, 17.1, 17.2, 17.3) #########
 ##################################################################################
 # dernière modif : 05/11/2015 (Simon B)
 
 # - Script compatible/testé avec les versions "Cinnamon" et "Mate"
 # - Basé sur le script d'intégration de Xubuntu 14.04 
+
+# Rappel : si vous avez un scribe 2.4 ou 2.5, afin d'avoir tous les partages (communs, groupes etc...) il faut 
+# faire la manip suivante 1 fois sur votre scribe :
+# https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/avoir-les-partages-scribe2.4_2.5.txt
 
 ###############################################################################
 # Changement spécifique a Linux Mint par rapport a la version du script pour Xubuntu 
