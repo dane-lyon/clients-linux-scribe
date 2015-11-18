@@ -2,10 +2,15 @@
 
 ######### Intégration client scribe 2.3/2.4/2.5 pour Linux Mint branche 17 (17, 17.1, 17.2, 17.3) #########
 ##################################################################################
-# dernière modif : 05/11/2015 (Simon B)
+# dernière modif : 18/11/2015 (Simon B)
 
 # - Script compatible/testé avec les versions "Cinnamon" et "Mate"
 # - Basé sur le script d'intégration de Xubuntu 14.04 
+
+# ATTENTION IMPORTANT : sous Mint contrairement a Ubuntu, la case "client shell linux" doit impérativement être coché
+#dans l'EAD pour les utilisateurs si ils veulent pouvoir s'identifier sinon cela mettra le message "l'administrateur
+#a bloqué votre compte" y compris pour le compte admin du domaine !
+
 
 # Rappel : si vous avez un scribe 2.4 ou 2.5, afin d'avoir tous les partages (communs, groupes etc...) il faut 
 # faire la manip suivante 1 fois sur votre scribe :
