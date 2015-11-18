@@ -27,6 +27,8 @@
 # - Le thème graphique par défaut de MDM est modifié pour mieux convenir dans un environnement professionel (login non affiché a l'écran)
 # - L'écran d'acceuil de bienvenue (mintWelcome) est supprimé car est inutile et gênant (lancé pour chaque user)
 # - Quelques logiciels par défaut de Mint supprimé car inutile dans un contexte professionnel
+# - ajout groupe dialout
+# - ajout fonction pour programmer l'extinction automatique des postes le soir
 
 ########################################################################
 #Christophe Deze - Rectorat de Nantes
