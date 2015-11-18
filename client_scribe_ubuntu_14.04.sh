@@ -5,7 +5,8 @@
 #### changement apporté pour la version 14.04 (simon) ####
 # - valeur de vérification 12.04 remplacé par 14.04
 # - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
-
+# - ajout groupe dialout
+# - ajout fonction pour programmer l'extinction automatique des postes le soir
 
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
@@ -13,12 +14,12 @@
 #Simon BERNARD - Dane Lyon
 
 #############################################
-#Script d'integration de station ubuntu 12.04 sur un scribe 2.3/2.4
+#Script d'integration de station ubuntu 14.04 sur un scribe 2.3/2.4/2.5
 #testé avec Scribe 2.3
 #############################################
 # version 1.1 (avec proxy system)
 
-# Ce script est compatible avec un Scribe 2.3 et 2.4 par contre si vous avez un scribe 2.4, afin d'avoir
+# Ce script est compatible avec un Scribe 2.3, 2.4 et 2.5 par contre si vous avez un scribe 2.4, afin d'avoir
 # tous les partages (communs, matière etc...) il faut faire cette petite manip sur votre scribe :
 # https://raw.githubusercontent.com/sibe39/divers/master/scribe24_avoir_les_partages
 
@@ -78,6 +79,27 @@ if [ "$rep_proxy" = "O" ] || [ "$rep_proxy" = "o" ] || [ "$rep_proxy" = "" ] ; t
 else
   ip_proxy=""
   port_proxy=""
+fi
+
+###################################################
+# cron d'extinction automatique a lancer ?
+###################################################
+
+echo "Pour terminer, voulez vous activer l'extinction automatique des postes le soir ?"
+echo "0 ou aucune valeure saisie = non, pas d'extinction auto le soir"
+echo "1 = oui, extinction a 19H00"
+echo "2 = oui, extinction a 20H00"
+echo "3 = oui, extinction a 22H00"
+read -p "Répondre par le chiffre correspondant (0,1,2,3) : " rep_proghalt
+
+if [ "$rep_proghalt" = "1" ] ; then
+        echo "0 19 * * * root /sbin/shutdown -h now" > /etc/cron.d/prog_extinction
+        else if [ "$rep_proghalt" = "2" ] ; then
+                echo "0 20 * * * root /sbin/shutdown -h now" > /etc/cron.d/prog_extinction
+                else if [ "$rep_proghalt" = "3" ] ; then
+                        echo "0 22 * * * root /sbin/shutdown -h now" > /etc/cron.d/prog_extinction
+                     fi
+             fi
 fi
 
 ########################################################################
