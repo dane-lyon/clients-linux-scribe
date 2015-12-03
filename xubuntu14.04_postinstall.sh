@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# AVERTISSEMENT
+# Ce 2ème script post-install est optionnel et conçu pour la variante "Xubuntu" exclusivement, si vous utilisez une autre 
+# variante, vous devez le modifier avant, en particulier la partie "customisation" qui est faite pour Xfce uniquement !
+
 #############################################
 # Run using sudo, of course.
 #############################################
@@ -19,7 +23,7 @@ apt-get update && apt-get -y dist-upgrade
 #[[Paquet demandant confirmation utilisateur ]]
 apt-get -y install ttf-mscorefonts-installer
 
-#[[spécifique a XFCE ]]
+#[[spécifique a XFCE ]] # a modifier si vous n'utilisez pas Xfce !
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 # si Lubuntu (LXDE), remplacer cette ligne par :
 #apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
@@ -46,7 +50,7 @@ apt-get -y install stellarium celestia avogadro
 apt-get -y install scratch idle-python2.7
 
 #-----------------------------------------
-# Customisation graphique Xubuntu 
+# Customisation graphique Xubuntu (a modifier si vous n'utilisez pas XFCE !)
 #-----------------------------------------
 
 apt-get -y install docky #dock
