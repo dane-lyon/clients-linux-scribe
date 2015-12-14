@@ -41,9 +41,9 @@
 
 
 #Christophe Deze - Rectorat de Nantes
-#Cédric Frayssinet - Mission Tice Ac-lyon
+#Cédric Frayssinet - DANE de Lyon
 #Xavier GAREL - Mission Tice Ac-lyon
-#Simon BERNARD - Dane Lyon
+#Simon BERNARD - DANE de Lyon
 
 # ------------------------------------------------------------------------------------------------------------------
 
@@ -218,8 +218,9 @@ pam-auth-update consolekit ldap libpam-mount unix mkhomedir my_groups --force
 
 ########################################################################
 # mise en place des groupes pour les users ldap dans /etc/security/group.conf
+# dialout est pour l'arduino par exemple
 ########################################################################
-grep "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner" /etc/security/group.conf  >/dev/null; if [ $? != 0 ];then echo "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner" >> /etc/security/group.conf; else echo "group.conf ok";fi
+grep "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" /etc/security/group.conf  >/dev/null; if [ $? != 0 ];then echo "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner" >> /etc/security/group.conf; else echo "group.conf ok";fi
 
 ########################################################################
 #on remet debconf dans sa conf initiale
@@ -397,13 +398,6 @@ mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 #suppression du menu messages
 ########################################################################
 apt-get remove indicator-messages -y
-
-########################################################################
-# Nouveau changement a partir de Novembre 2015
-########################################################################
-
-# Ajout nouveau utilisateur dans groupe dialout pour les besoins du Arduino
-sed -i 's/plugdev,scanner/plugdev,scanner,dialout/' /etc/security/group.conf
 
 ########################################################################
 #nettoyage station avant clonage
