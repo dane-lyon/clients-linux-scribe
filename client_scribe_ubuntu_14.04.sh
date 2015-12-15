@@ -188,7 +188,7 @@ pam-auth-update consolekit ldap libpam-mount unix mkhomedir my_groups --force
 ########################################################################
 # mise en place des groupes pour les users ldap dans /etc/security/group.conf
 ########################################################################
-grep "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner" /etc/security/group.conf  >/dev/null; if [ $? != 0 ];then echo "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner" >> /etc/security/group.conf; else echo "group.conf ok";fi
+grep "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" /etc/security/group.conf  >/dev/null; if [ $? != 0 ];then echo "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" >> /etc/security/group.conf; else echo "group.conf ok";fi
 
 ########################################################################
 #on remet debconf dans sa conf initiale
@@ -373,9 +373,6 @@ apt-get remove indicator-messages -y
 ########################################################################
 apt-get -y autoclean
 apt-get -y autoremove --purge
-
-# pour arduino 
-sed -i 's/plugdev,scanner/plugdev,scanner,dialout/' /etc/security/group.conf
 
 ########################################################################
 #FIN
