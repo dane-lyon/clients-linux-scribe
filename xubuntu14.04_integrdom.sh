@@ -150,11 +150,6 @@ apt-get update
 apt-get -y dist-upgrade
 apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unattended-upgrades
 
-###################################################################################
-#Désinstallation de paquet installé par défaut mais inutile dans un cadre scolaire
-###################################################################################
-apt-get purge -y abiword gnumeric thunderbird transmission-gtk xchat pidgin
-
 ########################################################################
 # activation auto des mises à jour de sécu
 ########################################################################
@@ -406,9 +401,10 @@ apt-get remove indicator-messages -y
 #nettoyage station avant clonage
 ########################################################################
 
-apt-get -y remove abiword gnumeric thunderbird transmission xchat pidgin parole gnome-mines gnome-sudoku gmusicbrowser
-apt-get -y autoclean
+apt-get -y purge abiword gnumeric thunderbird transmission transmission-gtk xchat pidgin parole gnome-mines gnome-sudoku gmusicbrowser
+apt-get -fy install
 apt-get -y autoremove --purge
+apt-get -y clean
 
 # [dev]
 #bug restant a corriger >
