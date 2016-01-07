@@ -8,17 +8,20 @@
 ### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 VEUILLEZ LIRE CECI ###
 # Ce script est compatible avec un Scribe 2.3, 2.4, 2.5 par contre si vous avez un scribe 2.4 ou 2.5, afin d'avoir
 # tous les partages (communs, groupes etc...) il faut faire la manip suivante 1 fois sur votre scribe :
-# https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/avoir-les-partages-scribe2.4_2.5.txt
+# http://nefertiti.crdp.ac-lyon.fr/wk/cdch/parametrages_divers_scribe
 
 ##### COMPATIBILITE #####
 
 ## Variante Ubuntu
-# Ubuntu 14.04 (Unity) : validé (mais de préférence, utilisez plutôt le script dédié a Unity : https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh)
-# Xubuntu 14.04 (Xfce) : validé 
-# Lubuntu 14.04 (Lxde) : validé
-# Ubuntu Mate 14.04 (Mate) : validé
-# Ubuntu Gnome 14.04 (Gnome 3) : déconseillé (partage groupe pas ok + gestionnaire session GDM avec userlist mal réglé)
-# Kubuntu 14.04 (Kde) : incompatible (identification impossible même avec lighdm en mode classique)
+# Ce script est compatible avec les variantes suivantes : 
+# - Ubuntu 14.04 (Unity) : validé => mais utilisez plutôt ce script https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh)
+# - Xubuntu 14.04 (Xfce) : validé 
+# - Lubuntu 14.04 (Lxde) : validé
+# - Ubuntu Mate 14.04 (Mate) : validé => mais attendez plutôt la 16.04 qui sera la 1ère LTS officelle pour cette variante
+
+# Ce script n'est pas compatible ou pas complètement avec :
+# - Ubuntu Gnome 14.04 (Gnome 3) 
+# - Kubuntu 14.04 (Kde) 
 
 ## Version serveur Scribe
 # Scribe 2.3 : validé
