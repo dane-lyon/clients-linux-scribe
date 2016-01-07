@@ -54,7 +54,7 @@ apt-get -y install scratch idle-python2.7
 #-----------------------------------------
 
 add-apt-repository -y ppa:docky-core/stable
-apt-get -y update && apt-get -y install plank
+apt-get update && apt-get -y install plank
 wget http://nux87.online.fr/xubuntu-custom2/skel.tar.gz
 tar xzvf skel.tar.gz -C /etc && rm -rf skel.tar.gz
 
