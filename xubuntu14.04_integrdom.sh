@@ -7,7 +7,7 @@
 
 ### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 VEUILLEZ LIRE CECI ###
 # Ce script est compatible avec un Scribe 2.3, 2.4, 2.5 par contre si vous avez un scribe 2.4 ou 2.5, afin d'avoir
-# tous les partages (communs, groupes etc...) il faut faire la manip suivante 1 fois sur votre scribe :
+# tous les partages (communs, groupes etc...) il faut faire la manip suivante 1 fois sur votre scribe (paragraphe "Client Linux : avoir les partages sous Scribe 2.4/2.5") :
 # http://nefertiti.crdp.ac-lyon.fr/wk/cdch/parametrages_divers_scribe
 
 ##### COMPATIBILITE #####
