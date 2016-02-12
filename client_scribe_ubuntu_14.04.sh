@@ -364,6 +364,9 @@ mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 ########################################################################
 apt-get remove indicator-messages -y
 
+# Applications inutiles
+apt-get -y purge aisleriot gnome-mines gnome-sudoku gnome-mahjongg
+
 ########################################################################
 #TO DO : suppression du panel de clavier
 ########################################################################
