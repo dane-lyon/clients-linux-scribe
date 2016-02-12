@@ -47,7 +47,7 @@ apt-get -y install geogebra algobox carmetal
 apt-get -y install stellarium celestia avogadro
 
 #[[programmation]]
-apt-get -y install scratch idle-python2.7
+apt-get -y install scratch idle-python3.4 ghex geany imagemagick
 
 #-----------------------------------------
 # Customisation graphique Xubuntu (a modifier si vous n'utilisez pas XFCE !)
