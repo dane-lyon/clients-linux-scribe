@@ -7,7 +7,7 @@ Les clients supportés sont les suivants :
 - Xubuntu (Environnement XFCE) 14.04
 - Lubuntu (Environnement LXDE) 14.04
 - Ubuntu Mate (environnement Mate) 14.04
-- Linux Mint (Environnement Cinammon ou Mate) 17, 17.1, 17.2, 17.3
+- Linux Mint (Environnement Cinammon/Mate) 17.x
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
@@ -25,22 +25,22 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 #### Script de post-installation
 
 Pour gagner du temps lors de la création du poste modèle, on pourra utiliser un script de post-installation qui installera le système avec toutes les applications souhaitées : https://github.com/dane-lyon/clients-linux-scribe/blob/master/ubuntu_14.04_postinstall.py (pour ubuntu)
-https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/xubuntu14.04_postinstall.sh (pour xubuntu & autre variante)
+https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/xubuntu14.04_postinstall.sh (pour xubuntu & les autres variantes)
 
 #### Partages
 
-Attention, avec un scribe 2.4 ou 2.5, par défaut vous n'aurez pas les partages (groupes, classes...), pour qu'il soit visible, vous devez faire une manipulation sur le serveur scribe décrite ici : http://eole.ac-dijon.fr/pub/Documentations/manuels/2.4/beta/partielles/ClientsGnuLinux/co/02-methodeSamba.html#cN1b8
+Si votre serveur Scribe est en version "2.4" ou "2.5", par défaut vous n'aurez pas les partages avec les clients linux (groupes, classes etc...), pour régler le problème, vous devez faire la manipulation suivante sur votre serveur :
+https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
-### Infos supplémentaires
+### Problèmes d'identifications possibles 
 
-Pour ne pas avoir de problème d'identification / partage, en plus de la manip indiqué ci-desssus pour les scribes en
-version 2.4 ou 2.5, il faut vérifier que :
+Pour ne pas avoir de problème d'identification, vérifier que :
 
 - l'utilisateur a déjà changé une fois son mot de passe depuis un poste windows
 OU
 - le changement de mot de passe n'est pas demandé (case décoché dans l'ead pour l'utilisateur)
 
-De plus, pour ceux qui utilisent Linux Mint, la case "client shell linux" doit obligatoirement est coché pour tous les utilisateurs sinon ils ne pourront pas s'identifier sous Mint (cela mettra un message comme quoi leur compte est désactivé par l'administrateur), ceci est spécifique a Mint (pas nécessaire sous Ubuntu, Xubuntu, Lubuntu, Ubuntu Mate)
+De plus, pour certaines variantes (comme Linux Mint ou Ubuntu Mate par exemple), il est impératif que la case "client shell linux" soit coché pour les utilisateurs dans l'EAD du scribe sinon il y aura des problèmes d'accès.
 
 
 #### Personnalisation des valeurs par défaut
@@ -50,7 +50,6 @@ vous pouvez éditer les valeurs par défaut en début de script afin de les adap
 #### Personnalisation des menus
 
 Pour personnaliser le menu à tous les utilisateurs, chercher dans le script ces lignes :
-
 
 	echo "[com.canonical.indicator.session]
 	user-show-menu=false
