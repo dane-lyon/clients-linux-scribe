@@ -402,6 +402,7 @@ apt-get remove indicator-messages -y
 ########################################################################
 
 apt-get -y purge abiword gnumeric thunderbird transmission transmission-gtk xchat pidgin parole gnome-mines gnome-sudoku gmusicbrowser
+apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-gtk xubuntu-restricted-extras
 apt-get -fy install
 apt-get -y autoremove --purge
 apt-get -y clean
