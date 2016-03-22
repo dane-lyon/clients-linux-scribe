@@ -135,6 +135,48 @@ fi
 export DEBIAN_FRONTEND="noninteractive"
 export DEBIAN_PRIORITY="critical"
 
+#######################################################
+#Paramétrage des paramètres Proxy pour tout le système
+#######################################################
+if  [ "$ip_proxy" != "" ] || [ $port_proxy != "" ] ; then
+
+  echo "Paramétrage du proxy $ip_proxy:$port_proxy" 
+
+#Paramétrage des paramètres Proxy pour Gnome
+#######################################################
+  echo "[org.gnome.system.proxy]
+mode='manual'
+use-same-proxy=true
+ignore-hosts=$proxy_gnome_noproxy
+[org.gnome.system.proxy.http]
+host='$ip_proxy'
+port=$port_proxy
+[org.gnome.system.proxy.https]
+host='$ip_proxy'
+port=$port_proxy
+" >> /usr/share/glib-2.0/schemas/my-defaults.gschema.override
+
+  glib-compile-schemas /usr/share/glib-2.0/schemas
+
+#Paramétrage du Proxy pour le systeme
+######################################################################
+echo "http_proxy=http://$ip_proxy:$port_proxy/
+https_proxy=http://$ip_proxy:$port_proxy/
+ftp_proxy=http://$ip_proxy:$port_proxy/
+no_proxy=\"$proxy_env_noproxy\"" >> /etc/environment
+
+#Paramétrage du Proxy pour apt
+######################################################################
+echo "Acquire::http::proxy \"http://$ip_proxy:$port_proxy/\";
+Acquire::ftp::proxy \"ftp://$ip_proxy:$port_proxy/\";
+Acquire::https::proxy \"https://$ip_proxy:$port_proxy/\";" > /etc/apt/apt.conf.d/20proxy
+
+#Permettre d'utiliser la commande add-apt-repository derriere un Proxy
+######################################################################
+echo "Defaults env_keep = https_proxy" >> /etc/sudoers
+
+fi
+
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
 ########################################################################
@@ -339,48 +381,6 @@ echo "[SeatDefaults]
 #[com.canonical.Unity.Launcher]
 #favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.desktop', 'gcalctool.desktop','gedit.desktop','gnome #screenshot.desktop' ]
 #" > /usr/share/glib-2.0/schemas/my-defaults.gschema.override
-
-#######################################################
-#Paramétrage des paramètres Proxy pour tout le système
-#######################################################
-if  [ "$ip_proxy" != "" ] || [ $port_proxy != "" ] ; then
-
-  echo "Paramétrage du proxy $ip_proxy:$port_proxy" 
-
-#Paramétrage des paramètres Proxy pour Gnome
-#######################################################
-  echo "[org.gnome.system.proxy]
-mode='manual'
-use-same-proxy=true
-ignore-hosts=$proxy_gnome_noproxy
-[org.gnome.system.proxy.http]
-host='$ip_proxy'
-port=$port_proxy
-[org.gnome.system.proxy.https]
-host='$ip_proxy'
-port=$port_proxy
-" >> /usr/share/glib-2.0/schemas/my-defaults.gschema.override
-
-  glib-compile-schemas /usr/share/glib-2.0/schemas
-
-#Paramétrage du Proxy pour le systeme
-######################################################################
-echo "http_proxy=http://$ip_proxy:$port_proxy/
-https_proxy=http://$ip_proxy:$port_proxy/
-ftp_proxy=http://$ip_proxy:$port_proxy/
-no_proxy=\"$proxy_env_noproxy\"" >> /etc/environment
-
-#Paramétrage du Proxy pour apt
-######################################################################
-echo "Acquire::http::proxy \"http://$ip_proxy:$port_proxy/\";
-Acquire::ftp::proxy \"ftp://$ip_proxy:$port_proxy/\";
-Acquire::https::proxy \"https://$ip_proxy:$port_proxy/\";" > /etc/apt/apt.conf.d/20proxy
-
-#Permettre d'utiliser la commande add-apt-repository derriere un Proxy
-######################################################################
-echo "Defaults env_keep = https_proxy" >> /etc/sudoers
-
-fi
 
 ########################################################################
 #suppression de l'envoi des rapport d'erreurs
