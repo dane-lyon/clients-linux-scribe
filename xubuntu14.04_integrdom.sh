@@ -39,6 +39,7 @@
 # - Désinstallation des logiciels sous Xub suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
 # - Ajout au groupe "dialout" des utilisateurs pour utiliser avec un Arduino (demande de Cedric)
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
+# - lecture dvd 
 
 ###################################################
 
@@ -410,6 +411,10 @@ apt-get -y clean
 # [dev]
 #bug restant a corriger >
 # 1- erreur ligne 322 (conséquence inconnu) != opérateur unaire attendu
+
+# Lecture DVD
+apt-get -y install libdvdread4
+bash /usr/share/doc/libdvdread4/install-css.sh
 
 ########################################################################
 # FIN
