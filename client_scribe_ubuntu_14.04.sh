@@ -7,6 +7,7 @@
 # - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
+# - lecture dvd
 
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
@@ -370,6 +371,10 @@ apt-get -y purge aisleriot gnome-mines gnome-sudoku gnome-mahjongg
 ########################################################################
 #TO DO : suppression du panel de clavier
 ########################################################################
+
+# Lecture DVD
+apt-get -y install libdvdread4
+bash /usr/share/doc/libdvdread4/install-css.sh
 
 ########################################################################
 #nettoyage station avant clonage
