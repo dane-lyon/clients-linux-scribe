@@ -6,7 +6,7 @@
 ###### Intégration client scribe 2.3/2.4/2.5 pour Ubuntu 14.04.X/Mint 17.X ###### 
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutiles, 
-#avoir une customisation graphique etc..., il faut dans ce cas utiliser le 2e script facultatif "ubuntu+variante-1404-postinstall"
+#avoir une customisation graphique etc..., il faut dans ce cas utiliser le 2e script facultatif de postinstall
 
 ### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 VEUILLEZ LIRE CECI ###
 # Ce script est compatible avec un Scribe 2.3, 2.4, 2.5 par contre si vous avez un scribe 2.4 ou 2.5, afin d'avoir
