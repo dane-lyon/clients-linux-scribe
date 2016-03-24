@@ -4,7 +4,6 @@
 # Ubuntu 14.04, Xubuntu 14.04, Lubuntu 14.04, Linux Mint 17.X
 
 ###### Intégration client scribe 2.3/2.4/2.5 pour Ubuntu 14.04.X/Mint 17.X ###### 
-#(Pour la version 16.04/Mint 18, il faudra utiliser la nouvelle version du script)
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutiles, 
 #avoir une customisation graphique etc..., il faut dans ce cas utiliser le 2e script facultatif "ubuntu+variante-1404-postinstall"
