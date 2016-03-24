@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Validé & testé pour les variantes suivantes :
-# Ubuntu 14.04, Xubuntu 14.04, Lubuntu 14.04, Linux Mint 17.X
+# Ubuntu 14.04, Xubuntu 14.04, Lubuntu 14.04, Ubuntu Mate 14.04, Linux Mint 17.X
 
 ###### Intégration client scribe 2.3/2.4/2.5 pour Ubuntu 14.04.X/Mint 17.X ###### 
 #(Pour la version 16.04/Mint 18, il faudra utiliser la nouvelle version du script)
