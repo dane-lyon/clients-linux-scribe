@@ -25,7 +25,7 @@ apt-get -y install ttf-mscorefonts-installer
 
 #[[spécifique a XFCE ]] # a modifier si vous n'utilisez pas Xfce !
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
-# si Lubuntu (LXDE), remplacer cette ligne par :
+# si Lubuntu (LXDE), remplacer cette ligne par :
 #apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 
 #[[bureautique]]
