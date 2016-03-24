@@ -5,7 +5,7 @@
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutiles, 
 #avoir une customisation graphique etc..., il faut dans ce cas utiliser le 2e script facultatif "xubuntu14.04_postinstall"
 
-### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 VEUILLEZ LIRE CECI ###
+### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 VEUILLEZ LIRE CECI ###
 # Ce script est compatible avec un Scribe 2.3, 2.4, 2.5 par contre si vous avez un scribe 2.4 ou 2.5, afin d'avoir
 # tous les partages (communs, groupes etc...) il faut faire la manip suivante 1 fois sur votre scribe (paragraphe "Client Linux : avoir les partages sous Scribe 2.4/2.5") :
 # https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
@@ -15,7 +15,7 @@
 ## Variante Ubuntu
 # Ce script est compatible avec les variantes suivantes : 
 # - Ubuntu 14.04 (Unity) : validé => mais utilisez plutôt ce script https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh)
-# - Xubuntu 14.04 (Xfce) : validé 
+# - Xubuntu 14.04 (Xfce) : validé 
 # - Lubuntu 14.04 (Lxde) : validé
 # - Ubuntu Mate 14.04 (Mate) : validé => mais attendez plutôt la 16.04 qui sera la 1ère LTS officelle pour cette variante
 
@@ -25,8 +25,8 @@
 
 ## Version serveur Scribe
 # Scribe 2.3 : validé
-# Scribe 2.4 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
-# Scribe 2.5 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
+# Scribe 2.4 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
+# Scribe 2.5 : validé (mais pour avoir les partages, il faut faire la manip indiqué ligne 8/11 !)
 
 ###################################################
 # Changements par rapport a la précédente version
@@ -39,6 +39,7 @@
 # - Désinstallation des logiciels sous Xub suivant : abiword, gnumeric, thunderbird, transmission, xchat, pidgin
 # - Ajout au groupe "dialout" des utilisateurs pour utiliser avec un Arduino (demande de Cedric)
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
+# - lecture dvd 
 
 ###################################################
 
@@ -134,6 +135,48 @@ fi
 ########################################################################
 export DEBIAN_FRONTEND="noninteractive"
 export DEBIAN_PRIORITY="critical"
+
+#######################################################
+#Paramétrage des paramètres Proxy pour tout le système
+#######################################################
+if  [ "$ip_proxy" != "" ] || [ $port_proxy != "" ] ; then
+
+  echo "Paramétrage du proxy $ip_proxy:$port_proxy" 
+
+#Paramétrage des paramètres Proxy pour Gnome
+#######################################################
+  echo "[org.gnome.system.proxy]
+mode='manual'
+use-same-proxy=true
+ignore-hosts=$proxy_gnome_noproxy
+[org.gnome.system.proxy.http]
+host='$ip_proxy'
+port=$port_proxy
+[org.gnome.system.proxy.https]
+host='$ip_proxy'
+port=$port_proxy
+" >> /usr/share/glib-2.0/schemas/my-defaults.gschema.override
+
+  glib-compile-schemas /usr/share/glib-2.0/schemas
+
+#Paramétrage du Proxy pour le systeme
+######################################################################
+echo "http_proxy=http://$ip_proxy:$port_proxy/
+https_proxy=http://$ip_proxy:$port_proxy/
+ftp_proxy=http://$ip_proxy:$port_proxy/
+no_proxy=\"$proxy_env_noproxy\"" >> /etc/environment
+
+#Paramétrage du Proxy pour apt
+######################################################################
+echo "Acquire::http::proxy \"http://$ip_proxy:$port_proxy/\";
+Acquire::ftp::proxy \"ftp://$ip_proxy:$port_proxy/\";
+Acquire::https::proxy \"https://$ip_proxy:$port_proxy/\";" > /etc/apt/apt.conf.d/20proxy
+
+#Permettre d'utiliser la commande add-apt-repository derriere un Proxy
+######################################################################
+echo "Defaults env_keep = https_proxy" >> /etc/sudoers
+
+fi
 
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
@@ -340,48 +383,6 @@ echo "[SeatDefaults]
 #favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.desktop', 'gcalctool.desktop','gedit.desktop','gnome #screenshot.desktop' ]
 #" > /usr/share/glib-2.0/schemas/my-defaults.gschema.override
 
-#######################################################
-#Paramétrage des paramètres Proxy pour tout le système
-#######################################################
-if  [ "$ip_proxy" != "" ] || [ $port_proxy != "" ] ; then
-
-  echo "Paramétrage du proxy $ip_proxy:$port_proxy" 
-
-#Paramétrage des paramètres Proxy pour Gnome
-#######################################################
-  echo "[org.gnome.system.proxy]
-mode='manual'
-use-same-proxy=true
-ignore-hosts=$proxy_gnome_noproxy
-[org.gnome.system.proxy.http]
-host='$ip_proxy'
-port=$port_proxy
-[org.gnome.system.proxy.https]
-host='$ip_proxy'
-port=$port_proxy
-" >> /usr/share/glib-2.0/schemas/my-defaults.gschema.override
-
-  glib-compile-schemas /usr/share/glib-2.0/schemas
-
-#Paramétrage du Proxy pour le systeme
-######################################################################
-echo "http_proxy=http://$ip_proxy:$port_proxy/
-https_proxy=http://$ip_proxy:$port_proxy/
-ftp_proxy=http://$ip_proxy:$port_proxy/
-no_proxy=\"$proxy_env_noproxy\"" >> /etc/environment
-
-#Paramétrage du Proxy pour apt
-######################################################################
-echo "Acquire::http::proxy \"http://$ip_proxy:$port_proxy/\";
-Acquire::ftp::proxy \"ftp://$ip_proxy:$port_proxy/\";
-Acquire::https::proxy \"https://$ip_proxy:$port_proxy/\";" > /etc/apt/apt.conf.d/20proxy
-
-#Permettre d'utiliser la commande add-apt-repository derriere un Proxy
-######################################################################
-echo "Defaults env_keep = https_proxy" >> /etc/sudoers
-
-fi
-
 ########################################################################
 #suppression de l'envoi des rapport d'erreurs
 ########################################################################
@@ -402,6 +403,7 @@ apt-get remove indicator-messages -y
 ########################################################################
 
 apt-get -y purge abiword gnumeric thunderbird transmission transmission-gtk xchat pidgin parole gnome-mines gnome-sudoku gmusicbrowser
+apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-gtk xubuntu-restricted-extras
 apt-get -fy install
 apt-get -y autoremove --purge
 apt-get -y clean
@@ -409,6 +411,10 @@ apt-get -y clean
 # [dev]
 #bug restant a corriger >
 # 1- erreur ligne 322 (conséquence inconnu) != opérateur unaire attendu
+
+# Lecture DVD
+apt-get -y install libdvdread4
+bash /usr/share/doc/libdvdread4/install-css.sh
 
 ########################################################################
 # FIN
