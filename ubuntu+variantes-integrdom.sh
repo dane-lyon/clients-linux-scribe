@@ -268,9 +268,6 @@ umount -f /tmp/netlogon \
 umount -f \$HOME
 " > /etc/lightdm/logoffscript.sh
 chmod +x /etc/lightdm/logoffscript.sh
-######
-touch ~/controle_ligne271_lightdm_pas-sous-mint.txt
-######
 
 ########################################################################
 #parametrage du lightdm.conf
@@ -283,10 +280,6 @@ echo "[SeatDefaults]
     session-setup-script=/etc/lightdm/logonscript.sh
     session-cleanup-script=/etc/lightdm/logoffscript.sh
     greeter-setup-script=/usr/bin/numlockx on" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
-######
-touch ~/controle_ligne287_lightdm_pas-sous-mint.txt
-######    
-
 fi
 
 # echo "GVFS_DISABLE_FUSE=1" >> /etc/environment
@@ -298,9 +291,6 @@ if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (donc Mint
   apt-get -y purge mintwelcome hexchat pidgin transmission-gtk banshee
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf
   wget http://nux87.free.fr/ubuntu-script-dane/mint-integrdom/mdm.conf ; mv mdm.conf /etc/mdm/
-  ######
-touch ~/controle_ligne303_mdm_vsetesousMint.txt
-######
 fi
 
 ########################################################################
@@ -387,9 +377,6 @@ favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.
 
 # Suppression de paquet inutile sous Ubuntu
 apt-get -y purge aisleriot gnome-mines gnome-sudoku gnome-mahjongg
-######
-touch ~/controle_ligne392_vsetes_sous_unity.txt
-######
 fi
 
 # Pour être sûr que LibreOffice & Firefox sont bien installés (pas forcément le cas suivant les variantes) :
