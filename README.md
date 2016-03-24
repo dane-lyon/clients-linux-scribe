@@ -1,24 +1,23 @@
-## Scripts pour Client Scribe (x)Ubuntu 12.04 ou 14.04 
+## Scripts pour Client Scribe (x)Ubuntu 14.04
 
 Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4 ou 2.5 
 
 Les clients supportés sont les suivants :
-- Ubuntu (Environnement Unity) 12.04 et 14.04
+- Ubuntu (Environnement Unity) 14.04
 - Xubuntu (Environnement XFCE) 14.04
-- Lubuntu (Environnement LXDE) 14.04
-- Ubuntu Mate (environnement Mate) 14.04
-- Linux Mint (Environnement Cinammon/Mate) 17.x
+- Lubuntu (Environnement LXDE) 14.04 
+- Linux Mint (Environnement Cinammon/Mate) 17.X
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
   - Télécharger le script, exemple pour le client Ubuntu 14.04 : 
-	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/client_scribe_ubuntu_14.04.sh
+	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu%2Bvariantes-integrdom.sh
   - Se placer dans le répertoire courant puis lancer les commandes :
 
-	chmod +x client_scribe_ubuntu_14.04.sh
+	chmod +x ubuntu+variantes-integrdom.sh
 
-	sudo ./client_scribe_ubuntu_14.04.sh
+	sudo ./ubuntu+variantes-integrdom.sh
 
 ###**Remarques :** 
 
