@@ -12,19 +12,18 @@ Avant de lancer ce script, assurez-vous d'avoir installé toutes vos application
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
   - Télécharger le script, exemple pour le client Ubuntu 14.04 : 
-	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu%2Bvariantes-integrdom.sh
+	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh
   - Se placer dans le répertoire courant puis lancer les commandes :
 
-	chmod +x ubuntu+variantes-integrdom.sh
+	chmod +x ubuntu-et-variantes-integrdom.sh
 
-	sudo ./ubuntu+variantes-integrdom.sh
+	sudo ./ubuntu-et-variantes-integrdom.sh
 
 ###**Remarques :** 
 
 #### Script de post-installation
 
-Pour gagner du temps lors de la création du poste modèle, on pourra utiliser un script de post-installation qui installera le système avec toutes les applications souhaitées : https://github.com/dane-lyon/clients-linux-scribe/blob/master/ubuntu_14.04_postinstall.py (pour ubuntu)
-https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/xubuntu14.04_postinstall.sh (pour xubuntu & les autres variantes)
+Pour gagner du temps lors de la création du poste modèle, on pourra utiliser un script de post-installation qui installera le système avec toutes les applications souhaitées : https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-postinstall.sh 
 
 #### Partages
 
