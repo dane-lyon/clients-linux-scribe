@@ -93,7 +93,7 @@ apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goo
 # Customisation XFCE
 
 add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank --force-yes
-wget http://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
+wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
 fi
 
 
