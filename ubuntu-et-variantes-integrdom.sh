@@ -382,7 +382,7 @@ fi
 apt-get -y install libreoffice libreoffice-gtk libreoffice-l10n-fr firefox
 
 # Pour être sûr que les paquets suivant (parfois présent) ne sont pas installés :
-apt-get -y purge pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric
+apt-get -y purge pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric thunderbird
 
 
 ########################################################################
