@@ -38,7 +38,7 @@ add-apt-repository -y ppa:webupd8team/java ; apt-get update ; echo oracle-java8-
 # Comme le PPA bloque avec un proxy actuellement, méthode alternative :
 wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/libreoffice-ppa.list ;
 mv libreoffice-ppa.list /etc/apt/sources.list.d/ ;
-apt-get update ; apt-get -y upgrade ; apt-get -y install libreoffice libreoffice-gtk libreoffice-l10n-fr ;
+apt-get update ; apt-get -y --force-yes upgrade ; apt-get -y --force-yes install libreoffice libreoffice-gtk libreoffice-l10n-fr ;
 
 apt-get -y install freeplane scribus gnote xournal cups-pdf
 
