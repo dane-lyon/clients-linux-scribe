@@ -50,7 +50,7 @@ apt-get -y install imagination openshot audacity vlc x264 ffmpeg2theora flac vor
 # Sur 16.04 : ajouter x265
 
 #[ Graphisme / Photo ]
-apt-get -y install blender gimp pinta inkscape gthumb mypaint hugin shutter
+apt-get -y install blender sweethome3d gimp pinta inkscape gthumb mypaint hugin shutter
 
 #[ Systeme ]
 apt-get -y install gparted vim pyrenamer rar unrar htop diodon p7zip-full
