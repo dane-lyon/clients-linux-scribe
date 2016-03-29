@@ -289,7 +289,7 @@ fi
 if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (donc Mint)
   apt-get -y purge mintwelcome hexchat pidgin transmission-gtk banshee
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf
-  wget http://dane.ac-lyon.fr/spip/IMG/zip/mdm.conf.zip ; unzip mdm.conf.zip -d /etc/mdm/ ; rm mdm.conf.zip ;
+  wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/zip/mdm.conf.zip ; unzip mdm.conf.zip -d /etc/mdm/ ; rm mdm.conf.zip ;
 fi
 
 ########################################################################
