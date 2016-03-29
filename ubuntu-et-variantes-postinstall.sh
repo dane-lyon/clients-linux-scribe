@@ -32,8 +32,13 @@ add-apt-repository -y ppa:webupd8team/java ; apt-get update ; echo oracle-java8-
 #[ Bureautique ]
 
 # LibreOffice toujours en dernière version (PPA)
-add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
-apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr 
+#add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
+#apt-get -y install libreoffice libreoffice-l10n-fr libreoffice-help-fr 
+
+# Comme le PPA bloque avec un proxy actuellement, méthode alternative :
+wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/libreoffice-ppa.list ;
+mv libreoffice-ppa.list /etc/apt/sources.list.d/ ;
+apt-get update ; apt-get -y upgrade ; apt-get -y install libreoffice libreoffice-gtk libreoffice-l10n-fr ;
 
 apt-get -y install freeplane scribus gnote xournal cups-pdf
 
@@ -78,7 +83,7 @@ apt-get -y install ubuntu-restricted-extras ubuntu-restricted-addons unity-tweak
 apt-get -y install nautilus-image-converter nautilus-script-audio-convert
 
 # Icone Numis supplémentaire
-add-apt-repository -y ppa:numix/ppa ; apt-get --force-yes install -y numix-icon-theme-circle
+#add-apt-repository -y ppa:numix/ppa ; apt-get --force-yes install -y numix-icon-theme-circle
 
 fi
 
@@ -92,7 +97,12 @@ apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goo
 
 # Customisation XFCE
 
-add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank --force-yes
+#add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank --force-yes
+# PPA temporairement désactivé, méthode alternative :
+wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank-ppa.list ;
+mv plank-ppa.list /etc/apt/sources.list.d/ ;
+apt-get update ; apt-get -y install plank --force-yes
+
 wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
 fi
 
