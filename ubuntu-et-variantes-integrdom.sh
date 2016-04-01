@@ -301,7 +301,7 @@ fi
 if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (donc Mint)
   apt-get -y purge mintwelcome hexchat pidgin transmission-gtk banshee
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf #backup du fichier de config de mdm
-  wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/zip/mdm.conf.zip ; unzip mdm.conf.zip -d /etc/mdm/ ; rm mdm.conf.zip ;
+  wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/mdm.conf ; mv -f mdm.conf /etc/mdm/ ; 
 fi
 
 # Spécifique a Ubuntu Mate
