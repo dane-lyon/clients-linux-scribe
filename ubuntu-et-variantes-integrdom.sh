@@ -309,6 +309,11 @@ if [ "$(which caja)" = "/usr/bin/caja" ] ; then
   apt-get -y purge hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox ;
 fi
 
+# Spécifique a Lubuntu (lxde)
+if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then
+  apt-get -y purge abiword gnumeric pidgin transmission-gtk sylpheed audacious guvcview ;
+fi
+
 ########################################################################
 #Paramétrage pour remplir pam_mount.conf
 ########################################################################
