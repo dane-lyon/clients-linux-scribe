@@ -132,6 +132,15 @@ apt-get -y install ubuntu-restricted-extras mate-desktop-enivonment-extras
 
 fi
 
+################################
+# Concerne Lubuntu / LXDE
+################################
+if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors :
+
+#[ Paquet AddOns ]
+apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
+fi
+
 ########################################################################
 #nettoyage station 
 ########################################################################
