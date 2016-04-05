@@ -19,6 +19,7 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
   - Se placer dans le répertoire courant puis lancer les commandes :
 	
 	<code>chmod +x ubuntu-et-variantes-integrdom.sh</code>
+
 	<code>sudo ./ubuntu-et-variantes-integrdom.sh</code>
 
 ###**Remarques :** 
@@ -37,18 +38,20 @@ https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 Pour ne pas avoir de problème d'identification, vérifier que :
 
 - l'utilisateur a déjà changé une fois son mot de passe depuis un poste windows
+
 OU
-- le changement de mot de passe n'est pas demandé (case décoché dans l'ead pour l'utilisateur)
+
+- le changement de mot de passe n'est pas demandé (case décochée dans l'ead pour l'utilisateur)
 
 ### Client Shell
 
-De plus, pour certaines variantes (comme Linux Mint ou Ubuntu Mate par exemple), il est impératif que la case "client shell linux" soit coché pour les utilisateurs dans l'EAD du scribe sinon il y aura des problèmes d'accès.
+De plus, il est impératif que la case "client shell linux" soit cochée pour les utilisateurs dans l'EAD du scribe sinon l'authentification ne pourra avoir lieu.
 
 #### Personnalisation des valeurs par défaut
 
-vous pouvez éditer les valeurs par défaut en début de script afin de les adapter à votre environnement.
+Vous pouvez éditer les valeurs par défaut en début de script afin de les adapter à votre environnement.
 
-#### Personnalisation des menus
+#### Personnalisation des menus de l'environnement Unity
 
 Pour personnaliser le menu d'Unity à tous les utilisateurs, chercher dans le script ces lignes :
 
@@ -71,9 +74,9 @@ Pour voir à quelle application cela correspond, avec l'explorateur, il faut se 
 
 Pour appliquer les modifications, il faut lancer la commande :
 
-	sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+	<code>sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code>
 
-A noter que chaque élève ou enseignant peut personnaliser son menu.
+A noter que chaque élève ou enseignant pourra personnaliser son menu par la suite puisque le profil est local. La personnalisation sera, en revanche, propre à chaque poste.
 
 ### TO DO :
 
