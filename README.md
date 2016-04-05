@@ -14,7 +14,7 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
   - Télécharger le script le script d'intégration :
 	
-	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh
+<code>wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh</code>
 
   - Se placer dans le répertoire courant puis lancer les commandes :
 	
