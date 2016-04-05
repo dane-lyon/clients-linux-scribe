@@ -13,9 +13,11 @@ Avant de lancer ce script, assurez-vous d'avoir installé toutes vos application
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 
   - Télécharger le script le script d'intégration :
+	
 	wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh
 
   - Se placer dans le répertoire courant puis lancer les commandes :
+	
 	chmod +x ubuntu-et-variantes-integrdom.sh
 	sudo ./ubuntu-et-variantes-integrdom.sh
 
