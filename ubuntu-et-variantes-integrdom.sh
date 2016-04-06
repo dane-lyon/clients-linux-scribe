@@ -47,7 +47,7 @@ proxy_def_ip="172.16.0.252"
 proxy_def_port="3128"
 proxy_gnome_noproxy="[ 'localhost', '127.0.0.0/8', '172.16.0.0/16', '192.168.0.0/16', '*.crdp-lyon.fr', '*.crdplyon.lan' ]"
 proxy_env_noproxy="localhost,127.0.0.1,192.168.0.0/16,172.16.0.0/16,.crdp-lyon.fr,.crdplyon.lan"
-pagedemarragepardefaut="https://ixquick.com/"
+pagedemarragepardefaut="https://lite.qwant.com"
 
 #############################################
 # Run using sudo, of course.
@@ -168,7 +168,6 @@ fi
 
 # Vérification que le système est bien a jour
 apt-get update ; apt-get -y dist-upgrade
-
 
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
@@ -379,7 +378,6 @@ else
 fi
 
 
-
 ########################################################################
 #supression de l'applet switch-user pour ne pas voir les derniers connectés # Uniquement pour Ubuntu / Unity
 #paramétrage d'un laucher unity par défaut : nautilus, firefox, libreoffice, calculatrice, editeur de texte et capture d'ecran
@@ -395,8 +393,8 @@ disable-lock-screen=true
 favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.desktop', 'gcalctool.desktop','gedit.desktop','gnome-screenshot.desktop' ]
 " > /usr/share/glib-2.0/schemas/my-defaults.gschema.override
 
-# Suppression de paquet inutile sous Ubuntu
-apt-get -y purge aisleriot gnome-mines gnome-sudoku gnome-mahjongg ;
+# Suppression de paquet inutile sous Ubuntu/Unity
+apt-get -y purge aisleriot gnome-mahjongg ;
 
 fi
 
