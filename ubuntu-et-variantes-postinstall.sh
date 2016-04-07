@@ -141,6 +141,12 @@ if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors
 apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
 
+# Scratch 2.0 sous Linux (se lance uniquement sur la 14.04)
+# INFO : je vous déconseille d'installer la version 2 car elle n'est pas fiable, elle utilise une vieille version d'Adobe Air
+#qui est obsolète (en + d'être propriétaire) sous Linux, de plus il se lance depuis le dossier perso avec des fenêtres de
+#confirmation (et l'installation risque de planter si vous passez par un proxy) cependant si vous êtes un cascadeur en sudoer :
+#wget http://nux87.online.fr/script-externe/scratch2_linux.sh ; chmod +x scratch2_linux.sh ; sudo ./scratch2_linux.sh
+
 ########################################################################
 #nettoyage station 
 ########################################################################
