@@ -142,9 +142,21 @@ apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
 
 ########################################################################
-#nettoyage station 
+# nettoyage station 
 ########################################################################
 apt-get -y autoremove --purge ; apt-get -y clean
+
+########################################################################
+# Deux utilisateurs locaux par defauts
+# S'il y a des modifications de /etc/skel il faut qu'elles soient faites
+# avant sinon elles ne seront pas prises en compte pour ces 2 comptes.
+########################################################################
+useradd prof -c "Le compte prof local" -m
+echo 'prof:prof' | sudo chpasswd
+
+useradd eleve -c "Le compte eleve local" -m
+echo 'eleve:eleve' | sudo chpasswd
+
 
 ########################################################################
 #FIN
