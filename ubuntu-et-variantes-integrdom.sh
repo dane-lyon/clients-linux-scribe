@@ -303,16 +303,6 @@ if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (donc Mint
   wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/mdm.conf ; mv -f mdm.conf /etc/mdm/ ; 
 fi
 
-# Spécifique a Ubuntu Mate
-if [ "$(which caja)" = "/usr/bin/caja" ] ; then
-  apt-get -y purge hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox ;
-fi
-
-# Spécifique a Lubuntu (lxde)
-if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then
-  apt-get -y purge abiword gnumeric pidgin transmission-gtk sylpheed audacious guvcview ;
-fi
-
 ########################################################################
 #Paramétrage pour remplir pam_mount.conf
 ########################################################################
@@ -411,16 +401,6 @@ echo "enabled=0" > /etc/default/apport
 #suppression de l'applet network-manager
 ########################################################################
 mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
-
-########################################################################
-#suppression du menu messages
-########################################################################
-apt-get -y purge indicator-messages 
-
-
-# Lecture DVD
-apt-get -y install libdvdread4
-bash /usr/share/doc/libdvdread4/install-css.sh
 
 ########################################################################
 #nettoyage station avant clonage
