@@ -371,10 +371,9 @@ sed -i "s/enabled=True/enabled=False/g" /etc/xdg/user-dirs.conf
 grep "%professeurs ALL=(ALL) ALL" /etc/sudoers > /dev/null
 if [ $?!=0 ]
 then
-  sed -i "/%admin ALL=(ALL) ALL/a\%professeurs ALL=(ALL) ALL" /etc/sudoers
   sed -i "/%admin ALL=(ALL) ALL/a\%DomainAdmins ALL=(ALL) ALL" /etc/sudoers
 else
-  echo "prof deja dans sudo"
+  echo "admin deja dans sudo"
 fi
 
 
