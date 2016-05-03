@@ -41,7 +41,13 @@ if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then
 
 # paquet
 apt-get -y install idle-python3.5 x265 ;
-# méthode d'installation alternative pour Google Earth ? pour Celestia ? 
+
+# Pour Google Earth (64 bits only) sur Xenial
+#wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb ; 
+#wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb && wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb ;
+#dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt-get -fy install ;
+
+
 
 fi
 
