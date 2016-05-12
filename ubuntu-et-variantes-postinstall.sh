@@ -31,7 +31,7 @@ apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
 # Backportage LibreOffice
 add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
 
-# Pour Google Earth : #(cette méthode ne fonctionne pas sur la 16.04)
+# Pour Google Earth : 
 apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
 wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
 
@@ -92,7 +92,6 @@ apt-get -y install stellarium avogadro
 
 #[ Programmation ]
 apt-get -y install scratch ghex geany imagemagick
-# + idle-python installé en 2 versions différente suivant 14.04 ou 16.04 (cf en haut)
 
 #[ Serveur ]
 #apt-get -y install openssh-server #a décommenter si vous utilisez "Ansible"
