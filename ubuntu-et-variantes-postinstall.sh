@@ -22,6 +22,9 @@ apt-get update ; apt-get -y dist-upgrade
 #########################################
 if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
 
+# activation dépot partenaire 
+echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list
+
 # paquet
 apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
 
@@ -38,6 +41,9 @@ fi
 # Paquet uniquement pour la 16.04 / 18
 #########################################
 if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then
+
+# activation dépot partenaire 
+echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
 
 # paquet
 apt-get -y install idle-python3.5 x265 ;
@@ -65,7 +71,7 @@ add-apt-repository -y ppa:webupd8team/java ; apt-get update ; echo oracle-java8-
 apt-get -y install libreoffice libreoffice-gtk libreoffice-l10n-fr freeplane scribus gnote xournal cups-pdf
 
 #[ Web ]
-apt-get -y install firefox chromium-browser flashplugin-downloader pepperflashplugin-nonfree
+apt-get -y install firefox chromium-browser adobe-flashplugin
 
 #[ Video / Audio ]
 apt-get -y install imagination openshot audacity vlc x264 ffmpeg2theora flac vorbis-tools lame oggvideotools mplayer ogmrip goobox
