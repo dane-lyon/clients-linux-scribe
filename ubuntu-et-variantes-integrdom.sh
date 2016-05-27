@@ -1,4 +1,5 @@
 #!/bin/bash
+# version 1.0.0
 
 # Validé & testé pour les variantes suivantes :
 # - Ubuntu 14.04 /Unity
@@ -37,7 +38,7 @@
 #Simon BERNARD - Dane Lyon
 
 
-# version 2.0 (avec proxy system)
+# Proxy system
 ###########################################################################
 #Paramétrage par défaut
 #Changez les valeurs, ainsi, il suffira de taper 'entrée' à chaque question
