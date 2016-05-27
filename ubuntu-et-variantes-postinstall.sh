@@ -130,6 +130,7 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ;
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
 # [ Customisation Xubuntu 16.04 avec profil obligatoire ] <= pas encore fonctionnel, ne pas décommenter merci !
+#apt-get -y install plank
 #wget --no-check-certificate https://github.com/dane-lyon/fichier-de-config/blob/master/profilxub16.tar.gz ;
 #tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
 #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
