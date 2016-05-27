@@ -7,7 +7,7 @@ Les clients supportés/testés avec les scripts sont les suivants :
 - Xubuntu (Environnement XFCE) 14.04 et 16.04
 - Lubuntu (Environnement LXDE) 14.04 et 16.04
 - Ubuntu Mate (Environnement Mate) 16.04
-- Linux Mint (Environnement Cinammon ou Mate) 17.3 (et bientôt 18).
+- Linux Mint (Environnement Cinammon ou Mate) 17.3 et 18
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
@@ -80,5 +80,4 @@ A noter que chaque élève ou enseignant pourra personnaliser son menu par la su
 
 ### TO DO :
 
-- gestion centralisée des profils (navigateurs, session...)
 - gestion des mises à jour centralisées des postes clients
