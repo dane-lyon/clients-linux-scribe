@@ -131,7 +131,7 @@ apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goo
 
 # [ Customisation Xubuntu 16.04 avec profil obligatoire ]
 #wget --no-check-certificate https://github.com/dane-lyon/fichier-de-config/blob/master/profilxub16.tar.gz ;
-#tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ;
+#tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
 #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
 #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
 
