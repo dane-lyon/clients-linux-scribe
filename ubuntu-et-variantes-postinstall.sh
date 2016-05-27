@@ -1,4 +1,5 @@
 #!/bin/bash
+# version 1.0.0
 
 # Variantes validés :
 # Ubuntu 14.04/16.04, Xubuntu 14.04/16.04, Lubuntu 14.04/16.04, Ubuntu Mate 16.04, Linux Mint 17.3/18
