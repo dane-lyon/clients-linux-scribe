@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.0
+# version 1.0.1
 
 # Validé & testé pour les variantes suivantes :
 # - Ubuntu 14.04 /Unity
@@ -10,26 +10,24 @@
 # - Lubuntu 16.04 /LXDE
 # - Ubuntu Mate 16.04 /Mate
 # - Linux Mint 17.3/Cinnamon & Mate 
-# - Linux Mint 18/Cinnamon & Mate (bientôt)
+# - Linux Mint 18/Cinnamon & Mate
 
-###### Intégration client scribe 2.3/2.4/2.5 pour Ubuntu 14.04.X/Mint 17.3 ###### 
+###### Intégration client scribe 2.3/2.4/2.5 pour client basé sur Ubuntu 14.04/16.04 ###### 
 
-# IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, retirer ceux inutiles, 
-#avoir une customisation graphique etc..., il faudra lancer aussi après le 2e script facultatif de postinstall
+# IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, 
+#avoir un profil obligatoire etc..., il faudra lancer aussi après le 2e script facultatif de postinstall
 
 ### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 :
-# Ce script est compatible avec un Scribe 2.3, 2.4, 2.5 par contre si vous avez un scribe 2.4 ou 2.5, afin d'avoir
-# tous les partages (communs, groupes etc...) il faut faire la manip suivante 1 fois sur votre scribe (paragraphe "Client Linux : avoir les partages sous Scribe 2.4/2.5") :
-# https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
+# Veuillez lire ceci : https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
-### changement apporté pour la version 14.04 :
+### changement apporté pour la version 14.04/16.04 :
 
-# - valeur de vérification 12.04 remplacé par 14.04 ainsi que 16.04 (+Mint)
+# - valeur de vérification 12.04 remplacé par 14.04 ainsi que 16.04 (+17/18 pour mint)
 # - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
 # - désinstallation de certains logiciels inutiles suivant les variantes
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
-# - lecture dvd
+# - lecture dvd inclus
 # - changement du thème MDM par défaut pour Mint (pour ne pas voir l'userlist)
 
 #Christophe Deze - Rectorat de Nantes
