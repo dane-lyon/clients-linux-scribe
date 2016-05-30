@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.0
+# version 1.0.1
 
 # Variantes validés :
 # Ubuntu 14.04/16.04, Xubuntu 14.04/16.04, Lubuntu 14.04/16.04, Ubuntu Mate 16.04, Linux Mint 17.3/18
@@ -129,16 +129,12 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ;
 #[ Paquet AddOns ]
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-# [ Customisation Xubuntu 16.04 avec profil obligatoire ] <= pas encore fonctionnel, ne pas décommenter merci !
-#apt-get -y install plank
-#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
-#tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
-#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
-#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
-
-
-
-
+# [ Customisation Xubuntu 16.04 avec profil obligatoire ] #a commenter si vous ne voulez pas de customisation
+apt-get -y install plank ;
+wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
+tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
+wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
+wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
 
 fi
 
