@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.1
+# version 1.0.2
 
 # Variantes validés :
 # Ubuntu 14.04/16.04, Xubuntu 14.04/16.04, Lubuntu 14.04/16.04, Ubuntu Mate 16.04, Linux Mint 17.3/18
@@ -24,7 +24,9 @@ apt-get update ; apt-get -y dist-upgrade
 if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
 
 # activation dépot partenaire 
+if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
 echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list
+fi
 
 # paquet
 apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
@@ -44,12 +46,14 @@ fi
 if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then
 
 # activation dépot partenaire 
+if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
 echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
+fi
 
 # paquet
 apt-get -y install idle-python3.5 x265 ;
 
-# Pour Google Earth (64 bits only) sur Xenial
+# Pour Google Earth (64 bits only) sur Xenial ==> a décommenter si vous voulez Google Earth)
 #wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb ; 
 #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb && wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb ;
 #dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt-get -fy install ;
@@ -146,8 +150,6 @@ if [ "$(which caja)" = "/usr/bin/caja" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; t
 #paquet
 apt-get -y install ubuntu-restricted-extras mate-desktop-enivonment-extras
 
-# Customisation Mate
-# Mettre 1 skel spécifique a Mate ?
 
 fi
 
