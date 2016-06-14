@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.1
+# version 1.0.2
 
 # Validé & testé pour les variantes suivantes :
 # - Ubuntu 14.04 /Unity
@@ -12,7 +12,7 @@
 # - Linux Mint 17.3/Cinnamon & Mate 
 # - Linux Mint 18/Cinnamon & Mate
 
-###### Intégration client scribe 2.3/2.4/2.5 pour client basé sur Ubuntu 14.04/16.04 ###### 
+###### Intégration client scribe 2.3/2.4/2.5 pour client basé sur (x)Ubuntu 14.04/16.04 ###### 
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, 
 #avoir un profil obligatoire etc..., il faudra lancer aussi après le 2e script facultatif de postinstall
@@ -29,6 +29,7 @@
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
 # - lecture dvd inclus
 # - changement du thème MDM par défaut pour Mint (pour ne pas voir l'userlist)
+# - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur Ubuntu 14.04
 
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
@@ -420,6 +421,11 @@ apt-get -y purge indicator-messages
 # Lecture DVD
 apt-get -y install libdvdread4
 bash /usr/share/doc/libdvdread4/install-css.sh
+
+# Résolution problème GTK dans certains cas uniquement pour Trusty (exemple pour lancer gedit directement avec : sudo gedit)
+if [ "$DISTRIB_RELEASE" = "14.04" ] ; then
+  echo 'Defaults        env_keep += "DISPLAY XAUTHORITY"' >> /etc/sudoers
+fi
 
 ########################################################################
 #nettoyage station avant clonage
