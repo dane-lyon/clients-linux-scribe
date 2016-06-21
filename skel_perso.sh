@@ -22,7 +22,7 @@ cp -rf ~/.config /etc/skel/ ;
 cp -rf ~/.local /etc/skel/ ;
 cp -rf ~/.gconf /etc/skel/ ;
 cp -rf ~/Bureau /etc/skel/ ;
-cp -rf ~/Desktop /etc/skel/ ;
+#cp -rf ~/Desktop /etc/skel/ ;
 
 #############################################
 # Page par défaut Firefox (a décommenter si besoin)
