@@ -30,6 +30,7 @@
 # - lecture dvd inclus
 # - changement du thème MDM par défaut pour Mint (pour ne pas voir l'userlist)
 # - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur Ubuntu 14.04
+# - Changement page d'acceuil Firefox
 
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
@@ -417,6 +418,8 @@ mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 ########################################################################
 apt-get -y purge indicator-messages 
 
+# Changement page d'accueil firefox
+echo "user_pref(\"browser.startup.homepage\", \"$pagedemarragepardefaut\");" >> /usr/lib/firefox/defaults/pref/channel-prefs.js
 
 # Lecture DVD
 apt-get -y install libdvdread4
