@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.2
+# version 1.0.3
 
 # Validé & testé pour les variantes suivantes :
 # - Ubuntu 14.04 /Unity
