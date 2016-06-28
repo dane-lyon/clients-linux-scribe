@@ -38,7 +38,8 @@ cp -rf ~/.config/update-notifier /etc/skel/.config/ ;
 cp -rf ~/.config/upstart /etc/skel/.config/ ;
 cp -rf ~/.config/xfce4 /etc/skel/.config/ ;
 cp -rf ~/.config/xfce4-session /etc/skel/.config/ ;
-cp -rf ~/.config/gnome-control-center /etc/skel/.config/ ;
+mkdir /etc/skel/.config/gnome-control-center ;
+cp -rf ~/.config/gnome-control-center/backgrounds /etc/skel/.config/gnome-control-center/ ;
 
 #copie fichiers
 cp -f ~/.config/Trolltech.conf /etc/skel/.config/ ;
