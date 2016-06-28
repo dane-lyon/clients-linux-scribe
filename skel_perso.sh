@@ -15,14 +15,43 @@ then
   exit 
 fi
 
+# On repart de 0 pour le skel pour être sûr
+rm -rf /etc/skel ; mkdir /etc/skel
+
 #############################################
 # Copie votre profil
 #############################################
-cp -rf ~/.config /etc/skel/ ;
-cp -rf ~/.local /etc/skel/ ;
-cp -rf ~/.gconf /etc/skel/ ;
+#Bureau
 cp -rf ~/Bureau /etc/skel/ ;
-#cp -rf ~/Desktop /etc/skel/ ;
+#.Config
+mkdir /etc/skel/.config ;
+cp -rf ~/.config/autostart /etc/skel/.config/ ;
+cp -rf ~/.config/dconf /etc/skel/.config/ ;
+cp -rf ~/.config/gtk-2.0 /etc/skel/.config/ ;
+cp -rf ~/.config/menus /etc/skel/.config/ ;
+cp -rf ~/.config/mono.addins /etc/skel/.config/ ;
+cp -rf ~/.config/plank /etc/skel/.config/ ;
+cp -rf ~/.config/pulse /etc/skel/.config/ ;
+cp -rf ~/.config/update-notifier /etc/skel/.config/ ;
+cp -rf ~/.config/upstart /etc/skel/.config/ ;
+cp -rf ~/.config/xfce4 /etc/skel/.config/ ;
+cp -rf ~/.config/xfce4-session /etc/skel/.config/ ;
+cp -f ~/.config/Trolltech.conf /etc/skel/.config/ ;
+cp -f ~/.config/user-dirs.dirs /etc/skel/.config/ ;
+cp -f ~/.config/user-dirs.locale /etc/skel/.config/ ;
+
+#.gconf
+mkdir /etc/skel/.gconf
+cp -rf ~/.gconf/apps /etc/skel/.gconf/ 
+
+#.local
+mkdir /etc/skel/.local ; mkdir /etc/skel/.local/share
+cp -rf ~/.local/share/applications /etc/skel/.local/share/
+
+#divers
+cp -f ~/.bash_logout /etc/skel/
+cp -f ~/.bashrc /etc/skel/
+cp -f ~/.profile /etc/skel/
 
 #############################################
 # Page par défaut Firefox (a décommenter si besoin)
