@@ -25,6 +25,8 @@ rm -rf /etc/skel ; mkdir /etc/skel
 cp -rf ~/Bureau /etc/skel/ ;
 #.Config
 mkdir /etc/skel/.config ;
+
+#copie dossier
 cp -rf ~/.config/autostart /etc/skel/.config/ ;
 cp -rf ~/.config/dconf /etc/skel/.config/ ;
 cp -rf ~/.config/gtk-2.0 /etc/skel/.config/ ;
@@ -36,10 +38,12 @@ cp -rf ~/.config/update-notifier /etc/skel/.config/ ;
 cp -rf ~/.config/upstart /etc/skel/.config/ ;
 cp -rf ~/.config/xfce4 /etc/skel/.config/ ;
 cp -rf ~/.config/xfce4-session /etc/skel/.config/ ;
+cp -rf ~/.config/gnome-control-center /etc/skel/.config/ ;
+
+#copie fichiers
 cp -f ~/.config/Trolltech.conf /etc/skel/.config/ ;
 cp -f ~/.config/user-dirs.dirs /etc/skel/.config/ ;
 cp -f ~/.config/user-dirs.locale /etc/skel/.config/ ;
-cp -f ~/.config/gnome-control-center /etc/skel/.config/ ;
 
 #.gconf
 mkdir /etc/skel/.gconf
