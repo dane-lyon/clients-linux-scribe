@@ -39,6 +39,7 @@ cp -rf ~/.config/xfce4-session /etc/skel/.config/ ;
 cp -f ~/.config/Trolltech.conf /etc/skel/.config/ ;
 cp -f ~/.config/user-dirs.dirs /etc/skel/.config/ ;
 cp -f ~/.config/user-dirs.locale /etc/skel/.config/ ;
+cp -f ~/.config/gnome-control-center /etc/skel/.config/ ;
 
 #.gconf
 mkdir /etc/skel/.gconf
