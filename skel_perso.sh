@@ -17,6 +17,9 @@ fi
 
 # On repart de 0 pour le skel pour être sûr
 rm -rf /etc/skel ; mkdir /etc/skel
+# activer le skel de /etc/default/useradd:
+sed -i.original 's|# SKEL=/etc/skel|SKEL=/etc/skel|' /etc/default/useradd
+sed -i 's|SHELL=/bin/sh|SHELL=/bin/bash|' /etc/default/useradd
 
 #############################################
 # Copie votre profil
@@ -56,10 +59,16 @@ cp -rf ~/.local/share/applications /etc/skel/.local/share/
 
 #divers
 cp -f ~/.bash_logout /etc/skel/
+# def de JAVA_HOME pour freeplane
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle">> ~/.bashrc
 cp -f ~/.bashrc /etc/skel/
+
 cp -f ~/.profile /etc/skel/
 
 #############################################
 # Page par défaut Firefox (a décommenter si besoin)
 #############################################
 #echo "user_pref(\"browser.startup.homepage\", \"http://lite.qwant.com\");" >> /usr/lib/firefox/defaults/pref/channel-prefs.js
+
+# pour avoir firefox en fr. (le choix fr en 1er ne suffit pas)
+#echo "user_pref(\"intl.accept_languages\", \"fr-fr,fr,en-us,en\");" >> /usr/lib/firefox/defaults/pref/channel-prefs.js

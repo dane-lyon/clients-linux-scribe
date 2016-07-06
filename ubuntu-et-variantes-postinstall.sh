@@ -97,6 +97,8 @@ apt-get -y install stellarium avogadro
 
 #[ Programmation ]
 apt-get -y install scratch ghex geany imagemagick
+apt-get -y python3-pip
+pip3 install lxml sympy
 
 #[ Serveur ]
 #apt-get -y install openssh-server #a décommenter si vous utilisez "Ansible"
