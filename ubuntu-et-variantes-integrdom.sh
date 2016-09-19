@@ -10,7 +10,7 @@
 # - Lubuntu 16.04 /LXDE
 # - Ubuntu Mate 16.04 /Mate
 # - Linux Mint 17.3/Cinnamon & Mate 
-# - Linux Mint 18/Cinnamon & Mate
+# - Linux Mint 18/Cinnamon, Mate & XFCE
 
 ###### Intégration client scribe 2.3/2.4/2.5 pour client basé sur (x)Ubuntu 14.04/16.04 ###### 
 
