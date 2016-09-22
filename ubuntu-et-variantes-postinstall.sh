@@ -65,6 +65,15 @@ fi
 #=======================================================================================================#
 
 # Installation quelque soit la variante et la version 
+# drivers imprimantes
+
+wget http://www.openprinting.org/download/printdriver/debian/dists/lsb3.2/contrib/binary-amd64/openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb
+
+dpkg -i openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb
+
+# driver spour les scanners le splus courants
+
+apt install sane
 
 # Police d'écriture de Microsoft
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt-get -y install ttf-mscorefonts-installer ;
