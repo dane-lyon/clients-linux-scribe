@@ -73,7 +73,7 @@ dpkg -i openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb
 
 # driver spour les scanners le splus courants
 
-apt install sane
+apt-get -y install sane
 
 # Police d'écriture de Microsoft
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | /usr/bin/debconf-set-selections | apt-get -y install ttf-mscorefonts-installer ;
