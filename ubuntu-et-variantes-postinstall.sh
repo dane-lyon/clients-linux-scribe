@@ -52,6 +52,7 @@ if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then
 # activation dépot partenaire 
 if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
 echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
+apt-get update #pour prendre en compte le dépot 
 fi
 
 # paquet
@@ -89,7 +90,8 @@ add-apt-repository -y ppa:webupd8team/java ; apt-get update ; echo oracle-java8-
 apt-get -y install libreoffice libreoffice-gtk libreoffice-l10n-fr freeplane scribus gnote xournal cups-pdf
 
 #[ Web ]
-apt-get -y install firefox chromium-browser adobe-flashplugin
+apt-get -y install chromium-browser chromium-browser-l10n ;
+apt-get -y install adobe-flashplugin ; #permet d'avoir flash en même temps pour firefox et chromium
 
 #[ Video / Audio ]
 apt-get -y install imagination openshot audacity vlc x264 ffmpeg2theora flac vorbis-tools lame oggvideotools mplayer ogmrip goobox
