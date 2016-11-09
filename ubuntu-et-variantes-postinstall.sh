@@ -2,7 +2,11 @@
 # version 1.0.2
 
 # Variantes validés :
-# Ubuntu 14.04/16.04, Xubuntu 14.04/16.04, Lubuntu 14.04/16.04, Ubuntu Mate 16.04, Linux Mint 17.3/18
+# - Ubuntu 14.04/16.04
+# - Xubuntu 14.04/16.04
+# - Lubuntu 14.04/16.04
+# - Ubuntu Mate 16.04
+# - Linux Mint 17.3/18
 
 #############################################
 # Run using sudo, of course.
@@ -157,7 +161,7 @@ fi
 if [ "$(which caja)" = "/usr/bin/caja" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; then # si Ubuntu Mate 16.04 alors :
 
 #paquet
-apt-get -y install ubuntu-restricted-extras mate-desktop-enivonment-extras
+apt-get -y install ubuntu-restricted-extras mate-desktop-environment-extras
 
 
 fi
