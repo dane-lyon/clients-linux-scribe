@@ -168,9 +168,12 @@ fi
 
 # Modification pour ne pas avoir de problème lors du rafraichissement des dépots avec un proxy
 # cette ligne peut être commenté/ignoré si vous n'utilisez pas de proxy ou avec la 14.04.
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then 
 
 echo "Acquire::http::No-Cache true;" >> /etc/apt/apt.conf
 echo "Acquire::http::Pipeline-Depth 0;" >> /etc/apt/apt.conf
+
+fi
 
 # Vérification que le système est bien a jour
 apt-get update ; apt-get -y dist-upgrade
