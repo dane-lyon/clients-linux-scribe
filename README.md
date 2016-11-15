@@ -38,9 +38,7 @@ https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 Pour ne pas avoir de problème d'identification, vérifier que :
 
 - l'utilisateur a déjà changé une fois son mot de passe depuis un poste windows
-
 OU
-
 - le changement de mot de passe n'est pas demandé (case décochée dans l'ead pour l'utilisateur)
 
 ### Client Shell
@@ -77,7 +75,3 @@ Pour appliquer les modifications, il faut lancer la commande :
 	<code>sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code>
 
 A noter que chaque élève ou enseignant pourra personnaliser son menu par la suite puisque le profil est local. La personnalisation sera, en revanche, propre à chaque poste.
-
-### TO DO :
-
-- gestion des mises à jour centralisées des postes clients
