@@ -1,16 +1,13 @@
 #!/bin/bash
 # version 1.0.3
 
-# Validé & testé pour les variantes suivantes :
-# - Ubuntu 14.04 /Unity
-# - Ubuntu 16.04 /Unity
-# - Xubuntu 14.04 /XFCE
-# - Xubuntu 16.04 /XFCE
-# - Lubuntu 14.04 /LXDE
-# - Lubuntu 16.04 /LXDE
-# - Ubuntu Mate 16.04 /Mate
-# - Linux Mint 17.3/Cinnamon & Mate 
-# - Linux Mint 18/Cinnamon, Mate & XFCE
+# Testé & OK pour les variantes suivantes :
+
+# - Ubuntu 14.04 & 16.04 (Unity)
+# - Xubuntu 14.04 & 16.04 (Xfce)
+# - Lubuntu 14.04 & 16.04 (Lxde)
+# - Ubuntu Mate 16.04 (Mate)
+# - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 
 ###### Intégration client scribe 2.3/2.4/2.5 pour client basé sur (x)Ubuntu 14.04/16.04 ###### 
 
@@ -22,7 +19,7 @@
 
 ### changement apporté pour la version 14.04/16.04 :
 
-# - valeur de vérification 12.04 remplacé par 14.04 ainsi que 16.04 (+17/18 pour mint)
+# - plus de contrôle de numéro de version pour que ce soit compatible avec le maximum de variante
 # - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
 # - désinstallation de certains logiciels inutiles suivant les variantes
@@ -62,12 +59,15 @@ fi
 ########################################################################
 #vérification de la bonne version d'Ubuntu
 ########################################################################
-. /etc/lsb-release
-if [ "$DISTRIB_RELEASE" != "14.04" ] && [ "$DISTRIB_RELEASE" != "17.3" ] && [ "$DISTRIB_RELEASE" != "16.04" ] && [ "$DISTRIB_RELEASE" != "18" ]
-then
-  echo "Vous n'êtes pas sûr une version compatible, rappel des versions supportés pour ce script : Ubuntu & Variante 14.04/16.04, Linux Mint 17.3/18"
-  exit
-fi
+
+# retiré pour être compatible avec le maximum de distribution basé sur Ubuntu (qui n'ont pas forcément la même valeur). 
+
+#. /etc/lsb-release
+#if [ "$DISTRIB_RELEASE" != "14.04" ] && [ "$DISTRIB_RELEASE" != "17.3" ] && [ "$DISTRIB_RELEASE" != "16.04" ] && [ "$DISTRIB_RELEASE" != "18" ]
+#then
+#  echo "Vous n'êtes pas sûr une version compatible, rappel des versions supportés pour ce script : Ubuntu & Variante 14.04/16.04, Linux Mint 17.3/18"
+#  exit
+#fi
 
 ##############################################################################
 ### Questionnaire : IP du scribe, proxy firefox, port proxy, exception proxy #
