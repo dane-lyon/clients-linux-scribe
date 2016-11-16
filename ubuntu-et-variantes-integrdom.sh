@@ -9,12 +9,16 @@
 # - Ubuntu Mate 16.04 (Mate)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 
-###### Intégration client scribe 2.3/2.4/2.5 pour client basé sur (x)Ubuntu 14.04/16.04 ###### 
+###########################################################################################
+# ATTENTION RAPPEL IMPORTANT => Ce script n'est absolument pas compatible avec Debian !!!
+###########################################################################################
+
+###### Intégration client scribe 2.3/2.4/2.5 pour les clients basés sur Trusty/Xenial ###### 
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, 
 #avoir un profil obligatoire etc..., il faudra lancer aussi après le 2e script facultatif de postinstall
 
-### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 OU 2.5 :
+### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4, 2.5 :
 # Veuillez lire ceci : https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
 ### changement apporté pour la version 14.04/16.04 :
