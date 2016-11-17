@@ -1,5 +1,9 @@
 #!/bin/bash
-#test !!
+
+# Ce script est fait pour créer un profil par défaut pour tous les utilisateurs sous Xubuntu.
+# Attention : ce script ne sera pas efficace avec d'autres variantes car ce sont surtout les paramètres de Xfce qui sont copiés.
+# Si vous utilisez une autre variante, il faudra copier vous même les bons fichiers dans /etc/skel.
+
 
 # Ce script est là pour automatiser la copie du profil en cours dans le répertoire skel afin d'avoir un bureau customisé
 #homogène sur l'ensemble du parc. Vous devez donc avoir personnalisé le bureau comme vous le souhaitez avant d'appliquer
