@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.3
+# version 1.0.4
 
 # Testé & OK pour les variantes suivantes :
 
