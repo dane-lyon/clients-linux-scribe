@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.4
+# version 1.0.5
 
 # Testé & OK pour les variantes suivantes :
 
@@ -60,13 +60,15 @@ then
   exit 
 fi 
 
+. /etc/lsb-release
+
 ########################################################################
 #vérification de la bonne version d'Ubuntu
 ########################################################################
 
 # retiré pour être compatible avec le maximum de distribution basé sur Ubuntu (qui n'ont pas forcément la même valeur). 
 
-#. /etc/lsb-release
+
 #if [ "$DISTRIB_RELEASE" != "14.04" ] && [ "$DISTRIB_RELEASE" != "17.3" ] && [ "$DISTRIB_RELEASE" != "16.04" ] && [ "$DISTRIB_RELEASE" != "18" ]
 #then
 #  echo "Vous n'êtes pas sûr une version compatible, rappel des versions supportés pour ce script : Ubuntu & Variante 14.04/16.04, Linux Mint 17.3/18"
