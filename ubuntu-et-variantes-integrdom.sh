@@ -1,28 +1,36 @@
 #!/bin/bash
 # version 1.0.5
 
-# Testé & OK pour les variantes suivantes :
-
+# Testé & validé pour les variantes suivantes :
+################################################
 # - Ubuntu 14.04 & 16.04 (Unity)
 # - Xubuntu 14.04 & 16.04 (Xfce)
 # - Lubuntu 14.04 & 16.04 (Lxde)
 # - Ubuntu Mate 16.04 (Mate)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
+# - Ubuntu Budgie Remix 16.04 (Budgie)
+
+# Attention non-compatible avec les variantes suivantes :
+################################################
+# - Elementary OS 0.4 (Pantheon) => problème probablement dû au gestionnaire de session
+# - Kubuntu 16.04 (Kde Plasma) => problème avec SDDM
+# - Ubuntu Gnome 16.04 (Gnome 3) => problème au boot (service qui se relance en boucle)
 
 ###########################################################################################
-# ATTENTION RAPPEL IMPORTANT => Ce script n'est absolument pas compatible avec Debian !!!
+# ATTENTION RAPPEL IMPORTANT => Ce script n'est absolument pas compatible avec Debian !
 ###########################################################################################
 
-###### Intégration client scribe 2.3/2.4/2.5 pour les clients basés sur Trusty/Xenial ###### 
+###### Intégration client scribe 2.3, 2.4, 2.5 pour les clients basés sur Trusty/Xenial ###### 
 
-# IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires, 
-#avoir un profil obligatoire etc..., il faudra lancer aussi après le 2e script facultatif de postinstall
+# IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
+#un profil customisé, il faudra lancer aussi le 2e script facultatif "postinstall".
 
-### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4, 2.5 :
+###################################################
+### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 ou 2.5 :
+###################################################
 # Veuillez lire ceci : https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
-### changement apporté pour la version 14.04/16.04 :
-
+## Changelog :
 # - plus de contrôle de numéro de version pour que ce soit compatible avec le maximum de variante
 # - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
@@ -30,14 +38,14 @@
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
 # - lecture dvd inclus
 # - changement du thème MDM par défaut pour Mint (pour ne pas voir l'userlist)
-# - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur Ubuntu 14.04
+# - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur la 14.04
 # - Changement page d'acceuil Firefox
 
+## Liste des contributeurs au script :
 #Christophe Deze - Rectorat de Nantes
 #Cédric Frayssinet - Mission Tice Ac-lyon
-#Xavier GAREL - Mission Tice Ac-lyon
-#Simon BERNARD - Dane Lyon
-
+#Xavier Garel - Mission Tice Ac-lyon
+#Simon Bernard - Dane Lyon
 
 # Proxy system
 ###########################################################################
@@ -60,14 +68,14 @@ then
   exit 
 fi 
 
+# Pour identifier le numéro de la version (14.04, 16.04...)
 . /etc/lsb-release
 
 ########################################################################
 #vérification de la bonne version d'Ubuntu
 ########################################################################
 
-# retiré pour être compatible avec le maximum de distribution basé sur Ubuntu (qui n'ont pas forcément la même valeur). 
-
+# contrôle de version retiré pour être compatible avec le maximum de variante basé sur Ubuntu 
 
 #if [ "$DISTRIB_RELEASE" != "14.04" ] && [ "$DISTRIB_RELEASE" != "17.3" ] && [ "$DISTRIB_RELEASE" != "16.04" ] && [ "$DISTRIB_RELEASE" != "18" ]
 #then
@@ -174,12 +182,9 @@ fi
 
 # Modification pour ne pas avoir de problème lors du rafraichissement des dépots avec un proxy
 # cette ligne peut être commenté/ignoré si vous n'utilisez pas de proxy ou avec la 14.04.
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then 
-
 echo "Acquire::http::No-Cache true;" >> /etc/apt/apt.conf
 echo "Acquire::http::Pipeline-Depth 0;" >> /etc/apt/apt.conf
 
-fi
 
 # Vérification que le système est bien a jour
 apt-get update ; apt-get -y dist-upgrade
