@@ -1,13 +1,13 @@
 ## Scripts pour Client Scribe (x)Ubuntu 14.04 & 16.04
 
-Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4 ou 2.5 
+Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4, 2.5 ou 2.6 
 
 Les clients supportés/testés avec les scripts sont les suivants :
 - Ubuntu (Environnement Unity) 14.04 et 16.04
 - Xubuntu (Environnement XFCE) 14.04 et 16.04
 - Lubuntu (Environnement LXDE) 14.04 et 16.04
 - Ubuntu Mate (Environnement Mate) 16.04
-- Linux Mint (Environnement Cinammon ou Mate) 17.3 et 18
+- Linux Mint (Environnement Cinammon ou Mate) 17.X et 18.X
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
@@ -30,7 +30,7 @@ Pour gagner du temps lors de la création du poste modèle, on pourra utiliser e
 
 #### Partages
 
-Si votre serveur Scribe est en version "2.4" ou "2.5", par défaut vous n'aurez pas les partages avec les clients linux (groupes, classes etc...), pour régler le problème, vous devez faire la manipulation suivante sur votre serveur :
+Si votre serveur Scribe est en version "2.4" , "2.5" ou "2.6", par défaut vous n'aurez pas les partages avec les clients linux (groupes, classes etc...), pour régler le problème, vous devez faire la manipulation suivante sur votre serveur :
 https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
 ### Problèmes d'identifications possibles 
@@ -43,7 +43,7 @@ OU
 
 ### Client Shell
 
-De plus, il est impératif que la case "client shell linux" soit cochée pour les utilisateurs dans l'EAD du scribe sinon l'authentification ne pourra avoir lieu.
+De plus, il est conseillé que la case "client shell linux" soit cochée pour les utilisateurs dans l'EAD du scribe sinon, dans certains cas, l'authentification ne pourra avoir lieu.
 
 #### Personnalisation des valeurs par défaut
 
