@@ -1,12 +1,12 @@
 #!/bin/bash
-# version 1.0.2
+# version 1.0.3
 
-# Variantes validés :
+# Variantes concernées :
 # - Ubuntu 14.04/16.04
 # - Xubuntu 14.04/16.04
 # - Lubuntu 14.04/16.04
 # - Ubuntu Mate 16.04
-# - Linux Mint 17.3/18
+# - Linux Mint 17.X/18.X
 
 #############################################
 # Run using sudo, of course.
@@ -58,7 +58,9 @@ fi
 # paquet
 apt-get -y install idle-python3.5 x265 ;
 
-# Pour Google Earth (64 bits only) sur Xenial ==> a décommenter si vous voulez Google Earth)
+# Pour Google Earth (64 bits only) sur Xenial 
+## ==> A décommenter si vous voulez Google Earth <==
+
 #wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb ; 
 #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb && wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb ;
 #dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt-get -fy install ;
@@ -70,8 +72,8 @@ fi
 #=======================================================================================================#
 
 # Installation quelque soit la variante et la version 
-# drivers imprimantes
 
+# drivers imprimantes
 wget http://www.openprinting.org/download/printdriver/debian/dists/lsb3.2/contrib/binary-amd64/openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb
 dpkg -i openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb ;
 apt-get -fy install ;
@@ -148,12 +150,13 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ;
 #[ Paquet AddOns ]
 apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-# [ Customisation Xubuntu 16.04 avec profil obligatoire ] #a commenter si vous ne voulez pas de customisation
-apt-get -y install plank ;
-wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
-tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
-wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
-wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
+# [ Customisation Xubuntu 16.04 avec profil obligatoire ] 
+# ==> A décommenter si vous voulez une customisation de Xubuntu 16.04 en profil obligatoire <==
+#apt-get -y install plank ;
+#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
+#tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
+#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
+#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
 
 fi
 
