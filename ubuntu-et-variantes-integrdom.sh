@@ -20,14 +20,14 @@
 # ATTENTION RAPPEL IMPORTANT => Ce script n'est absolument pas compatible avec Debian !
 ###########################################################################################
 
-###### Intégration client scribe 2.3, 2.4, 2.5 pour les clients basés sur Trusty/Xenial ###### 
+###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
 #un profil customisé, il faudra lancer aussi le 2e script facultatif "postinstall".
 
-###################################################
-### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4 ou 2.5 :
-###################################################
+########################################################
+### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4, 2.5 ou 2.6 :
+########################################################
 # Veuillez lire ceci : https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
 ## Changelog :
