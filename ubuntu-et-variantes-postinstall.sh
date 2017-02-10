@@ -47,7 +47,7 @@ fi
 #########################################
 # Paquet uniquement pour la 16.04 / 18
 #########################################
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] ; then
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ]; then
 
 # activation dépot partenaire 
 if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
@@ -103,7 +103,7 @@ apt-get -y install imagination openshot audacity vlc x264 ffmpeg2theora flac vor
 apt-get -y install blender sweethome3d gimp pinta inkscape gthumb mypaint hugin shutter
 
 #[ Systeme ]
-apt-get -y install gparted vim pyrenamer rar unrar htop diodon p7zip-full
+apt-get -y install gparted vim pyrenamer rar unrar htop diodon p7zip-full gdebi
 
 #[ Mathematiques ]
 apt-get -y install geogebra algobox carmetal scilab
