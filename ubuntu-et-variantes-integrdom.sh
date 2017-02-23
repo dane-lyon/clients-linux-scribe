@@ -16,10 +16,6 @@
 # - Kubuntu 16.04 (Kde Plasma) => problème avec SDDM
 # - Ubuntu Gnome 16.04 (Gnome 3) => problème au boot (service qui se relance en boucle)
 
-###########################################################################################
-# ATTENTION RAPPEL IMPORTANT => Ce script n'est absolument pas compatible avec Debian !
-###########################################################################################
-
 ###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
@@ -88,7 +84,7 @@ fi
 ##############################################################################
 read -p "Donnez l'ip du serveur Scribe ? [$scribe_def_ip] " ip_scribe
 if [ "$ip_scribe" = "" ] ; then
- ip_scribe=$scribe_def_ip
+  ip_scribe=$scribe_def_ip
 fi
 echo "Adresse du serveur Scribe = $ip_scribe"
 
@@ -280,7 +276,7 @@ export DEBIAN_PRIORITY="high"
 ########################################################################
 #parametrage du script de demontage du netlogon pour lightdm # désactivé pour Mint
 ########################################################################
-if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "16.04" ] ; then 
+if [ "$(which mdm)" != "/usr/sbin/mdm" ] ; then 
 
 touch /etc/lightdm/logonscript.sh
 grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
