@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.3
+# version 1.0.4
 
 # Variantes concernées :
 # - Ubuntu 14.04/16.04
@@ -11,8 +11,7 @@
 #############################################
 # Run using sudo, of course.
 #############################################
-if [ "$UID" -ne "0" ]
-then
+if [ "$UID" -ne "0" ] ; then
   echo "Il faut etre root pour executer ce script. ==> sudo "
   exit 
 fi 
@@ -26,22 +25,20 @@ apt-get update ; apt-get -y dist-upgrade
 # Paquet uniquement pour la 14.04 / 17.3
 #########################################
 if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
+  # activation dépot partenaire 
+  if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
+    echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list
+  fi
 
-# activation dépot partenaire 
-if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
-echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list
-fi
+  # paquet
+  apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
 
-# paquet
-apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
+  # Backportage LibreOffice
+  add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
 
-# Backportage LibreOffice
-add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
-
-# Pour Google Earth : 
-apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
-wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
-
+  # Pour Google Earth : 
+  apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
+  wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
 fi
 
 #########################################
@@ -49,23 +46,28 @@ fi
 #########################################
 if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ]; then
 
-# activation dépot partenaire 
-if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
-echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
-apt-get update #pour prendre en compte le dépot 
-fi
+  # activation dépot partenaire 
+  if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
+    echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
+    apt-get update #pour prendre en compte le dépot 
+  fi
 
-# paquet
-apt-get -y install idle-python3.5 x265 ;
+  # paquet
+  apt-get -y install idle-python3.5 x265 ;
 
-# Pour Google Earth (64 bits only) sur Xenial 
-## ==> A décommenter si vous voulez Google Earth <==
-
-#wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb ; 
-#wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb && wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb ;
-#dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt-get -fy install ;
-
-
+  # Pour Google Earth (64 bits only) sur Xenial # A décommenter si vous voulez Google Earth
+  #wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
+  #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
+  #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
+  #dpkg -i lsb*.deb
+  #dpkg -i google-earth*.deb
+  #apt-get -fy install 
+  
+  # Pour Celestia X64 # A décommenter si vous voulez Celestia
+  #wget --no-check-certificate https://raw.githubusercontent.com/sibe39/scripts_divers/master/Celestia_On_Xenial.sh
+  #chmod +x Celestia_On_Xenial.sh
+  #./Celestia_On_Xenial.sh
+  #rm -f Celestia_On_Xenial.sh
 
 fi
 
@@ -124,60 +126,50 @@ apt-get -y install scratch ghex geany imagemagick
 # Concerne Ubuntu / Unity
 ################################
 if [ "$(which unity)" = "/usr/bin/unity" ] ; then  # si Ubuntu/Unity alors :
-
-#[ Paquet AddOns ]
-apt-get -y install ubuntu-restricted-extras ubuntu-restricted-addons unity-tweak-tool
-apt-get -y install nautilus-image-converter nautilus-script-audio-convert
-
+  #[ Paquet AddOns ]
+  apt-get -y install ubuntu-restricted-extras ubuntu-restricted-addons unity-tweak-tool
+  apt-get -y install nautilus-image-converter nautilus-script-audio-convert
 fi
 
 ################################
 # Concerne Xubuntu / XFCE
 ################################
 if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "14.04" ] ; then # si Xubuntu/Xfce 14.04 alors :
+  #[ Paquet AddOns ]
+  apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-#[ Paquet AddOns ]
-apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
-
-# Customisation XFCE
-
-add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank ;
-wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
+  # Customisation XFCE
+  add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank ;
+  wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
 fi
 
 if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; then # si Xubuntu/Xfce 16.04 alors :
+  #[ Paquet AddOns ]
+  apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-#[ Paquet AddOns ]
-apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
-
-# [ Customisation Xubuntu 16.04 avec profil obligatoire ] 
-# ==> A décommenter si vous voulez une customisation de Xubuntu 16.04 en profil obligatoire <==
-#apt-get -y install plank ;
-#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
-#tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
-#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
-#wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
-
+  # [ Customisation Xubuntu 16.04 avec profil obligatoire ] 
+  # ==> A décommenter si vous voulez une customisation de Xubuntu 16.04 en profil obligatoire <==
+  #apt-get -y install plank ;
+  #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
+  #tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
+  #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
+  #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
 fi
 
 ################################
 # Concerne Ubuntu Mate / Mate
 ################################
 if [ "$(which caja)" = "/usr/bin/caja" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; then # si Ubuntu Mate 16.04 alors :
-
-#paquet
-apt-get -y install ubuntu-restricted-extras mate-desktop-environment-extras
-
-
+  #paquet
+  apt-get -y install ubuntu-restricted-extras mate-desktop-environment-extras
 fi
 
 ################################
 # Concerne Lubuntu / LXDE
 ################################
 if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors :
-
-#[ Paquet AddOns ]
-apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
+  #[ Paquet AddOns ]
+  apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
 
 ########################################################################
