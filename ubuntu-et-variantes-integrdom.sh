@@ -10,11 +10,11 @@
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 # - Ubuntu Budgie Remix 16.04 (Budgie)
 
-# Attention non-compatible avec les variantes suivantes :
+# Semble non-compatible pour l'instant avec les variantes suivantes :
 ################################################
-# - Elementary OS 0.4 (Pantheon) => problème probablement dû au gestionnaire de session
-# - Kubuntu 16.04 (Kde Plasma) => problème avec SDDM
-# - Ubuntu Gnome 16.04 (Gnome 3) => problème au boot (service qui se relance en boucle)
+# - Elementary OS 0.4 (Pantheon) 
+# - Kubuntu 16.04 (Kde Plasma) 
+# - Ubuntu Gnome 16.04 (Gnome 3)
 
 ###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
 
@@ -36,6 +36,7 @@
 # - changement du thème MDM par défaut pour Mint (pour ne pas voir l'userlist)
 # - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur la 14.04
 # - Changement page d'acceuil Firefox
+# - Utilisation du Skel désormais compatible avec la 16.04
 
 ## Liste des contributeurs au script :
 #Christophe Deze - Rectorat de Nantes
