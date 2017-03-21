@@ -448,7 +448,7 @@ fi
 
 # Spécifique base 16.04 : pour le fonctionnement du dossier /etc/skel 
 if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] ; then
-  sed -i "31i\session required        pam_mkhomedir.so" /etc/pam.d/common-session
+  sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
 
 ########################################################################
