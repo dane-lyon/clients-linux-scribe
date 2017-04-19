@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.5
+# version 1.0.6
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -9,12 +9,6 @@
 # - Ubuntu Mate 16.04 (Mate)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 # - Ubuntu Budgie Remix 16.04 (Budgie)
-
-# Semble non-compatible pour l'instant avec les variantes suivantes :
-################################################
-# - Elementary OS 0.4 (Pantheon) 
-# - Kubuntu 16.04 (Kde Plasma) 
-# - Ubuntu Gnome 16.04 (Gnome 3)
 
 ###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
 
