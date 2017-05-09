@@ -53,7 +53,7 @@ if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DIST
   fi
   
   # Installation style "Breeze" pour LibreOffice si il est n'est pas installé (exemple : Xubuntu 16.04...)
-  apt install -y libreoffice-style-breeze
+  apt install -y libreoffice-style-breeze ;
   # paquet
   apt install -y idle-python3.5 x265 ;
 
