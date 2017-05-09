@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.5
+# version 1.0.6
 
 # Variantes concernées :
 # - Ubuntu 14.04/16.04
@@ -51,9 +51,11 @@ if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DIST
     echo "deb http://archive.canonical.com/ubuntu xenial partner" >> /etc/apt/sources.list
     apt-get update #pour prendre en compte le dépot 
   fi
-
+  
+  # Installation style "Breeze" pour LibreOffice si il est n'est pas installé (exemple : Xubuntu 16.04...)
+  apt install -y libreoffice-style-breeze
   # paquet
-  apt-get -y install idle-python3.5 x265 ;
+  apt install -y idle-python3.5 x265 ;
 
   # Pour Google Earth (64 bits only) sur Xenial # A décommenter si vous voulez Google Earth
   #wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
