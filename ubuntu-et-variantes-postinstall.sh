@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.4
+# version 1.0.5
 
 # Variantes concernées :
 # - Ubuntu 14.04/16.04
@@ -134,26 +134,13 @@ fi
 ################################
 # Concerne Xubuntu / XFCE
 ################################
-if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "14.04" ] ; then # si Xubuntu/Xfce 14.04 alors :
+if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] ; then # si Xubuntu/Xfce alors :
   #[ Paquet AddOns ]
   apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
   # Customisation XFCE
   add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank ;
   wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
-fi
-
-if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; then # si Xubuntu/Xfce 16.04 alors :
-  #[ Paquet AddOns ]
-  apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
-
-  # [ Customisation Xubuntu 16.04 avec profil obligatoire ] 
-  # ==> A décommenter si vous voulez une customisation de Xubuntu 16.04 en profil obligatoire <==
-  #apt-get -y install plank ;
-  #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profilxub16.tar.gz ;
-  #tar xvf profilxub16.tar.gz -C /etc ; rm -rf profilxub16.tar.gz ; chmod -R 755 /etc/skel ;
-  #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/plank.desktop ; mv -f plank.desktop /etc/xdg/autostart/ ;
-  #wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/profildefaut.desktop ; mv -f profildefaut.desktop /etc/xdg/autostart/ ;
 fi
 
 ################################
