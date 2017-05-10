@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.6
+# version 1.0.7
 
 # Variantes concernées :
 # - Ubuntu 14.04/16.04
@@ -16,15 +16,34 @@ if [ "$UID" -ne "0" ] ; then
   exit 
 fi 
 
+# Pour identifier le numéro de la version (14.04, 16.04...)
 . /etc/lsb-release
+
+# Affectation a la variable "version" suivant la variante utilisé
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] || [ "$DISTRIB_RELEASE" = "0.3" ] ; then
+  version=trusty
+fi
+
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] || [ "$DISTRIB_RELEASE" = "18.2" ] || [ "$DISTRIB_RELEASE" = "0.4" ] ; then
+  version=xenial
+fi
+
+########################################################################
+#vérification de la bonne version d'Ubuntu
+########################################################################
+
+if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] ; then
+  echo "Vous n'êtes pas sûr une version compatible ! Le script est conçu uniquement pour les LTS (non-obsolètes), c'est a dire la 14.04 ou la 16.04"
+  exit
+fi
 
 # Vérification que le système est a jour
 apt-get update ; apt-get -y dist-upgrade
 
 #########################################
-# Paquet uniquement pour la 14.04 / 17.3
+# Paquet uniquement pour Trusty
 #########################################
-if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
+if [ "$version" = "trusty" ] ; then
   # activation dépot partenaire 
   if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
     echo "deb http://archive.canonical.com/ubuntu trusty partner" >> /etc/apt/sources.list
@@ -42,9 +61,9 @@ if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
 fi
 
 #########################################
-# Paquet uniquement pour la 16.04 / 18
+# Paquet uniquement pour Xenial
 #########################################
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ]; then
+if [ "$version" = "xenial" ] ; then
 
   # activation dépot partenaire 
   if [ "$(which mdm)" != "/usr/sbin/mdm"  ] ; then # activation du dépot partenaire (sauf pour Mint car déjà présent)
@@ -146,7 +165,7 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] ; then # si Xubuntu/Xfce alors :
 fi
 
 ################################
-# Concerne Ubuntu Mate / Mate
+# Concerne Ubuntu Mate 16.04
 ################################
 if [ "$(which caja)" = "/usr/bin/caja" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; then # si Ubuntu Mate 16.04 alors :
   #paquet
