@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.6
+# version 1.0.7
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -21,7 +21,6 @@
 # Veuillez lire ceci : https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
 ## Changelog :
-# - plus de contrôle de numéro de version pour que ce soit compatible avec le maximum de variante
 # - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
 # - désinstallation de certains logiciels inutiles suivant les variantes
@@ -31,6 +30,7 @@
 # - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur la 14.04
 # - Changement page d'acceuil Firefox
 # - Utilisation du Skel désormais compatible avec la 16.04
+# - Ajout variable pour contrôle de la version
 
 ## Liste des contributeurs au script :
 #Christophe Deze - Rectorat de Nantes
@@ -62,17 +62,23 @@ fi
 # Pour identifier le numéro de la version (14.04, 16.04...)
 . /etc/lsb-release
 
+# Affectation a la variable "version" suivant la variante utilisé
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] || [ "$DISTRIB_RELEASE" = "0.3" ] ; then
+  version=trusty
+fi
+
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] || [ "$DISTRIB_RELEASE" = "18.2" ] || [ "$DISTRIB_RELEASE" = "0.4" ] ; then
+  version=xenial
+fi
+
 ########################################################################
 #vérification de la bonne version d'Ubuntu
 ########################################################################
 
-# contrôle de version retiré pour être compatible avec le maximum de variante basé sur Ubuntu 
-
-#if [ "$DISTRIB_RELEASE" != "14.04" ] && [ "$DISTRIB_RELEASE" != "17.3" ] && [ "$DISTRIB_RELEASE" != "16.04" ] && [ "$DISTRIB_RELEASE" != "18" ]
-#then
-#  echo "Vous n'êtes pas sûr une version compatible, rappel des versions supportés pour ce script : Ubuntu & Variante 14.04/16.04, Linux Mint 17.3/18"
-#  exit
-#fi
+if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] ; then
+  echo "Vous n'êtes pas sûr une version compatible ! Le script est conçu uniquement pour les LTS (non-obsolètes), c'est a dire la 14.04 ou la 16.04"
+  exit
+fi
 
 ##############################################################################
 ### Questionnaire : IP du scribe, proxy firefox, port proxy, exception proxy #
