@@ -275,9 +275,9 @@ export DEBIAN_FRONTEND="dialog"
 export DEBIAN_PRIORITY="high"
 
 ########################################################################
-#parametrage du script de demontage du netlogon pour lightdm # désactivé pour Mint
+#parametrage du script de demontage du netlogon pour lightdm (si lightdm utilisé)
 ########################################################################
-if [ "$(which mdm)" != "/usr/sbin/mdm" ] ; then 
+if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
 
 touch /etc/lightdm/logonscript.sh
 grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
@@ -442,12 +442,12 @@ apt-get -y install libdvdread4
 bash /usr/share/doc/libdvdread4/install-css.sh
 
 # Résolution problème GTK dans certains cas uniquement pour Trusty (exemple pour lancer gedit directement avec : sudo gedit)
-if [ "$DISTRIB_RELEASE" = "14.04" ] ; then
+if [ "$version" = "trusty" ] ; then
   echo 'Defaults        env_keep += "DISPLAY XAUTHORITY"' >> /etc/sudoers
 fi
 
 # Spécifique base 16.04 : pour le fonctionnement du dossier /etc/skel 
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] ; then
+if [ "$version" = "xenial" ] ; then
   sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
 
