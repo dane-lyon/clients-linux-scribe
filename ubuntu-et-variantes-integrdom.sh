@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.7
+# version 1.0.8
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -31,6 +31,7 @@
 # - Changement page d'acceuil Firefox
 # - Utilisation du Skel désormais compatible avec la 16.04
 # - Ajout variable pour contrôle de la version
+# - Suppression de la notification de mise a niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
 
 ## Liste des contributeurs au script :
 #Christophe Deze - Rectorat de Nantes
@@ -450,6 +451,9 @@ fi
 if [ "$version" = "xenial" ] ; then
   sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
+
+# Suppression de notification de mise a niveau 
+sed -r -i 's/Prompt=lts/Prompt=never/g' /etc/update-manager/release-upgrades
 
 ########################################################################
 #nettoyage station avant clonage
