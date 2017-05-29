@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.8
+# version 1.0.9
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -135,6 +135,21 @@ fi
 ########################################################################
 export DEBIAN_FRONTEND="noninteractive"
 export DEBIAN_PRIORITY="critical"
+
+########################################################################
+#supression de l'applet switch-user pour ne pas voir les derniers connectés # Uniquement pour Ubuntu / Unity
+#paramétrage d'un laucher unity par défaut : nautilus, firefox, libreoffice, calculatrice, editeur de texte et capture d'ecran
+########################################################################
+if [ "$(which unity)" = "/usr/bin/unity" ] ; then  # si Ubuntu/Unity alors :
+
+echo "[com.canonical.indicator.session]
+user-show-menu=false
+[org.gnome.desktop.lockdown]
+disable-user-switching=true
+disable-lock-screen=true
+[com.canonical.Unity.Launcher]
+favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.desktop', 'gcalctool.desktop','gedit.desktop','gnome-screenshot.desktop' ]
+" > /usr/share/glib-2.0/schemas/my-defaults.gschema.override
 
 #######################################################
 #Paramétrage des paramètres Proxy pour tout le système
@@ -394,22 +409,6 @@ then
 else
   echo "prof deja dans sudo"
 fi
-
-
-########################################################################
-#supression de l'applet switch-user pour ne pas voir les derniers connectés # Uniquement pour Ubuntu / Unity
-#paramétrage d'un laucher unity par défaut : nautilus, firefox, libreoffice, calculatrice, editeur de texte et capture d'ecran
-########################################################################
-if [ "$(which unity)" = "/usr/bin/unity" ] ; then  # si Ubuntu/Unity alors :
-
-echo "[com.canonical.indicator.session]
-user-show-menu=false
-[org.gnome.desktop.lockdown]
-disable-user-switching=true
-disable-lock-screen=true
-[com.canonical.Unity.Launcher]
-favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.desktop', 'gcalctool.desktop','gedit.desktop','gnome-screenshot.desktop' ]
-" > /usr/share/glib-2.0/schemas/my-defaults.gschema.override
 
 # Suppression de paquet inutile sous Ubuntu/Unity
 apt-get -y purge aisleriot gnome-mahjongg ;
