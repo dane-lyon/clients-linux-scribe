@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.9
+# version 1.0.10
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -291,39 +291,37 @@ export DEBIAN_FRONTEND="dialog"
 export DEBIAN_PRIORITY="high"
 
 ########################################################################
-#parametrage du script de demontage du netlogon pour lightdm (si lightdm utilisé)
+#parametrage du script de demontage du netlogon pour lightdm 
 ########################################################################
-if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
+#if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
+  touch /etc/lightdm/logonscript.sh
+  grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
+  if [ $? == 0 ] ; then
+    echo "Presession Ok"
+  else
+    echo "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" >> /etc/lightdm/logonscript.sh
+  fi
+  chmod +x /etc/lightdm/logonscript.sh
 
-touch /etc/lightdm/logonscript.sh
-grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
-if [ $? == 0 ]
-then
-  echo "Presession Ok"
-else
-  echo "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" >> /etc/lightdm/logonscript.sh
-fi
-chmod +x /etc/lightdm/logonscript.sh
+  touch /etc/lightdm/logoffscript.sh
+  echo "sleep 2 \
+  umount -f /tmp/netlogon \ 
+  umount -f \$HOME
+  " > /etc/lightdm/logoffscript.sh
+  chmod +x /etc/lightdm/logoffscript.sh
 
-touch /etc/lightdm/logoffscript.sh
-echo "sleep 2 \
-umount -f /tmp/netlogon \ 
-umount -f \$HOME
-" > /etc/lightdm/logoffscript.sh
-chmod +x /etc/lightdm/logoffscript.sh
-
-########################################################################
-#parametrage du lightdm.conf
-#activation du pave numerique par greeter-setup-script=/usr/bin/numlockx on
-########################################################################
-echo "[SeatDefaults]
-    allow-guest=false
-    greeter-show-manual-login=true
-    greeter-hide-users=true
-    session-setup-script=/etc/lightdm/logonscript.sh
-    session-cleanup-script=/etc/lightdm/logoffscript.sh
-    greeter-setup-script=/usr/bin/numlockx on" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
-fi
+  ########################################################################
+  #parametrage du lightdm.conf
+  #activation du pave numerique par greeter-setup-script=/usr/bin/numlockx on
+  ########################################################################
+  echo "[SeatDefaults]
+      allow-guest=false
+      greeter-show-manual-login=true
+      greeter-hide-users=true
+      session-setup-script=/etc/lightdm/logonscript.sh
+      session-cleanup-script=/etc/lightdm/logoffscript.sh
+      greeter-setup-script=/usr/bin/numlockx on" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
+#fi
 
 # echo "GVFS_DISABLE_FUSE=1" >> /etc/environment
 
