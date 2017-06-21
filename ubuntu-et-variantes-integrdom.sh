@@ -1,7 +1,7 @@
 #!/bin/bash
 # version 1.0.10
 
-#edit : ne pas utiliser le script pour l'instant, il y a un soucis quelque part !!
+# MERCI DE NE PAS UTILISER CE SCRIPT POUR LINSTANT, IL Y A UN SOUCIS QUELQUE PART ACTUELLEMENT !!!!!
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -414,8 +414,6 @@ fi
 
 # Suppression de paquet inutile sous Ubuntu/Unity
 apt-get -y purge aisleriot gnome-mahjongg ;
-
-fi
 
 # Pour être sûr que les paquets suivant (parfois présent) ne sont pas installés :
 apt-get -y purge pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric thunderbird ;
