@@ -7,7 +7,7 @@
 # - Xubuntu 14.04 & 16.04 (Xfce)
 # - Lubuntu 14.04 & 16.04 (Lxde)
 # - Ubuntu Mate 16.04 (Mate)
-# - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
+# - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce) (pas compatible 18.2 !)
 # - Ubuntu Budgie Remix 16.04 (Budgie)
 
 ###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
