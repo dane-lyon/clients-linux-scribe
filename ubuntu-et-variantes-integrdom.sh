@@ -1,13 +1,15 @@
 #!/bin/bash
 # version 1.0.10
 
+#edit : ne pas utiliser le script pour l'instant, il y a un soucis quelque part !!
+
 # Testé & validé pour les variantes suivantes :
 ################################################
 # - Ubuntu 14.04 & 16.04 (Unity)
 # - Xubuntu 14.04 & 16.04 (Xfce)
 # - Lubuntu 14.04 & 16.04 (Lxde)
 # - Ubuntu Mate 16.04 (Mate)
-# - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce) (pas compatible 18.2 !)
+# - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce) 
 # - Ubuntu Budgie Remix 16.04 (Budgie)
 
 ###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
