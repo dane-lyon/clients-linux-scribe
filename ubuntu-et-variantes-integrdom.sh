@@ -293,7 +293,7 @@ export DEBIAN_PRIORITY="high"
 ########################################################################
 #parametrage du script de demontage du netlogon pour lightdm 
 ########################################################################
-#if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
+if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
   touch /etc/lightdm/logonscript.sh
   grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
   if [ $? == 0 ] ; then
@@ -321,7 +321,7 @@ export DEBIAN_PRIORITY="high"
       session-setup-script=/etc/lightdm/logonscript.sh
       session-cleanup-script=/etc/lightdm/logoffscript.sh
       greeter-setup-script=/usr/bin/numlockx on" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
-#fi
+fi
 
 # echo "GVFS_DISABLE_FUSE=1" >> /etc/environment
 
