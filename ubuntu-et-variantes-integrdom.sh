@@ -153,6 +153,8 @@ disable-lock-screen=true
 favorites=[ 'nautilus-home.desktop', 'firefox.desktop','libreoffice-startcenter.desktop', 'gcalctool.desktop','gedit.desktop','gnome-screenshot.desktop' ]
 " > /usr/share/glib-2.0/schemas/my-defaults.gschema.override
 
+fi
+
 #######################################################
 #Paramétrage des paramètres Proxy pour tout le système
 #######################################################
