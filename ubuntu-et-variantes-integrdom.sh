@@ -35,17 +35,6 @@
 # - Ajout variable pour contrôle de la version
 # - Suppression de la notification de mise a niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
 
-# --------------------------------------------------------------------------------------------------------------------
-
-## Roadmap a faire plus tard pour la 18.04LTS :
-# - Pour le nouveau gestionnaire de session GDM, désactiver l'userlist. Procédure ici : https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
-# - Ne pas installer "Unity Tweak Tool" si la 18.04 est détecté et installer a la place "Gnome Tweak Tool"
-# - Envisager éventuellement d'installer en supplément la session "Vanilla" de Gnome 
-# - Envisager de désactiver les effets visuels de Gnome par défaut (pc des établissements généralement peu performant)
-# - Ne pas lancer la partie du script qui concerne soit LightDM soit Unity (les 2 n'étant plus présent)
-
-# --------------------------------------------------------------------------------------------------------------------
-
 
 ## Liste des contributeurs au script :
 # Christophe Deze - Rectorat de Nantes
