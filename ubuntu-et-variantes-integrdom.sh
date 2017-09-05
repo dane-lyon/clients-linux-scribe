@@ -49,7 +49,7 @@
 
 ## Liste des contributeurs au script :
 # Christophe Deze - Rectorat de Nantes
-# Cedric Frayssinet - Mission Tice Ac-lyon
+# Cédric Frayssinet - Mission Tice Ac-lyon
 # Xavier Garel - Mission Tice Ac-lyon
 # Simon Bernard - Technicien Ac-Lyon
 
