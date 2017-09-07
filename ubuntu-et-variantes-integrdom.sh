@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.11
+# version 1.0.12
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -8,12 +8,12 @@
 # - Lubuntu 14.04 & 16.04 (Lxde)
 # - Ubuntu Mate 16.04 (Mate)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
-# - Ubuntu Budgie Remix 16.04 (Budgie)
+# - Ubuntu Budgie 16.04 (Budgie)
 
 ###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
-#un profil customisé, il faudra lancer aussi le 2e script facultatif "postinstall".
+#un profil customisé, vous pouvez utiliser le 2e script facultatif "postinstall".
 
 ########################################################
 ### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4, 2.5 ou 2.6 :
@@ -38,11 +38,21 @@
 # --------------------------------------------------------------------------------------------------------------------
 
 ## Roadmap a faire plus tard pour la 18.04LTS :
+# [prioritaire]
 # - Pour le nouveau gestionnaire de session GDM, désactiver l'userlist. Procédure ici : https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
+# - Bug à résoudre sur "login-service" qui ne se lance pas en VM avec artful (si integrdom avant).
 # - Ne pas installer "Unity Tweak Tool" si la 18.04 est détecté et installer a la place "Gnome Tweak Tool"
+# - Ne pas lancer la partie du script qui concerne LightDM ou Unity (les 2 n'étant plus présent)
+# - Erreur avec install.css/libdvdread pour lire les DVD commerciaux avec artful
+
+# [secondaire]
+# - Installer par défaut "net-tools" (donne la possibilité de faire ifconfig)
 # - Envisager éventuellement d'installer en supplément la session "Vanilla" de Gnome 
 # - Envisager de désactiver les effets visuels de Gnome par défaut (pc des établissements généralement peu performant)
-# - Ne pas lancer la partie du script qui concerne soit LightDM soit Unity (les 2 n'étant plus présent)
+# - Envisager de remplacer Totem par VLC ou MPV
+# - Sur le script de postinstall : Java8 devra être remplacé par Java9 
+# - Sur le script de postinstall : le paquet "openprinting-gutenprint" n'est plus bon (voir version + récente)
+# - Sur le script de postinstall : le paquet python (idle-python3.4) n'est plus bon (version + récente)
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -76,7 +86,7 @@ fi
 # Pour identifier le numéro de la version (14.04, 16.04...)
 . /etc/lsb-release
 
-# Affectation a la variable "version" suivant la variante utilisé
+# Affectation à la variable "version" suivant la variante utilisé
 if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] || [ "$DISTRIB_RELEASE" = "0.3" ] ; then
   version=trusty
 fi
