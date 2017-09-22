@@ -15,16 +15,22 @@
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
 #un profil customisé, vous pouvez utiliser le 2e script facultatif "postinstall".
 
+#######################################################
+# Rappel des problèmes connus
+#######################################################
+
+### Par rapport aux anciennes versions de Mint
 # Pour les utilisateurs de Linux Mint : le gestionnaire de session à changé depuis la version 18.2 (passage de MDM vers LightDM),
 #ça ne posera pas de soucis particulier si vous faites une nouvelle installation puis l'intégration par contre ça ne fonctionnera
 #pas si vous faites une MaN (mise à niveau) depuis une version antérieure à la 18.2. La solution est de relancer la partie du 
 #script qui est spécifique à LightDM, raccourci ici : 
 # https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/lightdm_MaN_versMint182.sh
 
-########################################################
-### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4, 2.5 ou 2.6 :
-########################################################
-# Veuillez lire ceci : https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
+### Si vous avez un Scribe en version supérieur à 2.3, pour avoir les partages vous avez ceci à faire :
+# https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
+
+### Si vous utilisez Oscar pour le déploiement de poste, ce n'est compatible qu'avec les versions récentes mais pas les
+#anciennes versions.
 
 # --------------------------------------------------------------------------------------------------------------------
 
