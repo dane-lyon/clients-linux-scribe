@@ -29,8 +29,8 @@
 ### Si vous avez un Scribe en version supérieur à 2.3, pour avoir les partages vous avez ceci à faire :
 # https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
-### Si vous utilisez Oscar pour le déploiement de poste, ce n'est compatible qu'avec les versions récentes mais pas les
-#anciennes versions.
+### Si vous utilisez Oscar pour le déploiement de poste, à partir de la 16.04LTS, ce n'est compatible qu'avec les versions 
+#récentes d'Oscar mais pas les anciennes versions.
 
 # --------------------------------------------------------------------------------------------------------------------
 
