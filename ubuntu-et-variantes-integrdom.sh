@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.12
+# version 1.0.13
 
 # Testé & validé pour les variantes suivantes :
 ################################################
@@ -14,6 +14,11 @@
 
 # IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
 #un profil customisé, vous pouvez utiliser le 2e script facultatif "postinstall".
+
+# Pour les utilisateurs de Linux Mint : le gestionnaire de session à changer depuis la version 18.2 (passage de MDM vers LightDM),
+#ça ne posera pas de soucis particulier si vous faites une nouvelle installation puis l'intégration par contre ça ne fonctionnera
+#pas si vous faites une mise à niveau depuis une version inférieur à la 18.2. La solution est de relancer la partie du script
+#qui est spécifique à LightDM, raccourci ici : https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/lightdm_MaN_versMint182.sh
 
 ########################################################
 ### ATTENTION, SI VOUS AVEZ UN SCRIBE 2.4, 2.5 ou 2.6 :
