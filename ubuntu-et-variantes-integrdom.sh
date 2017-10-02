@@ -56,6 +56,7 @@
 # - Ne pas installer "Unity Tweak Tool" si la 18.04 est détecté et installer a la place "Gnome Tweak Tool"
 # - Ne pas lancer la partie du script qui concerne LightDM ou Unity (les 2 n'étant plus présent)
 # - Erreur avec install.css/libdvdread pour lire les DVD commerciaux avec artful
+# - Supprimer icon Amazon (supprimer le fichier : /usr/share/ubuntu-web-launchers/amazon...)
 
 # [secondaire]
 # - Installer par défaut "net-tools" (donne la possibilité de faire ifconfig)
