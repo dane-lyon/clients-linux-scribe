@@ -7,6 +7,11 @@ then
   exit 
 fi 
 
+# Réinstallation de Grub sur le premier disque
+# On préselectionne Windows par défaut
+# On affiche le Grub tout le temps
+# On fait en sorte d'organiser les différentes lignes
+# On met à jour la conf de Grub
 grub-install /dev/sda &&
 sed -ri 's/GRUB_DEFAULT=0/GRUB_DEFAULT=2/g' /etc/default/grub
 sed -ri 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=-1/g' /etc/default/grub
