@@ -7,7 +7,9 @@ Les clients supportés/testés avec les scripts sont les suivants :
 - Xubuntu (Environnement XFCE) 14.04 et 16.04
 - Lubuntu (Environnement LXDE) 14.04 et 16.04
 - Ubuntu Mate (Environnement Mate) 16.04
-- Linux Mint (Environnement Cinammon ou Mate) 17.X et 18.X
+- Linux Mint (Environnement Cinammon, Mate ou Xfce) 17.X et 18.X
+- Ubuntu Budgie Remix (Environnement Budgie) 16.04
+- Elementary OS (Environenement Pantheon) 0.4
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
