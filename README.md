@@ -77,3 +77,9 @@ Pour appliquer les modifications, il faut lancer la commande :
 	<code>sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code>
 
 A noter que chaque élève ou enseignant pourra personnaliser son menu par la suite puisque le profil est local. La personnalisation sera, en revanche, propre à chaque poste.
+
+
+Si vous ne savez pas quelle interface de bureau choisir, voici un aperçu des différentes variantes supportés :
+
+### Ubuntu 16.04 :
+(http://pix.toile-libre.org/upload/original/1466589158.png)
