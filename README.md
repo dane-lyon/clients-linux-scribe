@@ -83,6 +83,7 @@ Si vous ne savez pas quelle interface de bureau choisir, voici un aperçu des di
 
 ## Ubuntu 16.04 :
 ![Ubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589158.png)
+(environnement : Unity)
 
 ## Xubuntu 16.04 :
 ![Xubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589234.png)
