@@ -83,3 +83,21 @@ Si vous ne savez pas quelle interface de bureau choisir, voici un aperçu des di
 
 ## Ubuntu 16.04 :
 ![Ubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589158.png)
+
+## Xubuntu 16.04 :
+![Xubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589234.png)
+
+## Lubuntu 16.04 :
+![Lubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589267.png)
+
+## Ubuntu Mate 16.04 :
+![Ubuntu Mate 16.04](http://pix.toile-libre.org/upload/original/1466589298.png)
+
+## Linux Mint 18 :
+![Linux Mint 18](http://pix.toile-libre.org/upload/original/1466589327.png)
+
+## Ubuntu Budgie Remix 16.04 :
+![Ubuntu Budgie 16.04](http://pix.toile-libre.org/upload/original/1508504494.png)
+
+## Elementary OS 0.4 :
+![Elementary OS 0.4](http://pix.toile-libre.org/upload/original/1508504624.png)
