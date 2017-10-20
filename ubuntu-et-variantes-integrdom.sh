@@ -1,19 +1,17 @@
 #!/bin/bash
-# version 1.0.13
+# version 1.0.14
 
-# Testé & validé pour les variantes suivantes :
+# Testé & validé pour les distributions suivantes :
 ################################################
 # - Ubuntu 14.04 & 16.04 (Unity)
 # - Xubuntu 14.04 & 16.04 (Xfce)
 # - Lubuntu 14.04 & 16.04 (Lxde)
 # - Ubuntu Mate 16.04 (Mate)
+# - Ubuntu Budgie Remix 16.04 (Budgie)
+# - Elementary OS 0.4.1 (Pantheon)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
-# - Ubuntu Budgie 16.04 (Budgie)
 
-###### Intégration client scribe 2.3, 2.4, 2.5, 2.6 pour les clients basés sur Trusty/Xenial ###### 
-
-# IMPORTANT : ce script ne sert qu'a "l'intégration", si vous voulez des logiciels supplémentaires ou
-#un profil customisé, vous pouvez utiliser le 2e script facultatif "postinstall".
+###### Intégration pour un Scribe 2.3, 2.4, 2.5, 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
 #######################################################
 # Rappel des problèmes connus
@@ -100,11 +98,11 @@ fi
 . /etc/lsb-release
 
 # Affectation à la variable "version" suivant la variante utilisé
-if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] || [ "$DISTRIB_RELEASE" = "0.3" ] ; then
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
   version=trusty
 fi
 
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] || [ "$DISTRIB_RELEASE" = "18.2" ] || [ "$DISTRIB_RELEASE" = "0.4" ] ; then
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] || [ "$DISTRIB_RELEASE" = "18.2" ] || [ "$DISTRIB_RELEASE" = "0.4.1" ] ; then
   version=xenial
 fi
 
