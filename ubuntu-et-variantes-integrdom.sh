@@ -99,7 +99,7 @@ fi
 
 # Affectation à la variable "version" suivant la variante utilisé
 
-if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -2)" = "17" ] ; then
   version=trusty
 fi
 
