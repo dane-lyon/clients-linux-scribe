@@ -138,7 +138,7 @@ apt-get -y install stellarium avogadro
 
 #[ Programmation ]
 apt-get -y install scratch ghex geany imagemagick
-apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk
+apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk python3-sympy
 
 # Gdevelop
 add-apt-repository -y ppa:florian-rival/gdevelop
