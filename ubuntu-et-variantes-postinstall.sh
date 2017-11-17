@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.7
+# version 1.0.8
 
 # Variantes concernées :
 # - Ubuntu 14.04/16.04
@@ -19,12 +19,13 @@ fi
 # Pour identifier le numéro de la version (14.04, 16.04...)
 . /etc/lsb-release
 
-# Affectation a la variable "version" suivant la variante utilisé
-if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.1" ] || [ "$DISTRIB_RELEASE" = "17.2" ] || [ "$DISTRIB_RELEASE" = "17.3" ] || [ "$DISTRIB_RELEASE" = "0.3" ] ; then
+# Affectation à la variable "version" suivant la variante utilisé
+
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -2)" = "17" ] ; then
   version=trusty
 fi
 
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.1" ] || [ "$DISTRIB_RELEASE" = "18.2" ] || [ "$DISTRIB_RELEASE" = "0.4" ] ; then
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -2)" = "18" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -3)" = "0.4" ] ; then
   version=xenial
 fi
 
@@ -137,6 +138,11 @@ apt-get -y install stellarium avogadro
 
 #[ Programmation ]
 apt-get -y install scratch ghex geany imagemagick
+apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk
+
+# Gdevelop
+add-apt-repository -y ppa:florian-rival/gdevelop
+apt-get update ; apt-get -y install gdevelop
 
 #[ Serveur ]
 #apt-get -y install openssh-server #a décommenter si vous utilisez "Ansible"
@@ -179,6 +185,9 @@ if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors
   #[ Paquet AddOns ]
   apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
+
+## Si besoin de Wireshark (demande intervention de votre part pendant son installation) :
+#apt-get -y install wireshark
 
 ########################################################################
 #nettoyage station 
