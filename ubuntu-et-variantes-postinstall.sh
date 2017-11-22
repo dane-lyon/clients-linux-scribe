@@ -137,8 +137,8 @@ apt-get -y install stellarium avogadro
 #celestia installé uniquement sur la 14.04, cf en haut
 
 #[ Programmation ]
-apt-get -y install scratch ghex geany imagemagick
-apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk python3-sympy
+apt-get -y install scratch ghex geany imagemagick gcolor2
+apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk #python3-sympy
 
 # Gdevelop
 add-apt-repository -y ppa:florian-rival/gdevelop
@@ -187,7 +187,8 @@ if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors
 fi
 
 ## Si besoin de Wireshark (demande intervention de votre part pendant son installation) :
-#apt-get -y install wireshark
+#apt-get -y install wireshark #pendant l'installation, répondre oui pour autoriser les autres utilisateurs à faire de la capture
+#sed -i -e "s/,dialout/,dialout,wireshark/g" /etc/security/group.conf
 
 ########################################################################
 #nettoyage station 
