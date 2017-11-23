@@ -38,6 +38,9 @@ if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] ; then
   exit
 fi
 
+# désactiver mode interractive pour automatiser l'installation de wireshark
+export DEBIAN_FRONTEND="noninteractive"
+
 # Vérification que le système est a jour
 apt-get update ; apt-get -y dist-upgrade
 
@@ -129,6 +132,11 @@ apt-get -y install blender sweethome3d gimp pinta inkscape gthumb mypaint hugin 
 #[ Systeme ]
 apt-get -y install gparted vim pyrenamer rar unrar htop diodon p7zip-full gdebi
 
+# Wireshark
+debconf-set-selections <<< "wireshark-common/install-setuid true"
+apt-get -y install wireshark 
+sed -i -e "s/,dialout/,dialout,wireshark/g" /etc/security/group.conf
+
 #[ Mathematiques ]
 apt-get -y install geogebra algobox carmetal scilab
 
@@ -185,10 +193,6 @@ if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors
   #[ Paquet AddOns ]
   apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
-
-## Si besoin de Wireshark (demande intervention de votre part pendant son installation) :
-#apt-get -y install wireshark #pendant l'installation, répondre oui pour autoriser les autres utilisateurs à faire de la capture
-#sed -i -e "s/,dialout/,dialout,wireshark/g" /etc/security/group.conf
 
 ########################################################################
 #nettoyage station 
