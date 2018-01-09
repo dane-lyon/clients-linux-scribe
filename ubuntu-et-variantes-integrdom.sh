@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.14
+# version 1.0.15
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -10,6 +10,8 @@
 # - Ubuntu Budgie Remix 16.04 (Budgie)
 # - Elementary OS 0.4.1 (Pantheon)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
+
+# ATTENTION : la version 18.04 de base (sous Gnome Shell) n'est actuellement pas compatible (blocage au démarrage) mais les variantes sembles OK !
 
 ###### Intégration pour un Scribe 2.3, 2.4, 2.5, 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
@@ -99,20 +101,24 @@ fi
 
 # Affectation à la variable "version" suivant la variante utilisé
 
-if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -2)" = "17" ] ; then
-  version=trusty
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
+  version=trusty # Ubuntu 14.04 ou Linux Mint 17/17.3
 fi
 
-if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -2)" = "18" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -3)" = "0.4" ] ; then
-  version=xenial
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.3" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -3)" = "0.4" ] ; then
+  version=xenial # Ubuntu 16.04 ou Linux Mint 18/18.3 ou Elementary OS 0.4.x
+fi
+
+if [ "$DISTRIB_RELEASE" = "18.04" ] ; then
+  version=bionic # Ubuntu 18.04 (ajouter Mint 19 + Eos 0.5 plus tard !)
 fi
 
 ########################################################################
 #vérification de la bonne version d'Ubuntu
 ########################################################################
 
-if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] ; then
-  echo "Vous n'êtes pas sûr une version compatible ! Le script est conçu uniquement pour les LTS (non-obsolètes), c'est a dire la 14.04 ou la 16.04"
+if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] && [ "$version" != "bionic" ] ; then
+  echo "Désolé, vous n'êtes pas sûr une version compatible !"
   exit
 fi
 
@@ -479,8 +485,8 @@ if [ "$version" = "trusty" ] ; then
   echo 'Defaults        env_keep += "DISPLAY XAUTHORITY"' >> /etc/sudoers
 fi
 
-# Spécifique base 16.04 : pour le fonctionnement du dossier /etc/skel 
-if [ "$version" = "xenial" ] ; then
+# Spécifique base 16.04 ou 18.04 : pour le fonctionnement du dossier /etc/skel 
+if [ "$version" = "xenial" ] || [ "$version" = "bionic" ] ; then
   sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
 
