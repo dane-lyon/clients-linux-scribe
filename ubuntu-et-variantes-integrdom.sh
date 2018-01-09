@@ -371,8 +371,7 @@ fi
 ########################################################################
 # Modification Gestionnaire de session MDM Linux Mint
 ########################################################################
-if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (donc Mint)
-  apt-get -y purge mintwelcome hexchat pidgin transmission-gtk banshee
+if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (ancienne version de Mint)
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf #backup du fichier de config de mdm
   wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/mdm.conf ; mv -f mdm.conf /etc/mdm/ ; 
 fi
@@ -455,7 +454,7 @@ fi
 apt-get -y purge aisleriot gnome-mahjongg ;
 
 # Pour être sûr que les paquets suivant (parfois présent) ne sont pas installés :
-apt-get -y purge pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric thunderbird ;
+apt-get -y purge pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric thunderbird mintwelcome ;
 
 
 ########################################################################
