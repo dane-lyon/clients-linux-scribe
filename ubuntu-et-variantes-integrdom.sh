@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 1.0.15
+# version 1.1
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -14,6 +14,7 @@
 # ATTENTION : La 18.04 ne semble pas compatible avec l'intégration au domaine (problème de boot ou dossiers partagés manquants !)
 
 # Si vous activez "Esubuntu", le fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
+# Pour Esubuntu, pack a upbloader dans /netlogon/icones/{votre groupe esu} : https://github.com/dane-lyon/experimentation/raw/master/config_default.zip
 
 ###### Intégration pour un Scribe 2.3, 2.4, 2.5, 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
@@ -41,7 +42,7 @@
 # - Utilisation du Skel désormais compatible avec la 16.04
 # - Ajout variable pour contrôle de la version
 # - Suppression de la notification de mise a niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
-
+# - Prise en charge du script Esubuntu (crée par Olivier CALPETARD)
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -51,6 +52,7 @@
 # Cédric Frayssinet - Mission Tice Ac-lyon
 # Xavier Garel - Mission Tice Ac-lyon
 # Simon Bernard - Technicien Ac-Lyon
+# Olivier Calpetard - Académie de la Réunion
 
 # Proxy system
 ###########################################################################
@@ -148,6 +150,11 @@ if [ "$rep_proghalt" = "1" ] ; then
              fi
 fi
 
+##############################################################################
+### Utilisation du Script Esubuntu ?
+##############################################################################
+read -p "Voulez-vous activer le script Esubuntu (cf doc avant : https://frama.link/esubuntu) ? [O/N] :" esubuntu
+
 ########################################################################
 #rendre debconf silencieux
 ########################################################################
@@ -221,6 +228,56 @@ echo "Acquire::http::Pipeline-Depth 0;" >> /etc/apt/apt.conf
 
 # Vérification que le système est bien a jour
 apt-get update ; apt-get -y dist-upgrade
+
+####################################################
+# Téléchargement + Mise en place de Esubuntu (si activé)
+####################################################
+if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then  
+  # Téléchargement des paquets
+  wget http://nux87.online.fr/esu_ubuntu/esu_ubuntu.zip
+  unzip esu_ubuntu.zip
+  
+  # Création du dossier upkg
+  mkdir /usr/local/upkg_client/
+  chmod -R 777 /usr/local/upkg_client
+
+  # Installation de zenity et conky
+  add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
+  apt-get update
+  apt-get install -y zenity conky
+
+  # Copie des fichiers
+  cp -rf ./esu_ubuntu/lightdm/* /etc/lightdm/
+  chmod +x /etc/lightdm/*.sh
+  cp -rf ./esu_ubuntu/xdg_autostart/* /etc/xdg/autostart/
+  chmod +x /etc/xdg/autostart/message_scribe.desktop
+  chmod +x /etc/xdg/autostart/scribe_background.desktop
+  
+  # Gestion du groupe
+  #salle du pc
+  echo "Veuillez entrer le groupe ESU de vos postes clients linux : "
+  read salle
+  echo "$salle" > /etc/GM_ESU
+
+  # Lancement script prof_firefox
+  chmod -R +x ./esu_ubuntu
+  ./esu_ubuntu/firefox/prof_firefox.sh
+  
+  # Mise en place des wallpaper pour les élèves, profs, admin (pour bureau Unity)
+  wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
+  unzip wallpaper.zip
+  mv wallpaper /usr/share/
+
+  # Inscription de la tache upkg dans crontab
+  echo "*/20 * * * * root /etc/lightdm/groupe.sh" > /etc/crontab
+  
+  # Si il reste encore une trace de cntlm dans xdg autostart :
+  rm -f /etc/xdg/autostart/cntlm*
+  
+  # Modification de la valeur en dur à la fin du fichier background.sh pour corresponde au bon groupe ESU
+  sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
+fi
+
 
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
@@ -348,17 +405,17 @@ fi
 ########################################################################
 # Modification Gestionnaire de session MDM Linux Mint
 ########################################################################
-if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (ancienne version de Mint)
+if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (ancienne version de Mint <17.2)
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf #backup du fichier de config de mdm
   wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/mdm.conf ; mv -f mdm.conf /etc/mdm/ ; 
 fi
 
-# Spécifique a Ubuntu Mate
+# Si Ubuntu Mate
 if [ "$(which caja)" = "/usr/bin/caja" ] ; then
   apt-get -y purge hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox ;
 fi
 
-# Spécifique a Lubuntu (lxde)
+# Si Lubuntu (lxde)
 if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then
   apt-get -y purge abiword gnumeric pidgin transmission-gtk sylpheed audacious guvcview ;
 fi
