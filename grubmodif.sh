@@ -1,4 +1,6 @@
 #!/bin/bash
+# Petite optimisation pour Grub demandé par Cedric.F
+# Ne l'utilisez pas si vous ne savez pas ce que vous faites !
 
 # Script à lancer avec sudo, vérification :
 if [ "$UID" -ne "0" ]
