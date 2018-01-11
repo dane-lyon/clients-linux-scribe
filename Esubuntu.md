@@ -23,12 +23,12 @@ _**RAPPEL : validé/testé pour Ubuntu/Unity en 14.04 et 16.04)**_
 1. Télécharger le contenu de l'archive et le décompresser dans votre nouveau groupe esu pour linux.
 Lien ici : https://github.com/dane-lyon/fichier-de-config/blob/master/dans_groupe-esu_linux.zip?raw=true
 1. Ensuite sur le poste client Ubuntu, lancer la nouvelle version du Script (dans la partie expérimentation), lien direct ici : 
-https://raw.githubusercontent.com/dane-lyon/experimentation/master/ubuntu_integrdom_V2_test
+https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh
 1. Une nouvelle question sera posée "voulez-vous activer esu_ubuntu" : répondre "Oui".
 1. Le nom du groupe esu sera demandé, il faudra mettre exactement le même nom que le nouveau groupe esu créé précédemment.
 1. A la fin, redémarrer le poste.
 
-A noter la présence d'un script à lancer sur des postes déjà intégrés au domaine : https://github.com/dane-lyon/experimentation/blob/master/esubuntu_light.sh
+A noter la présence d'un script à lancer sur des postes déjà intégrés au domaine : https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/Esubuntu_minimal.sh
 
 #### Paramétrage de upkg (équivalent de WPKG pour Windows)
 
@@ -72,11 +72,6 @@ maximum avant d'avoir le script de lancé sur les postes clients. Si on veut mod
 _Attention : le proxy est géré aussi par ce fichier, par défaut il est paramétré sur 172.16.0.252, si l'on a autre chose, bien penser à modifier la valeur._
 * Dernière précision : si vous avez un Scribe en version 2.4, 2.5 ou 2.6, pensez à faire ceci pour avoir les partages réseaux :
 https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
-
-### TO DO
-
-- [x] totalement fonctionnel avec Ubuntu 14 
-- [ ] conky n'est pas beau sur Ubuntu 16.04 (Unity et Mate) :
 
 Ubuntu 16.04 :
 ![Ubuntu 16](https://framapic.org/L6QaKVozF0qH/9ZOEjWqbw4Zn.png)
