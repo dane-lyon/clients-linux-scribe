@@ -3,7 +3,7 @@
 
 # Ce script contient uniquement la partie "Esubuntu" (cf doc : https://github.com/dane-lyon/experimentation/blob/master/README.md)
 # Cela concerne uniquement les personnes qui ont déjà intégré leur poste via le script integrdom et qui veulent ajouter Esubuntu
-# Si vous n'avez pas encore utilisé le script d'intégration, ce script est inutile car la partie "esubuntu" est maintenant inclus dans le script IntegrDom (avec choix au lancement)
+# Si vous n'avez pas encore utilisé le script d'intégration, ce script est inutile car la partie "esubuntu" est maintenant incluse dans le script IntegrDom (avec choix au lancement)
 
 #téléchargement des paquets
 wget http://nux87.online.fr/esu_ubuntu/esu_ubuntu.zip
