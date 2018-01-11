@@ -11,20 +11,15 @@
 # - Elementary OS 0.4.1 (Pantheon)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 
-# ATTENTION : la version 18.04 de base (sous Gnome Shell) n'est actuellement pas compatible (blocage au démarrage) mais les variantes sembles OK !
+# ATTENTION : La 18.04 ne semble pas compatible avec l'intégration au domaine (problème de boot ou dossiers partagés manquants !)
+
+# Si vous activez "Esubuntu", le fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
 
 ###### Intégration pour un Scribe 2.3, 2.4, 2.5, 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
 #######################################################
 # Rappel des problèmes connus
 #######################################################
-
-### Par rapport aux anciennes versions de Mint
-# Pour les utilisateurs de Linux Mint : le gestionnaire de session à changé depuis la version 18.2 (passage de MDM vers LightDM),
-#ça ne posera pas de soucis particulier si vous faites une nouvelle installation puis l'intégration par contre ça ne fonctionnera
-#pas si vous faites une MaN (mise à niveau) depuis une version antérieure à la 18.2. La solution est de relancer la partie du 
-#script qui est spécifique à LightDM, raccourci ici : 
-# https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/lightdm_MaN_versMint182.sh
 
 ### Si vous avez un Scribe en version supérieur à 2.3, pour avoir les partages vous avez ceci à faire :
 # https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
@@ -47,27 +42,9 @@
 # - Ajout variable pour contrôle de la version
 # - Suppression de la notification de mise a niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
 
-# --------------------------------------------------------------------------------------------------------------------
-
-## Roadmap a faire plus tard pour la 18.04LTS :
-# [prioritaire]
-# - Pour le nouveau gestionnaire de session GDM, désactiver l'userlist. Procédure ici : https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
-# - Bug à résoudre sur "login-service" qui ne se lance pas en VM avec artful (si integrdom avant).
-# - Ne pas installer "Unity Tweak Tool" si la 18.04 est détecté et installer a la place "Gnome Tweak Tool"
-# - Ne pas lancer la partie du script qui concerne LightDM ou Unity (les 2 n'étant plus présent)
-# - Erreur avec install.css/libdvdread pour lire les DVD commerciaux avec artful
-# - Supprimer icon Amazon (supprimer le fichier : /usr/share/ubuntu-web-launchers/amazon...)
-
-# [secondaire]
-# - Installer par défaut "net-tools" (donne la possibilité de faire ifconfig)
-# - Envisager éventuellement d'installer en supplément la session "Vanilla" de Gnome 
-# - Envisager de désactiver les effets visuels de Gnome par défaut (pc des établissements généralement peu performant)
-# - Envisager de remplacer Totem par VLC ou MPV
-# - Sur le script de postinstall : Java8 devra être remplacé par Java9 
-# - Sur le script de postinstall : le paquet "openprinting-gutenprint" n'est plus bon (voir version + récente)
-# - Sur le script de postinstall : le paquet python (idle-python3.4) n'est plus bon (version + récente)
 
 # --------------------------------------------------------------------------------------------------------------------
+
 
 ## Liste des contributeurs au script :
 # Christophe Deze - Rectorat de Nantes
@@ -109,12 +86,12 @@ if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DIST
   version=xenial # Ubuntu 16.04 ou Linux Mint 18/18.3 ou Elementary OS 0.4.x
 fi
 
-if [ "$DISTRIB_RELEASE" = "18.04" ] ; then
+if [ "$DISTRIB_RELEASE" = "18.04" ] ; then 
   version=bionic # Ubuntu 18.04 (ajouter Mint 19 + Eos 0.5 plus tard !)
 fi
 
 ########################################################################
-#vérification de la bonne version d'Ubuntu
+# Vérification de version
 ########################################################################
 
 if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] && [ "$version" != "bionic" ] ; then
