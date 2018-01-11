@@ -153,7 +153,7 @@ fi
 ##############################################################################
 ### Utilisation du Script Esubuntu ?
 ##############################################################################
-read -p "Voulez-vous activer le script Esubuntu (cf doc avant : https://frama.link/esubuntu) ? [O/N] :" esubuntu
+read -p "Voulez-vous activer le script Esubuntu (cf doc avant : https://frama.link/esub) ? [O/N] :" esubuntu
 
 ########################################################################
 #rendre debconf silencieux
