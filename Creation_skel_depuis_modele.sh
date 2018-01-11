@@ -10,7 +10,7 @@
 #############################################
 if [ "$UID" -ne "0" ]
 then
-  echo "Il faut lancer ce script avec sudo => sudo ./skel2.sh"
+  echo "Il faut lancer ce script avec sudo => sudo ./script.sh"
   exit 
 fi
 
