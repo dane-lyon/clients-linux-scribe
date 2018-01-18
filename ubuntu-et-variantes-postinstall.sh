@@ -19,7 +19,7 @@ fi
 # Pour identifier le numéro de la version (14.04, 16.04...)
 . /etc/lsb-release
 
-# Affectation à la variable "version" suivant la variante utilisé
+# Affectation à la variable "version" suivant la variante utilisée
 
 if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -2)" = "17" ] ; then
   version=trusty
@@ -34,14 +34,14 @@ fi
 ########################################################################
 
 if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] ; then
-  echo "Vous n'êtes pas sûr une version compatible ! Le script est conçu uniquement pour les LTS (non-obsolètes), c'est a dire la 14.04 ou la 16.04"
+  echo "Vous n'êtes pas sur une version compatible ! Le script est conçu uniquement pour les LTS (non-obsolètes), c'est à dire la 14.04 ou la 16.04"
   exit
 fi
 
-# désactiver mode interractive pour automatiser l'installation de wireshark
+# désactiver mode intéractif pour automatiser l'installation de wireshark
 export DEBIAN_FRONTEND="noninteractive"
 
-# Vérification que le système est a jour
+# Vérification que le système est à jour
 apt-get update ; apt-get -y dist-upgrade
 
 #########################################
@@ -105,7 +105,7 @@ wget http://www.openprinting.org/download/printdriver/debian/dists/lsb3.2/contri
 dpkg -i openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb ;
 apt-get -fy install ;
 
-# driver spour les scanners les plus courants
+# drivers pour les scanners les plus courants
 
 apt-get -y install sane
 
@@ -129,7 +129,7 @@ apt-get -y install imagination openshot audacity vlc x264 ffmpeg2theora flac vor
 #[ Graphisme / Photo ]
 apt-get -y install blender sweethome3d gimp pinta inkscape gthumb mypaint hugin shutter
 
-#[ Systeme ]
+#[ Système ]
 apt-get -y install gparted vim pyrenamer rar unrar htop diodon p7zip-full gdebi
 
 # Wireshark
@@ -137,7 +137,7 @@ debconf-set-selections <<< "wireshark-common/install-setuid true"
 apt-get -y install wireshark 
 sed -i -e "s/,dialout/,dialout,wireshark/g" /etc/security/group.conf
 
-#[ Mathematiques ]
+#[ Mathématiques ]
 apt-get -y install geogebra algobox carmetal scilab
 
 #[ Sciences ]
@@ -153,7 +153,7 @@ add-apt-repository -y ppa:florian-rival/gdevelop
 apt-get update ; apt-get -y install gdevelop
 
 #[ Serveur ]
-#apt-get -y install openssh-server #a décommenter si vous utilisez "Ansible"
+#apt-get -y install openssh-server #à décommenter si vous utilisez "Ansible"
 #=======================================================================================================#
 
 
