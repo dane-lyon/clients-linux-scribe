@@ -13,8 +13,8 @@
 
 # ATTENTION : La 18.04 ne semble pas compatible avec l'intégration au domaine (problème de boot ou dossiers partagés manquants !)
 
-# Si vous activez "Esubuntu", le fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
-# Pour Esubuntu, pack a upbloader dans /netlogon/icones/{votre groupe esu} : https://github.com/dane-lyon/experimentation/raw/master/config_default.zip
+# Si vous activez "Esubuntu", la fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
+# Pour Esubuntu, pack à uploader dans /netlogon/icones/{votre groupe esu} : https://github.com/dane-lyon/experimentation/raw/master/config_default.zip
 
 ###### Intégration pour un Scribe 2.3, 2.4, 2.5, 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
@@ -22,7 +22,7 @@
 # Rappel des problèmes connus
 #######################################################
 
-### Si vous avez un Scribe en version supérieur à 2.3, pour avoir les partages vous avez ceci à faire :
+### Si vous avez un Scribe en version supérieure à 2.3, pour avoir les partages vous avez ceci à faire :
 # https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
 ### Si vous utilisez Oscar pour le déploiement de poste, à partir de la 16.04LTS, ce n'est compatible qu'avec les versions 
@@ -31,18 +31,18 @@
 # --------------------------------------------------------------------------------------------------------------------
 
 ## Changelog :
-# - paquet a installer smbfs remplacé par cifs-utils car il a changé de nom.
+# - paquet à installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
 # - désinstallation de certains logiciels inutiles suivant les variantes
 # - ajout fonction pour programmer l'extinction automatique des postes le soir
 # - lecture dvd inclus
 # - changement du thème MDM par défaut pour Mint (pour ne pas voir l'userlist)
-# - Ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur la 14.04
-# - Changement page d'acceuil Firefox
-# - Utilisation du Skel désormais compatible avec la 16.04
-# - Ajout variable pour contrôle de la version
-# - Suppression de la notification de mise a niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
-# - Prise en charge du script Esubuntu (crée par Olivier CALPETARD)
+# - ajout d'une ligne dans sudoers pour régler un problème avec GTK dans certains cas sur la 14.04
+# - changement page d'acceuil Firefox
+# - utilisation du Skel désormais compatible avec la 16.04
+# - ajout variable pour contrôle de la version
+# - suppression de la notification de mise à niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
+# - prise en charge du script Esubuntu (crée par Olivier CALPETARD)
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ fi
 ########################################################################
 
 if [ "$version" != "trusty" ] && [ "$version" != "xenial" ] && [ "$version" != "bionic" ] ; then
-  echo "Désolé, vous n'êtes pas sûr une version compatible !"
+  echo "Désolé, vous n'êtes pas sur une version compatible !"
   exit
 fi
 
@@ -130,10 +130,10 @@ else
 fi
 
 ###################################################
-# cron d'extinction automatique a lancer ?
+# cron d'extinction automatique à lancer ?
 ###################################################
 
-echo "Pour terminer, voulez vous activer l'extinction automatique des postes le soir ?"
+echo "Pour terminer, voulez-vous activer l'extinction automatique des postes le soir ?"
 echo "0 = non, pas d'extinction automatique le soir"
 echo "1 = oui, extinction a 19H00"
 echo "2 = oui, extinction a 20H00"
@@ -162,8 +162,8 @@ export DEBIAN_FRONTEND="noninteractive"
 export DEBIAN_PRIORITY="critical"
 
 ########################################################################
-#supression de l'applet switch-user pour ne pas voir les derniers connectés # Uniquement pour Ubuntu / Unity
-#paramétrage d'un laucher unity par défaut : nautilus, firefox, libreoffice, calculatrice, editeur de texte et capture d'ecran
+#suppression de l'applet switch-user pour ne pas voir les derniers connectés # Uniquement pour Ubuntu / Unity
+#paramétrage d'un laucher unity par défaut : nautilus, firefox, libreoffice, calculatrice, éditeur de texte et capture d'écran
 ########################################################################
 if [ "$(which unity)" = "/usr/bin/unity" ] ; then  # si Ubuntu/Unity alors :
 
@@ -201,7 +201,7 @@ port=$port_proxy
 
   glib-compile-schemas /usr/share/glib-2.0/schemas
 
-#Paramétrage du Proxy pour le systeme
+#Paramétrage du Proxy pour le système
 ######################################################################
 echo "http_proxy=http://$ip_proxy:$port_proxy/
 https_proxy=http://$ip_proxy:$port_proxy/
@@ -214,19 +214,19 @@ echo "Acquire::http::proxy \"http://$ip_proxy:$port_proxy/\";
 Acquire::ftp::proxy \"ftp://$ip_proxy:$port_proxy/\";
 Acquire::https::proxy \"https://$ip_proxy:$port_proxy/\";" > /etc/apt/apt.conf.d/20proxy
 
-#Permettre d'utiliser la commande add-apt-repository derriere un Proxy
+#Permettre d'utiliser la commande add-apt-repository derrière un Proxy
 ######################################################################
 echo "Defaults env_keep = https_proxy" >> /etc/sudoers
 
 fi
 
 # Modification pour ne pas avoir de problème lors du rafraichissement des dépots avec un proxy
-# cette ligne peut être commenté/ignoré si vous n'utilisez pas de proxy ou avec la 14.04.
+# cette ligne peut être commentée/ignorée si vous n'utilisez pas de proxy ou avec la 14.04.
 echo "Acquire::http::No-Cache true;" >> /etc/apt/apt.conf
 echo "Acquire::http::Pipeline-Depth 0;" >> /etc/apt/apt.conf
 
 
-# Vérification que le système est bien a jour
+# Vérification que le système est bien à jour
 apt-get update ; apt-get -y dist-upgrade
 
 ####################################################
@@ -263,7 +263,7 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   chmod -R +x ./esu_ubuntu
   ./esu_ubuntu/firefox/prof_firefox.sh
   
-  # Mise en place des wallpaper pour les élèves, profs, admin (pour bureau Unity)
+  # Mise en place des wallpapers pour les élèves, profs, admin (pour bureau Unity)
   wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
   unzip wallpaper.zip
   mv wallpaper /usr/share/
@@ -274,7 +274,7 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   # Si il reste encore une trace de cntlm dans xdg autostart :
   rm -f /etc/xdg/autostart/cntlm*
   
-  # Modification de la valeur en dur à la fin du fichier background.sh pour corresponde au bon groupe ESU
+  # Modification de la valeur en dur à la fin du fichier background.sh pour correspondre au bon groupe ESU
   sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
 fi
 
@@ -286,14 +286,14 @@ apt-get -y install ntpdate ;
 ntpdate $ip_scribe
 
 ########################################################################
-#installation des paquets necessaires
-#numlockx pour le verrouillage du pave numerique
+#installation des paquets nécessaires
+#numlockx pour le verrouillage du pavé numérique
 #unattended-upgrades pour forcer les mises à jour de sécurité à se faire
 ########################################################################
 apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unattended-upgrades
 
 ########################################################################
-# activation auto des mises à jour de sécu
+# activation auto des mises à jour de sécurité
 ########################################################################
 echo "APT::Periodic::Update-Package-Lists \"1\";
 APT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/20auto-upgrades
@@ -368,13 +368,13 @@ export DEBIAN_FRONTEND="dialog"
 export DEBIAN_PRIORITY="high"
 
 ########################################################################
-#parametrage du script de demontage du netlogon pour lightdm 
+#paramétrage du script de démontage du netlogon pour lightdm 
 ########################################################################
 if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
   touch /etc/lightdm/logonscript.sh
   grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
   if [ $? == 0 ] ; then
-    echo "Presession Ok"
+    echo "Présession Ok"
   else
     echo "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" >> /etc/lightdm/logonscript.sh
   fi
@@ -388,8 +388,8 @@ if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then
   chmod +x /etc/lightdm/logoffscript.sh
 
   ########################################################################
-  #parametrage du lightdm.conf
-  #activation du pave numerique par greeter-setup-script=/usr/bin/numlockx on
+  #paramétrage du lightdm.conf
+  #activation du pavé numérique par greeter-setup-script=/usr/bin/numlockx on
   ########################################################################
   echo "[SeatDefaults]
       allow-guest=false
@@ -430,7 +430,7 @@ if [ $? != 0 ]
 then
   sed -i "/<\!-- Volume definitions -->/a\ $eclairng" /etc/security/pam_mount.conf.xml
 else
-  echo "eclairng deja present"
+  echo "eclairng déjà présent"
 fi
 
 homes="<volume user=\"*\" fstype=\"cifs\" server=\"$ip_scribe\" path=\"perso\" mountpoint=\"~/Documents\" />"
@@ -438,7 +438,7 @@ grep "mountpoint=\"~\"" /etc/security/pam_mount.conf.xml  >/dev/null
 if [ $? != 0 ]
 then sed -i "/<\!-- Volume definitions -->/a\ $homes" /etc/security/pam_mount.conf.xml
 else
-  echo "homes deja present"
+  echo "homes déjà présent"
 fi
 
 netlogon="<volume user=\"*\" fstype=\"cifs\" server=\"$ip_scribe\" path=\"netlogon\" mountpoint=\"/tmp/netlogon\"  sgrp=\"DomainUsers\" />"
@@ -447,7 +447,7 @@ if [ $? != 0 ]
 then
   sed -i "/<\!-- Volume definitions -->/a\ $netlogon" /etc/security/pam_mount.conf.xml
 else
-  echo "netlogon deja present"
+  echo "netlogon déjà présent"
 fi
 
 grep "<cifsmount>mount -t cifs //%(SERVER)/%(VOLUME) %(MNTPT) -o \"noexec,nosetuids,mapchars,cifsacl,serverino,nobrl,iocharset=utf8,user=%(USER),uid=%(USERUID)%(before=\\",\\" OPTIONS)\"</cifsmount>" /etc/security/pam_mount.conf.xml  >/dev/null
@@ -455,7 +455,7 @@ if [ $? != 0 ]
 then
   sed -i "/<\!-- pam_mount parameters: Volume-related -->/a\ <cifsmount>mount -t cifs //%(SERVER)/%(VOLUME) %(MNTPT) -o \"noexec,nosetuids,mapchars,cifsacl,serverino,nobrl,iocharset=utf8,user=%(USER),uid=%(USERUID)%(before=\\",\\" OPTIONS)\"</cifsmount>" /etc/security/pam_mount.conf.xml
 else
-  echo "mount.cifs deja present"
+  echo "mount.cifs déjà présent"
 fi
 
 ########################################################################
@@ -468,7 +468,7 @@ export LANGUAGE=fr_FR.utf8
 " >> /etc/profile
 
 ########################################################################
-#ne pas creer les dossiers par defaut dans home
+#ne pas créer les dossiers par défaut dans home
 ########################################################################
 sed -i "s/enabled=True/enabled=False/g" /etc/xdg/user-dirs.conf
 
@@ -481,7 +481,7 @@ then
   sed -i "/%admin ALL=(ALL) ALL/a\%professeurs ALL=(ALL) ALL" /etc/sudoers
   sed -i "/%admin ALL=(ALL) ALL/a\%DomainAdmins ALL=(ALL) ALL" /etc/sudoers
 else
-  echo "prof deja dans sudo"
+  echo "prof déjà dans sudo"
 fi
 
 # Suppression de paquet inutile sous Ubuntu/Unity
@@ -523,7 +523,7 @@ if [ "$version" = "xenial" ] || [ "$version" = "bionic" ] ; then
   sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
 
-# Suppression de notification de mise a niveau 
+# Suppression de notification de mise à niveau 
 sed -r -i 's/Prompt=lts/Prompt=never/g' /etc/update-manager/release-upgrades
 
 ########################################################################
