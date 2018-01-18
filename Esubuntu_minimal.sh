@@ -35,7 +35,7 @@ echo "$salle" > /etc/GM_ESU
 chmod -R +x ./esu_ubuntu
 ./esu_ubuntu/firefox/prof_firefox.sh
   
-# Mise en place des wallpaper pour les élèves, profs, admin
+#mise en place des wallpaper pour les élèves, profs, admin
 wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
 unzip wallpaper.zip
 mv wallpaper /usr/share/
@@ -43,10 +43,10 @@ mv wallpaper /usr/share/
 #on inscrit la tache upkg dans crontab
 echo "*/20 * * * * root /etc/lightdm/groupe.sh" > /etc/crontab
   
-#dans le cas ou il resterai encore une trace de cntlm dans xdg autostart :
+#dans le cas ou il resterait encore une trace de cntlm dans xdg autostart :
 rm -f /etc/xdg/autostart/cntlm*
 
-# Modification de la valeur en dur a la fin du fichier background.sh pour corresponde au bon groupe ESU
+#modification de la valeur en dur à la fin du fichier background.sh pour correspondre au bon groupe ESU
 sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
 
 exit
