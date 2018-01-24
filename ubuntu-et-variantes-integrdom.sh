@@ -1,22 +1,21 @@
 #!/bin/bash
-# version 1.2
+# version 2.0
 
 # Testé & validé pour les distributions suivantes :
 ################################################
 # - Ubuntu 14.04 & 16.04 (Unity)
-# - Xubuntu 14.04 & 16.04 (Xfce)
+# - Xubuntu 14.04, 16.04 et 18.04 (Xfce)
 # - Lubuntu 14.04 & 16.04 (Lxde)
-# - Ubuntu Mate 16.04 (Mate)
-# - Ubuntu Budgie Remix 16.04 (Budgie)
-# - Elementary OS 0.4.1 (Pantheon)
+# - Ubuntu Mate 16.04 & 18.04 (Mate)
+# - Elementary OS 0.4 (Pantheon)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 
-# ATTENTION : La 18.04 ne semble pas compatible avec l'intégration au domaine (problème de boot ou dossiers partagés manquants !)
+# Attention : ne fonctionne pas actuellement sous Ubuntu 18.04 (version de base avec Gnome-Shell)
 
 # Si vous activez "Esubuntu", la fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
 # Pour Esubuntu, pack à uploader dans /netlogon/icones/{votre groupe esu} : https://github.com/dane-lyon/experimentation/raw/master/config_default.zip
 
-###### Intégration pour un Scribe 2.3, 2.4, 2.5, 2.6 avec les clients basés sur Trusty et Xenial ###### 
+###### Intégration pour un Scribe 2.3, 2.4, 2.5 et 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
 #######################################################
 # Rappel des problèmes connus
@@ -43,6 +42,7 @@
 # - ajout variable pour contrôle de la version
 # - suppression de la notification de mise à niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
 # - prise en charge du script Esubuntu (crée par Olivier CALPETARD)
+# - correction pour le montage des partages quand le noyau >= 4.13 dû au changement du protocole par défaut en SMB3
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -89,7 +89,7 @@ if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DIST
 fi
 
 if [ "$DISTRIB_RELEASE" = "18.04" ] ; then 
-  version=bionic # Ubuntu 18.04 (ajouter Mint 19 + Eos 0.5 plus tard !)
+  version=bionic # Ubuntu 18.04 (ajouter Mint 19 + Eos 0.5 plus tard)
 fi
 
 ########################################################################
