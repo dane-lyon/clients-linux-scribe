@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.1
+# version 2.2
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -45,6 +45,7 @@
 # - correction pour le montage des partages quand le noyau >= 4.13 dû au changement du protocole par défaut en SMB3
 # - modification config GDM pour la version de base en 18.04 avec GnomeShell pour ne pas afficher la liste des utilisateurs
 # - Ajout de raccourci pour le bureau + dossier de l'utilisateur pour les partages Perso, Documents et l'ensemble des partages.
+# - Suppression icone Amazon pour Ubuntu 18.04/GS
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -440,9 +441,10 @@ disable-user-list=true" > /etc/dconf/db/gdm.d/00-login-screen
 #prise en compte du changement
 dconf update
 
+# Suppression icone Amazon
+apt purge ubuntu-web-launchers -y
+
 fi
-
-
 
 
 ########################################################################
