@@ -43,6 +43,8 @@
 # - suppression de la notification de mise à niveau (sinon par exemple en 14.04, s'affiche sur tous les comptes au démarrage)
 # - prise en charge du script Esubuntu (crée par Olivier CALPETARD)
 # - correction pour le montage des partages quand le noyau >= 4.13 dû au changement du protocole par défaut en SMB3
+# - modification config GDM pour la version de base en 18.04 avec GnomeShell pour ne pas afficher la liste des utilisateurs
+# - Ajout de raccourci pour le bureau + dossier de l'utilisateur pour les partages Perso, Documents et l'ensemble des partages.
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -545,6 +547,14 @@ fi
 if [ "$version" = "xenial" ] || [ "$version" = "bionic" ] ; then
   sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
+
+# Création de raccourci sur le bureau + dans dossier utilisateur (pour la 18.04 uniquement) pour l'accès aux partages (commun+perso+lespartages)
+if [ "$version" = "bionic" ] ; then
+  wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/skel.tar.gz
+  tar -xzf skel.tar.gz -C /etc/
+  rm -f skel.tar.gz
+fi
+
 
 # Suppression de notification de mise à niveau 
 sed -r -i 's/Prompt=lts/Prompt=never/g' /etc/update-manager/release-upgrades
