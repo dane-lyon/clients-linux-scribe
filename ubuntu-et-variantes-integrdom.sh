@@ -1,12 +1,12 @@
 #!/bin/bash
-# version 2.0
+# version 2.1
 
 # Testé & validé pour les distributions suivantes :
 ################################################
 # - Ubuntu 14.04 & 16.04 (Unity)
 # - Xubuntu 14.04, 16.04 et 18.04 (Xfce)
 # - Lubuntu 14.04 & 16.04 (Lxde)
-# - Ubuntu Mate 16.04 & 18.04 (Mate)
+# - Ubuntu Mate 16.04 (Mate)
 # - Elementary OS 0.4 (Pantheon)
 # - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
 
@@ -419,6 +419,29 @@ fi
 if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then
   apt-get -y purge abiword gnumeric pidgin transmission-gtk sylpheed audacious guvcview ;
 fi
+
+########################################################################
+# Spécifique Ubuntu 18.04 avec Gnome Shell
+########################################################################
+if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ] ; then  # si GS installé
+
+# Désactiver userlist pour GDM
+echo "user-db:user
+system-db:gdm
+file-db:/usr/share/gdm/greeter-dconf-defaults" > /etc/dconf/profile/gdm
+
+mkdir /etc/dconf/db/gdm.d
+echo "[org/gnome/login-screen]
+# Do not show the user list
+disable-user-list=true" > /etc/dconf/db/gdm.d/00-login-screen
+
+#prise en compte du changement
+dconf update
+
+fi
+
+
+
 
 ########################################################################
 #Paramétrage pour remplir pam_mount.conf
