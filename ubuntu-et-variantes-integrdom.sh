@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.2
+# version 2.2.1
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -279,6 +279,9 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   
   # Modification de la valeur en dur à la fin du fichier background.sh pour correspondre au bon groupe ESU
   sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
+  
+  #nettoyage
+  rm -f esu_ubuntu.zip
 fi
 
 
@@ -552,7 +555,7 @@ fi
 
 # Création de raccourci sur le bureau + dans dossier utilisateur (pour la 18.04 uniquement) pour l'accès aux partages (commun+perso+lespartages)
 if [ "$version" = "bionic" ] ; then
-  wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/skel.tar.gz
+  wget http://nux87.free.fr/pour_script_integrdom/skel.tar.gz
   tar -xzf skel.tar.gz -C /etc/
   rm -f skel.tar.gz
 fi
