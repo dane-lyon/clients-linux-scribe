@@ -3,13 +3,13 @@
 Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4, 2.5 ou 2.6 
 
 Les clients supportés/testés avec les scripts sont les suivants :
-- Ubuntu (Environnement Unity) 14.04 et 16.04
-- Xubuntu (Environnement XFCE) 14.04 et 16.04
-- Lubuntu (Environnement LXDE) 14.04 et 16.04
-- Ubuntu Mate (Environnement Mate) 16.04
-- Linux Mint (Environnement Cinammon, Mate ou Xfce) 17.X et 18.X
-- Ubuntu Budgie Remix (Environnement Budgie) 16.04
-- Elementary OS (Environenement Pantheon) 0.4
+- Ubuntu (Unity) 14.04, 16.04 et (Gnome Shell) 18.04
+- Xubuntu (XFCE) 14.04, 16.04 et 18.04
+- Lubuntu (LXDE) 14.04, 16.04 et 18.04
+- Ubuntu Mate (Mate) 16.04 et 18.04
+- Ubuntu Budgie (Budgie) 18.04
+- Linux Mint (Cinammon/Mate/Xfce) 17.X et 18.X (et probablement la future 19.X)
+- Elementary OS (Pantheon) 0.4 (et probablement la future 5.0)
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
@@ -53,7 +53,7 @@ Vous pouvez éditer les valeurs par défaut en début de script afin de les adap
 
 #### Personnalisation des menus de l'environnement Unity
 
-Pour personnaliser le menu d'Unity à tous les utilisateurs, chercher dans le script ces lignes :
+Pour personnaliser le menu d'Unity (sur les anciennes versions d'Ubuntu) à tous les utilisateurs, chercher dans le script ces lignes :
 
 	echo "[com.canonical.indicator.session]
 	user-show-menu=false
