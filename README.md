@@ -5,9 +5,9 @@ Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eol
 Les clients supportés/testés avec les scripts sont les suivants :
 - Ubuntu (Unity) 14.04, 16.04 et (Gnome Shell) 18.04
 - Xubuntu (XFCE) 14.04, 16.04 et 18.04
-- Lubuntu (LXDE) 14.04, 16.04 et 18.04
-- Ubuntu Mate (Mate) 16.04 et 18.04
-- Ubuntu Budgie (Budgie) 18.04
+- Lubuntu (LXDE) 14.04, 16.04 et (Lxde/LxQt) 18.04 
+- Ubuntu Mate 16.04 et 18.04
+- Ubuntu Budgie 18.04
 - Linux Mint (Cinammon/Mate/Xfce) 17.X et 18.X (et probablement la future 19.X)
 - Elementary OS (Pantheon) 0.4 (et probablement la future 5.0)
 
