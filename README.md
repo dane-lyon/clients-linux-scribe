@@ -1,4 +1,4 @@
-## Scripts pour Client Scribe (x)Ubuntu 14.04 & 16.04
+## Scripts pour Client Scribe (x)Ubuntu 14.04, 16.04 et 18.04
 
 Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4, 2.5 ou 2.6 
 
