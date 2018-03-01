@@ -1,16 +1,15 @@
 #!/bin/bash
-# version 2.2.1
+# version 2.3
 
 # Testé & validé pour les distributions suivantes :
 ################################################
-# - Ubuntu 14.04 & 16.04 (Unity)
+# - Ubuntu 14.04 & 16.04 (Unity) & 18.04 (Gnome Shell)
 # - Xubuntu 14.04, 16.04 et 18.04 (Xfce)
-# - Lubuntu 14.04 & 16.04 (Lxde)
-# - Ubuntu Mate 16.04 (Mate)
+# - Lubuntu 14.04 & 16.04 (Lxde) et 18.04 (Lxde/LxQt)
+# - Ubuntu Mate 16.04 & 18.04 (Mate)
+# - Ubuntu Budgie 18.04 (Budgie)
 # - Elementary OS 0.4 (Pantheon)
-# - Linux Mint 17.X & 18.X (Cinnamon, Mate, Xfce)
-
-# Attention : ne fonctionne pas actuellement sous Ubuntu 18.04 (version de base avec Gnome-Shell)
+# - Linux Mint 17.X & 18.X (Cinnamon/Mate/Xfce)
 
 # Si vous activez "Esubuntu", la fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
 # Pour Esubuntu, pack à uploader dans /netlogon/icones/{votre groupe esu} : https://github.com/dane-lyon/experimentation/raw/master/config_default.zip
