@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.0.1
+# version 2.0.2
 
 # Ce script sert à installer des logiciels supplémentaires utiles pour les collèges & lyçées
 # Ce script est utilisable pour Ubuntu et variantes en 14.04, 16.04 et 18.04
@@ -201,7 +201,8 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] ; then # si Xubuntu/Xfce alors :
   #[ Paquet AddOns ]
   apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-  # Customisation XFCE (testé sous 14.04)
+  # Customisation XFCE (pour 14.04 ou 16.04)
+if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then
   add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank ;
   wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
 fi
