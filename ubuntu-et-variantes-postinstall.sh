@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.0.0
+# version 2.0.1
 
 # Ce script sert à installer des logiciels supplémentaires utiles pour les collèges & lyçées
 # Ce script est utilisable pour Ubuntu et variantes en 14.04, 16.04 et 18.04
@@ -55,12 +55,12 @@ if [ "$version" = "trusty" ] ; then
   # paquet
   apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
 
-  # Backportage LibreOffice
+  # Backportage LibreOffice (sinon version trop ancienne sur la 14.04)
   add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
 
-  # Pour Google Earth : 
-  apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
-  wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
+  # Pour Google Earth => a décommenter pour l'installer !  
+  #apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
+  #wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
 fi
 
 #########################################
@@ -72,14 +72,17 @@ if [ "$version" = "xenial" ] ; then
   apt install -y libreoffice-style-breeze ;
   # paquet
   apt install -y idle-python3.5 x265 ;
+  
+  # Backportage LibreOffice (si besoin de backporter LO, décommenter !)
+  #add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
 
-  # Pour Google Earth (64 bits only) sur Xenial #a décommenter pour avoir google earth sur une 16.04 !
-  wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
-  wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
-  wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
-  dpkg -i lsb*.deb
-  dpkg -i google-earth*.deb
-  apt-get -fy install 
+  # Pour Google Earth x64 #A décommenter pour installer Google Earth !
+  #wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
+  #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
+  #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
+  #dpkg -i lsb*.deb
+  #dpkg -i google-earth*.deb
+  #apt-get -fy install 
   
   # Pour Celestia X64 # A décommenter si vous voulez Celestia pour la 16.04
   wget --no-check-certificate https://raw.githubusercontent.com/sibe39/scripts_divers/master/Celestia_On_Xenial.sh
@@ -94,17 +97,17 @@ if [ "$version" = "bionic" ] ; then
   # paquet
   apt install -y idle-python3.6 x265
 
-  # Backportage LibreOffice
-  add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
+  # Backportage LibreOffice (si besoin de backporter LO, décommenter !)
+  #add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
 
-  # Google Earth Pro 
-  wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
-  dpkg -i google-earth-pro-stable_current_amd64.deb
-  apt install -fy ; rm google-earth-pro-stable_current_amd64.deb
+  # Google Earth Pro x64 (=> A décommenter pour installer Google Earth !)
+  #wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
+  #dpkg -i google-earth-pro-stable_current_amd64.deb
+  #apt install -fy ; rm google-earth-pro-stable_current_amd64.deb
   
-  # Celestia
-  wget --no-check-certificate https://raw.githubusercontent.com/BionicBeaver/Divers/master/CelestiaBionic.sh
-  chmod +x CelestiaBionic.sh ; ./CelestiaBionic.sh ; rm CelestiaBionic.sh
+  # Celestia (=> A décommenter pour installer Celestia !)
+  #wget --no-check-certificate https://raw.githubusercontent.com/BionicBeaver/Divers/master/CelestiaBionic.sh
+  #chmod +x CelestiaBionic.sh ; ./CelestiaBionic.sh ; rm CelestiaBionic.sh
   
   # Pilote imprimante openprinting
   apt install -y openprinting-ppds
@@ -198,7 +201,7 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] ; then # si Xubuntu/Xfce alors :
   #[ Paquet AddOns ]
   apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-  # Customisation XFCE
+  # Customisation XFCE (testé sous 14.04)
   add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank ;
   wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
 fi
