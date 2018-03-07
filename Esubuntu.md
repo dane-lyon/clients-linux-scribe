@@ -64,6 +64,9 @@ avec celui présent en local sur les machines, si il y a une différence, alors 
 maximum avant d'avoir le script de lancé sur les postes clients. Si on veut modifier cette durée, c'est dans le fichier 
 /etc/crontab.
 
+A noté que depuis votre client linux, vous pouvez directement accéder/modifier les fichiers de votre groupe esu linux (à condition d'avoir biensûr redémarré le poste après l'intégration au domaine) en accédant au répertoire suivant :
+/tmp/netlogon/icones/{nom de votre groupe esu linux}/
+
 
 ### Paramétrages complémentaires
 
