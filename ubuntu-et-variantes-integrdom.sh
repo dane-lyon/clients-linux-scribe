@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3
+# version 2.3.1
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -13,6 +13,7 @@
 
 # Si vous activez "Esubuntu", la fonction de déport distant des wallpapers ne fonctionnera que sur Ubuntu/Unity 14.04/16.04 (pas les variantes)
 # Pour Esubuntu, pack à uploader dans /netlogon/icones/{votre groupe esu} : https://github.com/dane-lyon/experimentation/raw/master/config_default.zip
+# Esubuntu fonctionne sous Ubuntu Mate 18.04 pour le déploiement d'application/script
 
 ###### Intégration pour un Scribe 2.3, 2.4, 2.5 et 2.6 avec les clients basés sur Trusty et Xenial ###### 
 
@@ -45,6 +46,7 @@
 # - modification config GDM pour la version de base en 18.04 avec GnomeShell pour ne pas afficher la liste des utilisateurs
 # - Ajout de raccourci pour le bureau + dossier de l'utilisateur pour les partages Perso, Documents et l'ensemble des partages.
 # - Suppression icone Amazon pour Ubuntu 18.04/GS
+# - Ajout de l'utilitaire "net-tools" pour la commande ifconfig
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -247,6 +249,9 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
   apt-get update
   apt-get install -y zenity conky
+  
+  # Ajout de Net-tools pour ifconfig en 18.04 et futures versions
+  apt-get install -y net-tools
 
   # Copie des fichiers
   cp -rf ./esu_ubuntu/lightdm/* /etc/lightdm/
@@ -407,9 +412,8 @@ fi
 
 # echo "GVFS_DISABLE_FUSE=1" >> /etc/environment
 
-########################################################################
-# Modification Gestionnaire de session MDM Linux Mint
-########################################################################
+
+# Modification ancien gestionnaire de session MDM (Mint<18.2)
 if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (ancienne version de Mint <17.2)
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf #backup du fichier de config de mdm
   wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/mdm.conf ; mv -f mdm.conf /etc/mdm/ ; 
@@ -426,7 +430,7 @@ if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then
 fi
 
 ########################################################################
-# Spécifique Ubuntu 18.04 avec Gnome Shell
+# Spécifique Gnome Shell
 ########################################################################
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ] ; then  # si GS installé
 
