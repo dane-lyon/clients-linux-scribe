@@ -71,6 +71,9 @@ A noté que depuis votre client linux, vous pouvez directement accéder/modifier
 ### Paramétrages complémentaires
 
 * Il est possible de personnaliser le panel conky en allant dans son groupe ESU puis "conky" et enfin fichier "conky.cfg"
+
+Par exemple, si l'adresse IP du poste ne s'affichage pas dans conky, c'est probablement parceque l'interface réseau de vos postes n'a pas le mme nom que celle indiqué dans conky dans ce cas il vous suffit de regarder (via la commande "ifconfig") le nom de votre interface réseau et de remplacer dans le fichier conky.cfg "${addr eth0}" par "${addr VotreInterface}"
+
 * La config de Firefox est déporté aussi dans le groupe_esu. Il est ainsi possible de modifier la page d’accueil et le proxy de tous les postes d'un seul coup, pour cela il faut modifier le fichier "firefox.js" dans le dossier "linux" du groupe esu.
 _Attention : le proxy est géré aussi par ce fichier, par défaut il est paramétré sur 172.16.0.252, si l'on a autre chose, bien penser à modifier la valeur._
 * Dernière précision : si vous avez un Scribe en version 2.4, 2.5 ou 2.6, pensez à faire ceci pour avoir les partages réseaux :
