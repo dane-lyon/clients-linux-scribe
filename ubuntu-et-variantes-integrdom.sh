@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.1
+# version 2.3.2
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -47,6 +47,7 @@
 # - Ajout de raccourci pour le bureau + dossier de l'utilisateur pour les partages Perso, Documents et l'ensemble des partages.
 # - Suppression icone Amazon pour Ubuntu 18.04/GS
 # - Ajout de l'utilitaire "net-tools" pour la commande ifconfig
+# - Condition pour ne pas activer le PPA de conky si c'est une version supérieur à 16.04 (utilisé par Esubuntu)
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -157,7 +158,7 @@ fi
 ##############################################################################
 ### Utilisation du Script Esubuntu ?
 ##############################################################################
-read -p "Voulez-vous activer le script Esubuntu (cf doc avant : https://frama.link/esub) ? [O/N] :" esubuntu
+read -p "Voulez-vous activer le script Esubuntu (cf doc avant : https://frama.link/esub) ? [o/N] :" esubuntu
 
 ########################################################################
 #rendre debconf silencieux
@@ -246,8 +247,10 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   chmod -R 777 /usr/local/upkg_client
 
   # Installation de zenity et conky
-  add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
-  apt-get update
+  if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then  #ajout du ppa uniquement pour trusty et xenial
+    add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
+    apt-get update
+  fi
   apt-get install -y zenity conky
   
   # Ajout de Net-tools pour ifconfig en 18.04 et futures versions
