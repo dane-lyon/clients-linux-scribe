@@ -87,15 +87,15 @@ fi
 # Affectation à la variable "version" suivant la variante utilisé
 
 if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
-  version=trusty # Ubuntu 14.04 ou Linux Mint 17/17.3
+  version=trusty # Ubuntu 14.04 / Linux Mint 17/17.3
 fi
 
 if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.3" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -3)" = "0.4" ] ; then
-  version=xenial # Ubuntu 16.04 ou Linux Mint 18/18.3 ou Elementary OS 0.4.x
+  version=xenial # Ubuntu 16.04 / Linux Mint 18/18.3 / Elementary OS 0.4.x
 fi
 
-if [ "$DISTRIB_RELEASE" = "18.04" ] ; then 
-  version=bionic # Ubuntu 18.04 (ajouter Mint 19 + Eos 0.5 plus tard)
+if [ "$DISTRIB_RELEASE" = "18.04" ] || [ "$DISTRIB_RELEASE" = "19" ] || [ "$DISTRIB_RELEASE" = "5.0" ] ; then 
+  version=bionic # Ubuntu 18.04 / Mint 19 / Elementary OS 5.0
 fi
 
 ########################################################################
