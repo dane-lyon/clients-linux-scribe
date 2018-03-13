@@ -5,6 +5,20 @@
 # Cela concerne uniquement les personnes qui ont déjà intégré leur poste via le script integrdom et qui veulent ajouter Esubuntu
 # Si vous n'avez pas encore utilisé le script d'intégration, ce script est inutile car la partie "esubuntu" est maintenant incluse dans le script IntegrDom (avec choix au lancement)
 
+# Affectation à la variable "version" suivant la variante utilisé
+. /etc/lsb-release
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
+  version=trusty # Ubuntu 14.04 ou Linux Mint 17/17.3
+fi
+
+if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18" ] || [ "$DISTRIB_RELEASE" = "18.3" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -3)" = "0.4" ] ; then
+  version=xenial # Ubuntu 16.04 ou Linux Mint 18/18.3 ou Elementary OS 0.4.x
+fi
+
+if [ "$DISTRIB_RELEASE" = "18.04" ] || [ "$DISTRIB_RELEASE" = "19" ] || [ "$DISTRIB_RELEASE" = "5.0" ] ; then 
+  version=bionic # Ubuntu 18.04 
+fi
+
 #téléchargement des paquets
 wget http://nux87.online.fr/esu_ubuntu/esu_ubuntu.zip
 unzip esu_ubuntu.zip
@@ -14,9 +28,11 @@ mkdir /usr/local/upkg_client/
 chmod -R 777 /usr/local/upkg_client
 
 #installation de cntlm zenity et conky
-add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
-apt-get update
-apt-get install -y zenity conky #cntlm 
+if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then  #ajout du ppa uniquement pour trusty et xenial
+    add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
+    apt-get update
+fi
+apt-get install -y zenity conky
 
 #on lance la copie des fichiers
 cp -rf ./esu_ubuntu/lightdm/* /etc/lightdm/
