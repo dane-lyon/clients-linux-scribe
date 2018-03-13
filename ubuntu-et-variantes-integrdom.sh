@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.2
+# version 2.3.3
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -48,6 +48,7 @@
 # - Suppression icone Amazon pour Ubuntu 18.04/GS
 # - Ajout de l'utilitaire "net-tools" pour la commande ifconfig
 # - Condition pour ne pas activer le PPA de conky si c'est une version supérieur à 16.04 (utilisé par Esubuntu)
+# - Ajout de Vim car logiciel utile de base (en alternative à nano)
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -286,6 +287,9 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   
   # Modification de la valeur en dur à la fin du fichier background.sh pour correspondre au bon groupe ESU
   sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
+  
+  # Logiciel utile
+  apt-get install -y vim htop
   
   #nettoyage
   rm -f esu_ubuntu.zip
