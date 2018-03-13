@@ -288,9 +288,6 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   # Modification de la valeur en dur à la fin du fichier background.sh pour correspondre au bon groupe ESU
   sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
   
-  # Logiciel utile
-  apt-get install -y vim htop
-  
   #nettoyage
   rm -f esu_ubuntu.zip
 fi
@@ -549,9 +546,16 @@ apt-get -y purge indicator-messages
 # Changement page d'accueil firefox
 echo "user_pref(\"browser.startup.homepage\", \"$pagedemarragepardefaut\");" >> /usr/lib/firefox/defaults/pref/channel-prefs.js
 
-# Lecture DVD
-apt-get -y install libdvdread4
-bash /usr/share/doc/libdvdread4/install-css.sh
+# Logiciel utile
+apt-get install -y vim htop
+
+# Lecture DVD sur Ubuntu 16.04 et supérieur ## répondre oui aux question posés...
+#apt install -y libdvd-pkg ; dpkg-reconfigure libdvd-pkg
+
+# Lecture DVD sur Ubuntu 14.04
+if [ "$version" = "trusty" ] ; then
+  apt-get install -y libdvdread4 && bash /usr/share/doc/libdvdread4/install-css.sh
+fi
 
 # Résolution problème GTK dans certains cas uniquement pour Trusty (exemple pour lancer gedit directement avec : sudo gedit)
 if [ "$version" = "trusty" ] ; then
