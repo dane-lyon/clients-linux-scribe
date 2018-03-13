@@ -1,5 +1,5 @@
 #!/bin/bash
-#v0.4
+#v0.5
 
 # Ce script contient uniquement la partie "Esubuntu" (cf doc : https://github.com/dane-lyon/experimentation/blob/master/README.md)
 # Cela concerne uniquement les personnes qui ont déjà intégré leur poste via le script integrdom et qui veulent ajouter Esubuntu
