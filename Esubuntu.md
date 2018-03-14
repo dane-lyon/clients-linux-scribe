@@ -81,7 +81,3 @@ https://dane.ac-lyon.fr/spip/Client-Linux-activer-les-partages
 
 Ubuntu 16.04 :
 ![Ubuntu 16](https://framapic.org/L6QaKVozF0qH/9ZOEjWqbw4Zn.png)
-
-Ubuntu Mate 16.04 :
-![Mate 16](https://framapic.org/oDHoCeh6MKWi/ruIRBcNPcbKH.png)
-
