@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.3
+# version 2.3.4
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -241,6 +241,7 @@ apt-get update ; apt-get -y dist-upgrade
 if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then  
   # Téléchargement des paquets
   wget http://nux87.online.fr/esu_ubuntu/esu_ubuntu.zip
+  #Lien alternatif mais qui peux poser problème pour le DL automatique : https://github.com/dane-lyon/fichier-de-config/raw/master/esu_ubuntu.zip
   unzip esu_ubuntu.zip
   
   # Création du dossier upkg
@@ -276,6 +277,7 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   
   # Mise en place des wallpapers pour les élèves, profs, admin (pour bureau Unity)
   wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
+  #Lien alternatif : https://github.com/dane-lyon/fichier-de-config/raw/master/wallpaper.zip
   unzip wallpaper.zip
   mv wallpaper /usr/share/
 
@@ -384,7 +386,7 @@ export DEBIAN_PRIORITY="high"
 ########################################################################
 #paramétrage du script de démontage du netlogon pour lightdm 
 ########################################################################
-if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then 
+if [ "$(which lightdm)" = "/usr/sbin/lightdm" ] ; then #Si lightDM présent
   touch /etc/lightdm/logonscript.sh
   grep "if mount | grep -q \"/tmp/netlogon\" ; then umount /tmp/netlogon ;fi" /etc/lightdm/logonscript.sh  >/dev/null
   if [ $? == 0 ] ; then
@@ -417,7 +419,7 @@ fi
 # echo "GVFS_DISABLE_FUSE=1" >> /etc/environment
 
 
-# Modification ancien gestionnaire de session MDM (Mint<18.2)
+# Modification ancien gestionnaire de session MDM
 if [ "$(which mdm)" = "/usr/sbin/mdm" ] ; then # si MDM est installé (ancienne version de Mint <17.2)
   cp /etc/mdm/mdm.conf /etc/mdm/mdm_old.conf #backup du fichier de config de mdm
   wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/fichier-de-config/master/mdm.conf ; mv -f mdm.conf /etc/mdm/ ; 
