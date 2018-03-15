@@ -14,8 +14,8 @@ Il permet :
 
 ### Mise en place d'Esubuntu 
 
-_**RAPPEL : validé/testé pour Ubuntu/Unity en 14.04 et 16.04)**_
-(Fonctionne aussi sous Ubuntu Mate 16.04 sauf le déport des fonds d'écrans)
+_**RAPPEL : validé/testé pour Ubuntu/Unity en 14.04 et 16.04 ainsi que Ubuntu Mate 16.06/18.04)**_
+La partie "Esubuntu" n'est pas compatible avec Ubuntu/Gnome 18.04 !
 
 #### Mise en place du script
 
