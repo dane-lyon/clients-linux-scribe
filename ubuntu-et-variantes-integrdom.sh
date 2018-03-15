@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.4
+# version 2.3.5
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -49,6 +49,7 @@
 # - Ajout de l'utilitaire "net-tools" pour la commande ifconfig
 # - Condition pour ne pas activer le PPA de conky si c'est une version supérieur à 16.04 (utilisé par Esubuntu)
 # - Ajout de Vim car logiciel utile de base (en alternative à nano)
+# - Changement de commande d'installation : apt-get => apt
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -233,7 +234,7 @@ echo "Acquire::http::Pipeline-Depth 0;" >> /etc/apt/apt.conf
 
 
 # Vérification que le système est bien à jour
-apt-get update ; apt-get -y dist-upgrade
+apt update ; apt full-upgrade -y
 
 ####################################################
 # Téléchargement + Mise en place de Esubuntu (si activé)
@@ -251,12 +252,12 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   # Installation de zenity et conky
   if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then  #ajout du ppa uniquement pour trusty et xenial
     add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
-    apt-get update
+    apt update
   fi
-  apt-get install -y zenity conky
+  apt install -y zenity conky
   
   # Ajout de Net-tools pour ifconfig en 18.04 et futures versions
-  apt-get install -y net-tools
+  apt install -y net-tools
 
   # Copie des fichiers
   cp -rf ./esu_ubuntu/lightdm/* /etc/lightdm/
@@ -298,7 +299,7 @@ fi
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
 ########################################################################
-apt-get -y install ntpdate ;
+apt install -y ntpdate ;
 ntpdate $ip_scribe
 
 ########################################################################
@@ -306,7 +307,7 @@ ntpdate $ip_scribe
 #numlockx pour le verrouillage du pavé numérique
 #unattended-upgrades pour forcer les mises à jour de sécurité à se faire
 ########################################################################
-apt-get install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unattended-upgrades
+apt install -y ldap-auth-client libpam-mount cifs-utils nscd numlockx unattended-upgrades
 
 ########################################################################
 # activation auto des mises à jour de sécurité
@@ -375,7 +376,12 @@ pam-auth-update consolekit ldap libpam-mount unix mkhomedir my_groups --force
 ########################################################################
 # mise en place des groupes pour les users ldap dans /etc/security/group.conf
 ########################################################################
-grep "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" /etc/security/group.conf  >/dev/null; if [ $? != 0 ];then echo "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" >> /etc/security/group.conf; else echo "group.conf ok";fi
+grep "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" /etc/security/group.conf  >/dev/null; 
+
+if [ $? != 0 ] ; then 
+  echo "*;*;*;Al0000-2400;floppy,audio,cdrom,video,plugdev,scanner,dialout" >> /etc/security/group.conf 
+  else echo "group.conf ok"
+fi
 
 ########################################################################
 #on remet debconf dans sa conf initiale
@@ -427,12 +433,12 @@ fi
 
 # Si Ubuntu Mate
 if [ "$(which caja)" = "/usr/bin/caja" ] ; then
-  apt-get -y purge hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox ;
+  apt purge -y hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox ;
 fi
 
 # Si Lubuntu (lxde)
 if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then
-  apt-get -y purge abiword gnumeric pidgin transmission-gtk sylpheed audacious guvcview ;
+  apt purge -y abiword gnumeric pidgin transmission-gtk sylpheed audacious guvcview ;
 fi
 
 ########################################################################
@@ -454,7 +460,7 @@ disable-user-list=true" > /etc/dconf/db/gdm.d/00-login-screen
 dconf update
 
 # Suppression icone Amazon
-apt purge ubuntu-web-launchers -y
+apt purge -y ubuntu-web-launchers
 
 fi
 
@@ -524,10 +530,10 @@ else
 fi
 
 # Suppression de paquet inutile sous Ubuntu/Unity
-apt-get -y purge aisleriot gnome-mahjongg ;
+apt purge -y aisleriot gnome-mahjongg ;
 
 # Pour être sûr que les paquets suivant (parfois présent) ne sont pas installés :
-apt-get -y purge pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric thunderbird mintwelcome ;
+apt purge -y pidgin transmission-gtk gnome-mines gnome-sudoku blueman abiword gnumeric thunderbird mintwelcome ;
 
 
 ########################################################################
@@ -543,23 +549,23 @@ mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 ########################################################################
 #suppression du menu messages
 ########################################################################
-apt-get -y purge indicator-messages 
+apt purge -y indicator-messages 
 
 # Changement page d'accueil firefox
 echo "user_pref(\"browser.startup.homepage\", \"$pagedemarragepardefaut\");" >> /usr/lib/firefox/defaults/pref/channel-prefs.js
 
-# Logiciel utile
-apt-get install -y vim htop
+# Logiciels utiles
+apt install -y vim htop
 
 # Lecture DVD sur Ubuntu 16.04 et supérieur ## répondre oui aux question posés...
 #apt install -y libdvd-pkg ; dpkg-reconfigure libdvd-pkg
 
 # Lecture DVD sur Ubuntu 14.04
 if [ "$version" = "trusty" ] ; then
-  apt-get install -y libdvdread4 && bash /usr/share/doc/libdvdread4/install-css.sh
+  apt install -y libdvdread4 && bash /usr/share/doc/libdvdread4/install-css.sh
 fi
 
-# Résolution problème GTK dans certains cas uniquement pour Trusty (exemple pour lancer gedit directement avec : sudo gedit)
+# Résolution problème dans certains cas uniquement pour Trusty (exemple pour lancer gedit directement avec : sudo gedit)
 if [ "$version" = "trusty" ] ; then
   echo 'Defaults        env_keep += "DISPLAY XAUTHORITY"' >> /etc/sudoers
 fi
@@ -583,8 +589,7 @@ sed -r -i 's/Prompt=lts/Prompt=never/g' /etc/update-manager/release-upgrades
 ########################################################################
 #nettoyage station avant clonage
 ########################################################################
-apt-get -y autoremove --purge
-apt-get -y clean
+apt-get -y autoremove --purge ; apt-get -y clean ; clear ;
 
 ########################################################################
 #FIN
