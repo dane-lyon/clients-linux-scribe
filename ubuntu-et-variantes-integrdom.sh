@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.5
+# version 2.3.6
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -239,7 +239,12 @@ apt update ; apt full-upgrade -y
 ####################################################
 # Téléchargement + Mise en place de Esubuntu (si activé)
 ####################################################
-if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then  
+if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then 
+
+  if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ] ; then # Si version de base sous Gnome
+    mkdir /etc/lightdm # uniquement pour les besoins d'Esubuntu puisque LightDM n'est pas installé
+  fi
+  
   # Téléchargement des paquets
   wget http://nux87.online.fr/esu_ubuntu/esu_ubuntu.zip
   #Lien alternatif mais qui peux poser problème pour le DL automatique : https://github.com/dane-lyon/fichier-de-config/raw/master/esu_ubuntu.zip
