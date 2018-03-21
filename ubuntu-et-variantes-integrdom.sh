@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.6
+# version 2.3.7
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -29,7 +29,7 @@
 
 # --------------------------------------------------------------------------------------------------------------------
 
-## Changelog :
+### Changelog depuis version originale (pour 12.04/14.04 à l'époque) :
 # - paquet à installer smbfs remplacé par cifs-utils car il a changé de nom.
 # - ajout groupe dialout
 # - désinstallation de certains logiciels inutiles suivant les variantes
@@ -50,6 +50,8 @@
 # - Condition pour ne pas activer le PPA de conky si c'est une version supérieur à 16.04 (utilisé par Esubuntu)
 # - Ajout de Vim car logiciel utile de base (en alternative à nano)
 # - Changement de commande d'installation : apt-get => apt
+# - Applet réseau finalement non-supprimé
+# - Possibilité d'enchainer automatiquement avec le script de post-install une fois le script terminé (via 1 paramètre de commande) 
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -549,7 +551,7 @@ echo "enabled=0" > /etc/default/apport
 ########################################################################
 #suppression de l'applet network-manager
 ########################################################################
-mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
+#mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/nm-applet.old
 
 ########################################################################
 #suppression du menu messages
@@ -587,14 +589,24 @@ if [ "$version" = "bionic" ] ; then
   rm -f skel.tar.gz
 fi
 
-
 # Suppression de notification de mise à niveau 
 sed -r -i 's/Prompt=lts/Prompt=never/g' /etc/update-manager/release-upgrades
+
+# Enchainer sur un script de Postinstallation sur demande (facultatif)
+if [ "$1" = "pi" ] ; then # Pour 14.04/16.04/18.04
+  wget --no-check-certificate https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-postinstall.sh 
+  chmod +x ubuntu-et-variantes-postinstall.sh ; ./ubuntu-et-variantes-postinstall.sh ; rm -f ubuntu*.sh ;
+fi
+
+if [ "$1" = "extra" ] ; then # Pour 18.04 uniquement
+  wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Ubuntu18.04_Bionic_Postinstall.sh
+  chmod +x Ubuntu18.04_Bionic_Postinstall.sh ; ./Ubuntu18.04_Bionic_Postinstall.sh ; rm -f Ubuntu*.sh ;
+fi
 
 ########################################################################
 #nettoyage station avant clonage
 ########################################################################
-apt-get -y autoremove --purge ; apt-get -y clean ; clear ;
+apt-get -y autoremove --purge ; apt-get -y clean ; clear
 
 ########################################################################
 #FIN
