@@ -1,8 +1,10 @@
 #!/bin/bash
-# version 2.0.2
+# version 2.0.3
 
 # Ce script sert à installer des logiciels supplémentaires utiles pour les collèges & lyçées
 # Ce script est utilisable pour Ubuntu et variantes en 14.04, 16.04 et 18.04
+
+# Bonus : pour installer Google Earth + la lecture de dvd à la fin, utiliser le paramètre "--extra" => sudo ./script.sh --extra
 
 #############################################
 # Run using sudo, of course.
@@ -17,16 +19,16 @@ fi
 
 # Affectation à la variable "version" suivant la variante utilisée
 
-if [ "$DISTRIB_RELEASE" = "14.04" ] ; then
-  version=trusty
+if [ "$DISTRIB_RELEASE" = "14.04" ] || [ "$DISTRIB_RELEASE" = "17.3" ] ; then
+  version=trusty # Ubuntu 14.04 / Mint 17.3
 fi
 
 if [ "$DISTRIB_RELEASE" = "16.04" ] || [ "$DISTRIB_RELEASE" = "18.3" ] || [ "$(echo "$DISTRIB_RELEASE" | cut -c -3)" = "0.4" ] ; then
-  version=xenial
+  version=xenial # Ubuntu 16.04 / Mint 18.3 / Elementary OS 0.4
 fi
 
-if [ "$DISTRIB_RELEASE" = "18.04" ] ; then
-  version=bionic
+if [ "$DISTRIB_RELEASE" = "18.04" ] || [ "$DISTRIB_RELEASE" = "19" ] || [ "$DISTRIB_RELEASE" = "5.0" ] ; then
+  version=bionic # Ubuntu 18.04 / Mint 19 / Elementary OS 5.0
 fi
 
 ########################################################################
@@ -51,16 +53,19 @@ apt-get update ; apt-get -y dist-upgrade
 # Paquets uniquement pour Trusty (14.04)
 #########################################
 if [ "$version" = "trusty" ] ; then
-
   # paquet
   apt-get -y install idle-python3.4 gstreamer0.10-plugins-ugly celestia
 
   # Backportage LibreOffice (sinon version trop ancienne sur la 14.04)
   add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
-
-  # Pour Google Earth => a décommenter pour l'installer !  
-  #apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
-  #wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
+  
+  if [ "$1" = "--extra" ] ; then 
+    # Google Earth
+    apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
+    wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; 
+    dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
+  fi  
+  
 fi
 
 #########################################
@@ -74,19 +79,19 @@ if [ "$version" = "xenial" ] ; then
   apt install -y idle-python3.5 x265 ;
   
   # Backportage LibreOffice (si besoin de backporter LO, décommenter !)
-  #add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
+  add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y
 
-  # Pour Google Earth x64 #A décommenter pour installer Google Earth !
-  #wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
-  #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
-  #wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
-  #dpkg -i lsb*.deb
-  #dpkg -i google-earth*.deb
-  #apt-get -fy install 
+  if [ "$1" = "--extra" ] ; then 
+    # Google Earth
+    wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
+    wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
+    wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
+    dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt install -fy ; rm -f lsb*.deb && rm -f google-earth*.deb
+  fi
   
-  # Pour Celestia X64 # A décommenter si vous voulez Celestia pour la 16.04
-  wget --no-check-certificate https://raw.githubusercontent.com/sibe39/scripts_divers/master/Celestia_On_Xenial.sh
-  chmod +x Celestia_On_Xenial.sh ; ./Celestia_On_Xenial.sh ; rm -f Celestia_On_Xenial.sh
+  # Celestia
+  wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Xenial.sh
+  chmod +x Celestia* ; ./Celestia_pour_Xenial.sh ; rm -f Celestia*
 fi
 
 #########################################
@@ -97,29 +102,29 @@ if [ "$version" = "bionic" ] ; then
   # paquet
   apt install -y idle-python3.6 x265
 
-  # Backportage LibreOffice (si besoin de backporter LO, décommenter !)
-  #add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
+  if [ "$1" = "--extra" ] ; then 
+    # Backportage LibreOffice 
+    add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y
 
-  # Google Earth Pro x64 (=> A décommenter pour installer Google Earth !)
-  #wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
-  #dpkg -i google-earth-pro-stable_current_amd64.deb
-  #apt install -fy ; rm google-earth-pro-stable_current_amd64.deb
+    # Google Earth Pro x64 (=> A décommenter pour installer Google Earth !)
+    wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
+    dpkg -i google-earth-pro-stable_current_amd64.deb
+    apt install -fy ; rm google-earth*
+  fi
   
-  # Celestia (=> A décommenter pour installer Celestia !)
-  #wget --no-check-certificate https://raw.githubusercontent.com/BionicBeaver/Divers/master/CelestiaBionic.sh
-  #chmod +x CelestiaBionic.sh ; ./CelestiaBionic.sh ; rm CelestiaBionic.sh
+  # Celestia
+  wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh
+  chmod +x Celestia_pour_Bionic.sh ; ./Celestia_pour_Bionic.sh ; rm Celestia*
   
   # Pilote imprimante openprinting
   apt install -y openprinting-ppds
 fi
 
-
-
 #=======================================================================================================#
 
 # Installation quelque soit la variante et la version 
 
-if [ "$version" != "bionic" ] ; then
+if [ "$version" != "bionic" ] ; then  # Installation spécifique pour 14.04 ou 16.04
   # drivers imprimantes (sauf pour Bionic ou il est installé différemment)
   wget http://www.openprinting.org/download/printdriver/debian/dists/lsb3.2/contrib/binary-amd64/openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb
   dpkg -i openprinting-gutenprint_5.2.7-1lsb3.2_amd64.deb ; apt-get -fy install ; rm openprinting-gutenprint*
@@ -130,7 +135,6 @@ if [ "$version" != "bionic" ] ; then
 fi
 
 # drivers pour les scanners les plus courants
-
 apt-get -y install sane
 
 # Police d'écriture de Microsoft
@@ -148,7 +152,6 @@ apt-get -y install adobe-flashplugin ; #permet d'avoir flash en même temps pour
 
 #[ Video / Audio ]
 apt-get -y install imagination openshot audacity vlc x264 ffmpeg2theora flac vorbis-tools lame oggvideotools mplayer ogmrip goobox
-#x265 installé sur la 16.04 en +
 
 #[ Graphisme / Photo ]
 apt-get -y install blender sweethome3d gimp pinta inkscape gthumb mypaint hugin shutter
@@ -166,7 +169,6 @@ apt-get -y install geogebra algobox carmetal scilab
 
 #[ Sciences ]
 apt-get -y install stellarium avogadro 
-#celestia installé uniquement sur la 14.04, cf en haut
 
 #[ Programmation ]
 apt-get -y install scratch ghex geany imagemagick gcolor2
@@ -174,7 +176,9 @@ apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk #python
 
 #[ Serveur ]
 #apt-get -y install openssh-server #à décommenter si vous utilisez "Ansible"
+
 #=======================================================================================================#
+# Installation spécifique suivant l'environnement de bureau
 
 ################################
 # Concerne Ubuntu / Gnome
@@ -201,32 +205,50 @@ if [ "$(which xfwm4)" = "/usr/bin/xfwm4" ] ; then # si Xubuntu/Xfce alors :
   #[ Paquet AddOns ]
   apt-get -y install xubuntu-restricted-extras xubuntu-restricted-addons xfce4-goodies xfwm4-themes
 
-  # Customisation XFCE (pour 14.04 ou 16.04)
-if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then
-  add-apt-repository -y ppa:docky-core/stable ; apt-get update ; apt-get -y install plank ;
-  wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar ; tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
+  # Customisation XFCE
+  if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then #ajout ppa pour 14.04 et 16.04 (pas nécessaire pour la 18.04)
+    add-apt-repository -y ppa:docky-core/stable ; apt-get update   
+  fi
+  apt-get -y install plank ; wget --no-check-certificate https://dane.ac-lyon.fr/spip/IMG/tar/skel_xub1404.tar
+  tar xvf skel_xub1404.tar -C /etc ; rm -rf skel_xub1404.tar
 fi
 
 ################################
-# Concerne Ubuntu Mate 16.04
+# Concerne Ubuntu Mate
 ################################
-if [ "$(which caja)" = "/usr/bin/caja" ] && [ "$DISTRIB_RELEASE" = "16.04" ] ; then # si Ubuntu Mate 16.04 alors :
-  #paquet
+if [ "$(which caja)" = "/usr/bin/caja" ] ; then # si Ubuntu Mate 
   apt-get -y install ubuntu-restricted-extras mate-desktop-environment-extras
+  apt-get -y purge ubuntu-mate-welcome
 fi
 
 ################################
 # Concerne Lubuntu / LXDE
 ################################
 if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors :
-  #[ Paquet AddOns ]
   apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
+
+# Lecture DVD (intervention demandé)
+if [ "$1" = "--extra" ] ; then 
+
+  if [ "$version" = "trusty" ] ; then #lecture dvd pour 14.04
+    apt-get install libdvdread4 -y
+    bash /usr/share/doc/libdvdread4/install-css.sh
+  fi
+  
+  if [ "$version" = "xenial" ] || [ "$version" = "bionic" ] ; then #lecture dvd pour 16.04 ou 18.04
+    apt install -y libdvd-pkg
+    dpkg-reconfigure libdvd-pkg
+  fi
+  
+fi
+
 
 ########################################################################
 #nettoyage station 
 ########################################################################
-apt-get -fy install ; apt-get -y autoremove --purge ; apt-get -y clean ;
+apt-get update ; apt-get -fy install ; apt-get -y autoremove --purge ; apt-get -y clean ;
+clear
 
 ########################################################################
 #FIN
