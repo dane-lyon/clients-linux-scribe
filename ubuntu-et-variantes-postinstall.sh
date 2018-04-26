@@ -106,10 +106,11 @@ if [ "$version" = "bionic" ] ; then
     # Backportage LibreOffice 
     add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y
 
-    # Google Earth Pro x64 (=> A décommenter pour installer Google Earth !)
+    # Google Earth Pro x64 
     wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
-    dpkg -i google-earth-pro-stable_current_amd64.deb
-    apt install -fy ; rm google-earth*
+    dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
+    sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #permet d'ignorer le 32bits sinon erreur lors d'un apt update
+    rm google-earth-pro*
   fi
   
   # Celestia
