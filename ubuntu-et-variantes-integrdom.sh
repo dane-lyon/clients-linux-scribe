@@ -52,6 +52,7 @@
 # - Changement de commande d'installation : apt-get => apt
 # - Applet réseau finalement non-supprimé
 # - Possibilité d'enchainer automatiquement avec le script de post-install une fois le script terminé (via 1 paramètre de commande) 
+# - Suppression de l'écran de démarrage d'Ubuntu avec Gnome de la 18.04
 
 # --------------------------------------------------------------------------------------------------------------------
 
@@ -582,11 +583,13 @@ if [ "$version" = "xenial" ] || [ "$version" = "bionic" ] ; then
   sed -i "30i\session optional        pam_mkhomedir.so" /etc/pam.d/common-session
 fi
 
-# Création de raccourci sur le bureau + dans dossier utilisateur (pour la 18.04 uniquement) pour l'accès aux partages (commun+perso+lespartages)
 if [ "$version" = "bionic" ] ; then
+  # Création de raccourci sur le bureau + dans dossier utilisateur (pour la 18.04 uniquement) pour l'accès aux partages (commun+perso+lespartages)
   wget http://nux87.free.fr/pour_script_integrdom/skel.tar.gz
   tar -xzf skel.tar.gz -C /etc/
   rm -f skel.tar.gz
+  # Suppression de l'écran de démarrage pour Ubuntu 18.04 (si c'est une variante, le paquet n'est pas installé donc ça changera rien)
+  apt purge gnome-initial-setup -y
 fi
 
 # Suppression de notification de mise à niveau 
