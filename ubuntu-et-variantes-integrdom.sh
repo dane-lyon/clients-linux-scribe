@@ -250,7 +250,7 @@ if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then
   wget --no-check-certificate https://codeload.github.com/dane-lyon/Esubuntu/zip/master ; mv master esubuntu.zip
   unzip esubuntu.zip ; rm -r esubuntu.zip ; chmod -R +x Esubuntu-master
   ./Esubuntu-master/install_esubuntu.sh
-  # Mise en place des wallpapers pour les élèves, profs, admin (pour bureau Unity)
+  # Mise en place des wallpapers pour les élèves, profs, admin 
   wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
   #Lien alternatif : https://github.com/dane-lyon/fichier-de-config/raw/master/wallpaper.zip
   unzip wallpaper.zip ; rm -r wallpaper.zip
@@ -421,7 +421,7 @@ disable-user-list=true" > /etc/dconf/db/gdm.d/00-login-screen
 dconf update
 
 # Suppression icone Amazon
-apt purge -y ubuntu-web-launchers
+apt purge -y ubuntu-web-launchers gnome-initial-setup
 
 fi
 
@@ -541,8 +541,6 @@ if [ "$version" = "bionic" ] ; then
   wget http://nux87.free.fr/pour_script_integrdom/skel.tar.gz
   tar -xzf skel.tar.gz -C /etc/
   rm -f skel.tar.gz
-  # Suppression de l'écran de démarrage pour Ubuntu 18.04 (si c'est une variante, le paquet n'est pas installé donc ça changera rien)
-  apt purge gnome-initial-setup -y
 fi
 
 # Suppression de notification de mise à niveau 
