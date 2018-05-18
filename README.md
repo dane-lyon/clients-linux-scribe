@@ -3,13 +3,15 @@
 Ce **script** permet d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4, 2.5 ou 2.6 
 
 Les clients supportés/testés avec les scripts sont les suivants :
-- Ubuntu (Unity) 14.04, 16.04 et (Gnome Shell) 18.04
+- Ubuntu (Unity) 14.04, 16.04 et 18.04 (GS)
 - Xubuntu (XFCE) 14.04, 16.04 et 18.04
 - Lubuntu (LXDE) 14.04, 16.04 et (Lxde/LxQt) 18.04 
 - Ubuntu Mate 16.04 et 18.04
 - Ubuntu Budgie 18.04
 - Linux Mint (Cinammon/Mate/Xfce) 17.X et 18.X (et probablement la future 19.X)
 - Elementary OS (Pantheon) 0.4 (et probablement la future 5.0)
+
+NB : Ce script intègre désormais Esubuntu (il vous posera la question au lancement du script si vous voulez l'utiliser ou pas, plus de précision ici : https://github.com/dane-lyon/clients-linux-scribe/blob/master/Esubuntu.md
 
 Avant de lancer ce script, assurez-vous d'avoir installé toutes vos applications, puis vous pouvez cloner vos postes
 avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
