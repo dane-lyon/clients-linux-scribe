@@ -239,70 +239,23 @@ echo "Acquire::http::Pipeline-Depth 0;" >> /etc/apt/apt.conf
 # Vérification que le système est bien à jour
 apt update ; apt full-upgrade -y
 
+# Ajout de Net-tools pour ifconfig en 18.04 et futures versions
+apt install -y net-tools
+
 ####################################################
 # Téléchargement + Mise en place de Esubuntu (si activé)
 ####################################################
 if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then 
-
-  if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ] ; then # Si version de base sous Gnome
-    mkdir /etc/lightdm # uniquement pour les besoins d'Esubuntu puisque LightDM n'est pas installé
-  fi
-  
   # Téléchargement des paquets
-  wget http://nux87.online.fr/esu_ubuntu/esu_ubuntu.zip
-  #Lien alternatif mais qui peux poser problème pour le DL automatique : https://github.com/dane-lyon/fichier-de-config/raw/master/esu_ubuntu.zip
-  unzip esu_ubuntu.zip
-  
-  # Création du dossier upkg
-  mkdir /usr/local/upkg_client/
-  chmod -R 777 /usr/local/upkg_client
-
-  # Installation de zenity et conky
-  if [ "$version" = "trusty" ] || [ "$version" = "xenial" ] ; then  #ajout du ppa uniquement pour trusty et xenial
-    add-apt-repository -y ppa:vincent-c/conky #conky est backporté pour avoir une version récente quelque soit la distrib
-    apt update
-  fi
-  apt install -y zenity conky
-  
-  # Ajout de Net-tools pour ifconfig en 18.04 et futures versions
-  apt install -y net-tools
-
-  # Copie des fichiers
-  cp -rf ./esu_ubuntu/lightdm/* /etc/lightdm/
-  chmod +x /etc/lightdm/*.sh
-  cp -rf ./esu_ubuntu/xdg_autostart/* /etc/xdg/autostart/
-  chmod +x /etc/xdg/autostart/message_scribe.desktop
-  chmod +x /etc/xdg/autostart/scribe_background.desktop
-  
-  # Gestion du groupe
-  #salle du pc
-  echo "Veuillez entrer le groupe ESU de vos postes clients linux : "
-  read salle
-  echo "$salle" > /etc/GM_ESU
-
-  # Lancement script prof_firefox
-  chmod -R +x ./esu_ubuntu
-  ./esu_ubuntu/firefox/prof_firefox.sh
-  
+  wget --no-check-certificate https://codeload.github.com/dane-lyon/Esubuntu/zip/master ; mv master esubuntu.zip
+  unzip esubuntu.zip ; rm -r esubuntu.zip ; chmod -R +x Esubuntu-master
+  ./Esubuntu-master/install_esubuntu.sh
   # Mise en place des wallpapers pour les élèves, profs, admin (pour bureau Unity)
   wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
   #Lien alternatif : https://github.com/dane-lyon/fichier-de-config/raw/master/wallpaper.zip
-  unzip wallpaper.zip
+  unzip wallpaper.zip ; rm -r wallpaper.zip
   mv wallpaper /usr/share/
-
-  # Inscription de la tache upkg dans crontab
-  echo "*/20 * * * * root /etc/lightdm/groupe.sh" > /etc/crontab
-  
-  # Si il reste encore une trace de cntlm dans xdg autostart :
-  rm -f /etc/xdg/autostart/cntlm*
-  
-  # Modification de la valeur en dur à la fin du fichier background.sh pour correspondre au bon groupe ESU
-  sed -i -e "s/posteslinux/$salle/g" /etc/lightdm/background.sh
-  
-  #nettoyage
-  rm -f esu_ubuntu.zip
 fi
-
 
 ########################################################################
 #Mettre la station à l'heure à partir du serveur Scribe
