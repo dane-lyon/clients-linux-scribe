@@ -31,10 +31,12 @@ avec la solution libre [OSCAR](http://oscar.crdp-lyon.fr/wiki/)
 Si vous avez des difficultés pour télécharger les scripts depuis le serveur scribe (ce qui peux arriver en passant derrière un proxy en établissement), il faut rajouter le proxy en faisant :
 <code>export https_proxy="ip_proxy:port_proxy"</code>
 par exemple si votre serveur Amon est en 172.16.0.252 et avec le port 3128 :
+
 <code>export https_proxy="172.16.0.252:3128"</code>
 
 puis si vous avez le message suivant "Incapable d'établir une connexion SSL", il faut rajouter l'argument suivant : --no-check-certificate, ce qui donne par exemple :
-<code>wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh--no-check-certificate</code>
+
+<code>wget https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh --no-check-certificate</code>
 
 ###**Remarques :** 
 
