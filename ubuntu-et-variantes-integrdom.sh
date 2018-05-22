@@ -247,11 +247,15 @@ apt install -y net-tools
 ####################################################
 if [ "$esubuntu" = "O" ] || [ "$esubuntu" = "o" ] ; then 
   # Téléchargement des paquets
-  wget --no-check-certificate https://codeload.github.com/dane-lyon/Esubuntu/zip/master ; mv master esubuntu.zip
-  unzip esubuntu.zip ; rm -r esubuntu.zip ; chmod -R +x Esubuntu-master
+  #wget --no-check-certificate https://codeload.github.com/dane-lyon/Esubuntu/zip/master #(pose problème lors des tests)
+  ## Précision : en raison des problèmes que pose l'https pour le téléchargement dans les établissements, l'archive est ré-hebergé sur un ftp free :
+  wget http://nux87.free.fr/pour_script_integrdom/Esubuntu-master.zip
+  
+ # Déplacement/extraction de l'archive + lancement par la suite
+  unzip Esubuntu-master.zip ; rm -r Esubuntu-master.zip ; chmod -R +x Esubuntu-master
   ./Esubuntu-master/install_esubuntu.sh
   # Mise en place des wallpapers pour les élèves, profs, admin 
-  wget http://nux87.online.fr/esu_ubuntu/wallpaper.zip
+  wget http://nux87.free.fr/esu_ubuntu/wallpaper.zip
   #Lien alternatif : https://github.com/dane-lyon/fichier-de-config/raw/master/wallpaper.zip
   unzip wallpaper.zip ; rm -r wallpaper.zip
   mv wallpaper /usr/share/
