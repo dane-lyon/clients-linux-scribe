@@ -1,5 +1,5 @@
 #!/bin/bash
-# version 2.3.8
+# version 2.3.9
 
 # Testé & validé pour les distributions suivantes :
 ################################################
@@ -398,7 +398,8 @@ fi
 
 # Si Ubuntu Mate
 if [ "$(which caja)" = "/usr/bin/caja" ] ; then
-  apt purge -y hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox ;
+  apt purge -y hexchat transmission-gtk ubuntu-mate-welcome cheese pidgin rhythmbox
+  snap remove ubuntu-mate-welcome
 fi
 
 # Si Lubuntu (lxde)
@@ -426,6 +427,10 @@ dconf update
 
 # Suppression icone Amazon
 apt purge -y ubuntu-web-launchers gnome-initial-setup
+
+# Remplacement des snaps par défauts par la version apt (plus rapide)
+snap remove gnome-calculator gnome-characters gnome-logs gnome-system-monitor
+apt install gnome-calculator gnome-characters gnome-logs gnome-system-monitor -y 
 
 fi
 
