@@ -21,7 +21,7 @@ La partie "Esubuntu" n'est pas compatible avec Ubuntu/Gnome 18.04 !
 
 1. Créer un nouveau groupe ESU (via la console ESU) pour vos clients Linux, par exemple "posteslinux"
 1. Télécharger le contenu de l'archive et le décompresser dans votre nouveau groupe esu pour linux.
-Lien ici : https://github.com/dane-lyon/clients-linux-scribe/blob/master/ds_grp_esu.zip?raw=true
+Lien ici : https://github.com/dane-lyon/clients-linux-scribe/raw/master/ds_votre_groupe_esu.zip
 1. Ensuite sur le poste client Ubuntu, lancer la nouvelle version du Script (dans la partie expérimentation), lien direct ici : 
 https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh
 1. Une nouvelle question sera posée "voulez-vous activer esu_ubuntu" : répondre "Oui".
