@@ -1,10 +1,8 @@
 #!/bin/bash
-# version 2.0.3
+# version 2.0.4
 
 # Ce script sert à installer des logiciels supplémentaires utiles pour les collèges & lyçées
 # Ce script est utilisable pour Ubuntu et variantes en 14.04, 16.04 et 18.04
-
-# Bonus : pour installer Google Earth + la lecture de dvd à la fin, utiliser le paramètre "--extra" => sudo ./script.sh --extra
 
 #############################################
 # Run using sudo, of course.
@@ -59,13 +57,10 @@ if [ "$version" = "trusty" ] ; then
   # Backportage LibreOffice (sinon version trop ancienne sur la 14.04)
   add-apt-repository -y ppa:libreoffice/ppa ; apt-get update ; apt-get -y upgrade
   
-  if [ "$1" = "--extra" ] ; then 
-    # Google Earth
-    apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
-    wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; 
-    dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb 
-  fi  
-  
+  # Google Earth
+  apt-get -y install libfontconfig1:i386 libx11-6:i386 libxrender1:i386 libxext6:i386 libgl1-mesa-glx:i386 libglu1-mesa:i386 libglib2.0-0:i386 libsm6:i386
+  wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_i386.deb ; 
+  dpkg -i google-earth-stable_current_i386.deb ; apt-get -fy install ; rm -f google-earth-stable_current_i386.deb   
 fi
 
 #########################################
@@ -81,37 +76,27 @@ if [ "$version" = "xenial" ] ; then
   # Backportage LibreOffice (si besoin de backporter LO, décommenter !)
   add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y
 
-  if [ "$1" = "--extra" ] ; then 
-    # Google Earth
-    wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
-    wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
-    wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
-    dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt install -fy ; rm -f lsb*.deb && rm -f google-earth*.deb
-  fi
+  # Google Earth
+  wget --no-check-certificate https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb 
+  wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-core_4.1+Debian13+nmu1_amd64.deb
+  wget http://ftp.fr.debian.org/debian/pool/main/l/lsb/lsb-security_4.1+Debian13+nmu1_amd64.deb 
+  dpkg -i lsb*.deb ; dpkg -i google-earth*.deb ; apt install -fy ; rm -f lsb*.deb && rm -f google-earth*.deb
   
   # Celestia
-  wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Xenial.sh
-  chmod +x Celestia* ; ./Celestia_pour_Xenial.sh ; rm -f Celestia*
+  wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh
+  chmod +x Celestia_pour_Bionic.sh ; ./Celestia_pour_Bionic.sh ; rm Celestia*
 fi
 
 #########################################
 # Paquet uniquement pour Bionic (18.04)
 #########################################
 if [ "$version" = "bionic" ] ; then
-
   # paquet
   apt install -y idle-python3.6 x265
 
-  if [ "$1" = "--extra" ] ; then 
-    # Backportage LibreOffice 
-    add-apt-repository -y ppa:libreoffice/ppa ; apt update ; apt upgrade -y
-
-    # Google Earth Pro x64 
-    wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
-    dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
-    sed -i -e "s/deb http/deb [arch=amd64] http/g" /etc/apt/sources.list.d/google-earth* #permet d'ignorer le 32bits sinon erreur lors d'un apt update
-    rm google-earth-pro*
-  fi
+  # Google Earth Pro x64 
+  wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb ; dpkg -i google-earth-pro-stable_current_amd64.deb ; apt install -fy
+  rm /etc/apt/sources.list.d/google-earth* ; rm google-earth-pro* #dépot google retiré volontairement
   
   # Celestia
   wget --no-check-certificate https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Celestia_pour_Bionic.sh
@@ -178,6 +163,29 @@ apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk #python
 #[ Serveur ]
 #apt-get -y install openssh-server #à décommenter si vous utilisez "Ansible"
 
+### Supplément de logiciel proposé dans la section wpkg du forum de la dane en version linux (pour Ubuntu 18.04)
+### cf : https://forum-dane.ac-lyon.fr/forum/viewforum.php?f=44
+if [ "$version" = "bionic" ] ; then
+  # Openboard
+  wget https://raw.githubusercontent.com/simbd/Scripts_Ubuntu/master/Openboard_1804.sh --no-check-certificate ; chmod +x Openboard* && ./Openboard_18.04.sh ; rm Openboard* 
+  # Openshot-qt, Gshutdown, X-Cas, Planner, extension ooohg, winff, optgeo, ghostscript
+  apt install openshot-qt gshutdown xcas planner ooohg winff winff-qt optgeo ghostscript -y #gshutdown équivalent à poweroff
+  # GanttProject
+  wget https://dl.ganttproject.biz/ganttproject-2.8.7/ganttproject_2.8.7-r2262-1_all.deb && dpkg -i ganttproject* ; apt install -fy ; rm ganttproject*
+  # mBlock
+  apt install libgconf-2-4 -y ; wget http://mblock.makeblock.com/mBlock4.0/mBlock_4.0.4_amd64.deb ; dpkg -i mBlock*.deb ; apt install -fy ; rm mBlock*.deb      
+  # Xia (alias ImageActive)
+  echo "deb http://repository.crdp.ac-versailles.fr/debian xia main" | tee /etc/apt/sources.list.d/xia.list
+  wget -q http://repository.crdp.ac-versailles.fr/crdp.gpg -O - | apt-key add - ; apt update ; apt install xia -y
+  # Marble (avec le moins de dépendance KDE possible)
+  apt install --no-install-recommends marble -y
+  # OpenMeca
+  wget http://d.a.d.a.pagesperso-orange.fr/openmeca-64b.deb && dpkg -i openmeca-64b.deb ; apt install -fy ; rm openmeca*
+  # BlueGriffon
+  wget http://bluegriffon.org/freshmeat/3.0.1/bluegriffon-3.0.1.Ubuntu16.04-x86_64.deb && dpkg -i bluegriffon*.deb ; apt install -fy ; rm bluegriffon*
+  ### Logiciel non installé (mais existant sous linux) : Xmind (déjà un équivalent), Scenari (pas utile de le pré-installer)
+fi
+
 #=======================================================================================================#
 # Installation spécifique suivant l'environnement de bureau
 
@@ -187,7 +195,7 @@ apt-get -y install python3-pil.imagetk python3-pil traceroute python3-tk #python
 if [ "$(which gnome-shell)" = "/usr/bin/gnome-shell" ] ; then  # si GS install
   #[ Paquet AddOns ]
   apt install -y ubuntu-restricted-extras ubuntu-restricted-addons gnome-tweak-tool
-  apt install -y nautilus-image-converter nautilus-script-audio-convert
+  #apt install -y nautilus-image-converter nautilus-script-audio-convert
 fi
 
 ################################
@@ -229,9 +237,8 @@ if [ "$(which pcmanfm)" = "/usr/bin/pcmanfm" ] ; then  # si Lubuntu / Lxde alors
   apt-get -y install lubuntu-restricted-extras lubuntu-restricted-addons
 fi
 
-# Lecture DVD (intervention demandé)
-if [ "$1" = "--extra" ] ; then 
 
+# Lecture DVD
   if [ "$version" = "trusty" ] ; then #lecture dvd pour 14.04
     apt-get install libdvdread4 -y
     bash /usr/share/doc/libdvdread4/install-css.sh
@@ -241,9 +248,6 @@ if [ "$1" = "--extra" ] ; then
     apt install -y libdvd-pkg
     dpkg-reconfigure libdvd-pkg
   fi
-  
-fi
-
 
 ########################################################################
 #nettoyage station 
