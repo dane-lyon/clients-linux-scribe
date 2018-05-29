@@ -14,6 +14,7 @@ then
   exit 
 fi
 
+rm -rf /etc/skel/*
 cp -rf /home/$SUDO_USER/.config /etc/skel/
 cp -f /home/$SUDO_USER/.* /etc/skel/
 mkdir /etc/skel/Bureau /etc/skel/Images /etc/skel/Modèles /etc/skel/Musique /etc/skel/Téléchargements /etc/skel/Vidéos
