@@ -102,7 +102,7 @@ Manipulation à faire avant le clonage de vos postes sinon il faudra refaire la 
 Enfin, si vous ne savez pas quelle interface de bureau choisir avec Ubuntu, voici un aperçu des différentes variantes supportés :
 
 ## Ubuntu 16.04 :
-![Ubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589158.png)
+![Ubuntu 16.04](http://nux87.free.fr/wallpaper_githubdane/ubuntu1804GS.jpg)
 
 ## Xubuntu 16.04 :
 ![Xubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589234.png)
