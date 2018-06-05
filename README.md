@@ -9,7 +9,7 @@ Les clients supportés/testés avec les scripts sont les suivants :
 - Ubuntu Mate 16.04 et 18.04
 - Ubuntu Budgie 18.04
 - Linux Mint (Cinammon/Mate/Xfce) 17.X et 18.X (et probablement la future 19.X)
-- Elementary OS (Pantheon) 0.4 (et probablement la future 5.0)
+- Elementary OS (Pantheon) 0.4 (et probablement la future 5.0).
 
 NB : Ce script intègre désormais Esubuntu (il vous posera la question au lancement du script si vous voulez l'utiliser ou pas, plus de précision ici : https://github.com/dane-lyon/clients-linux-scribe/blob/master/Esubuntu.md
 
@@ -92,8 +92,12 @@ Pour appliquer les modifications, il faut lancer la commande :
 
 A noter que chaque élève ou enseignant pourra personnaliser son menu par la suite puisque le profil est local. La personnalisation sera, en revanche, propre à chaque poste.
 
+#### Concernant l'intégration d'un client Linux Mint 19
 
-Si vous ne savez pas quelle interface de bureau choisir, voici un aperçu des différentes variantes supportés :
+L'intégration fonctionne mais par défaut l'écran de session LightDM n'est pas modifié pour saisir vous même le login, pour régler le problème c'est très simple : connectez vous avec un compte (compte local ou compte admin ou compte prof) de préférence avant l'intégration au domaine puis il faut aller dans le "centre de contrôle de Cinnamon" (paramètre système) puis en bas dans la section administration "Fenêtre de connexion", dans l'onglet "Utilisateurs", activer "Permettre la connexion manuelle" ainsi que "Cacher la liste des utilisateurs" (éventuellement désactiver aussi "Autoriser les invités à se connecter" si besoin). Si le pavé numérique n'est pas activé au démarrage, vous pouvez en profiter dans "Options" pour activer "Activer le verouillage du pavé numérique" (si l'option est grisé, installer le paquet "numlockx" avant).
+Manipulation à faire avant le clonage de vos postes sinon il faudra refaire la manip sur chaque poste...
+
+Enfin, si vous ne savez pas quelle interface de bureau choisir avec Ubuntu, voici un aperçu des différentes variantes supportés :
 
 ## Ubuntu 16.04 :
 ![Ubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589158.png)
