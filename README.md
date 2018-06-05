@@ -101,23 +101,23 @@ Manipulation à faire avant le clonage de vos postes sinon il faudra refaire la 
 
 Enfin, si vous ne savez pas quelle interface de bureau choisir avec Ubuntu, voici un aperçu des différentes variantes supportés :
 
-## Ubuntu 16.04 :
-![Ubuntu 16.04](http://nux87.free.fr/wallpaper_githubdane/ubuntu1804GS.jpg)
+## Ubuntu 18.04 (Gnome-Shell) :
+![Ubuntu 18.04](http://nux87.free.fr/wallpaper_githubdane/ubuntu1804GS.jpg)
 
-## Xubuntu 16.04 :
-![Xubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589234.png)
+## Xubuntu 18.04 (Xfce) :
+![Xubuntu 18.04](http://nux87.free.fr/wallpaper_githubdane/xubuntu1804xfce.jpg)
 
-## Lubuntu 16.04 :
-![Lubuntu 16.04](http://pix.toile-libre.org/upload/original/1466589267.png)
+## Lubuntu 18.04 (Lxde) :
+![Lubuntu 18.04](http://nux87.free.fr/wallpaper_githubdane/lubuntu1804lxde.jpg)
 
-## Ubuntu Mate 16.04 :
-![Ubuntu Mate 16.04](http://pix.toile-libre.org/upload/original/1466589298.png)
+## Ubuntu Mate 18.04 (Mate) :
+![Ubuntu Mate 18.04](http://nux87.free.fr/wallpaper_githubdane/ubuntumate1804.jpg)
 
-## Linux Mint 18 :
-![Linux Mint 18](http://pix.toile-libre.org/upload/original/1466589327.png)
+## Ubuntu Budgie 18.04 (Budgie) :
+![Ubuntu Budgie 18.04](http://nux87.free.fr/wallpaper_githubdane/ubuntubudgie1804.jpg)
 
-## Ubuntu Budgie Remix 16.04 :
-![Ubuntu Budgie 16.04](http://pix.toile-libre.org/upload/original/1508504494.png)
+## Linux Mint 19 (Cinnamon) :
+![Linux Mint 19](http://nux87.free.fr/wallpaper_githubdane/linuxmint19cinnamon.jpg)
 
-## Elementary OS 0.4 :
-![Elementary OS 0.4](http://pix.toile-libre.org/upload/original/1508504624.png)
+## Elementary OS 0.4 (PantheonUI):
+![Elementary OS 0.4](http://nux87.free.fr/wallpaper_githubdane/elementaryos04pantheon.jpg)
