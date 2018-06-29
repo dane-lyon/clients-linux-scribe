@@ -26,6 +26,7 @@ Lien ici : https://github.com/dane-lyon/clients-linux-scribe/raw/master/ds_votre
 https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/ubuntu-et-variantes-integrdom.sh
 1. Une nouvelle question sera posée "voulez-vous activer esu_ubuntu" : répondre "Oui".
 1. Le nom du groupe esu sera demandé, il faudra mettre exactement le même nom que le nouveau groupe esu créé précédemment.
+1. Si on vous demande à la fin "voulez-vous utiliser le proxy authentifiant ?", il faut répondre "non" car cette option ne concerne que certains établissements (l'immense majorité n'ont pas un proxy authentifiant).
 1. A la fin, redémarrer le poste.
 
 A noter la présence d'un script à lancer sur des postes déjà intégrés au domaine : https://raw.githubusercontent.com/dane-lyon/clients-linux-scribe/master/Esubuntu_minimal.sh
