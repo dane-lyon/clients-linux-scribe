@@ -1,6 +1,7 @@
 ## Script pour Client Scribe (x)Ubuntu 20.04
 
 Le script pour intégrer un client Linux Ubuntu 20.04 (Gnome Shell, Mate, Linux Mint et Xubuntu) dans un domaine NT Scribe 2.5 et 2.6 est disponible à cette [adresse](https://forge.cadoles.com/lseys/lyon-script/).
+
 Concernant Scribe >= 2.8, il faut utiliser les scripts fournis par Eole : http://eole.ac-dijon.fr/documentations/2.8/completes/HTML/ModuleScribe/co/integration_1.html
 
 ## Scripts pour Client Scribe (x)Ubuntu 14.04, 16.04 et 18.04
