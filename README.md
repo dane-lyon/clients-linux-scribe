@@ -4,6 +4,9 @@ Le script pour intégrer un client Linux Ubuntu 20.04 (Gnome Shell, Mate, Linux 
 
 Concernant Scribe >= 2.8, il faut utiliser les scripts fournis par Eole : http://eole.ac-dijon.fr/documentations/2.8/completes/HTML/ModuleScribe/co/integration_1.html
 
+Pour la post-installation d'un Ubuntu 20.04, nous vous conseillons ce script, mais attention à ne pas installer n'importe quoi : https://github.com/simbd/Ubuntu_20.04LTS_PostInstall
+
+
 ## Scripts pour Client Scribe (x)Ubuntu 14.04, 16.04 et 18.04
 
 Les **scripts** ci-dessus permettent d'intégrer des clients Gnu/Linux dans un environnement Eole-Scribe 2.3, 2.4, 2.5 ou 2.6 
