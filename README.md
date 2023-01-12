@@ -57,24 +57,26 @@ Pour gagner du temps lors de la création du poste modèle, on pourra utiliser e
 
 #### Partages
 
-Si votre serveur Scribe est en version "2.4" , "2.5" ou "2.6", par défaut vous n'aurez pas les partages avec les clients linux (groupes, classes etc...), pour régler le problème, vous devez ajouter le fichier créer un nouveau fichier partage-linux.conf dans le dossier /etc/samba/conf.d
+Si votre serveur Scribe est en version _2.4_ , _2.5_ ou _2.6_, par défaut vous n'aurez pas les partages avec les clients linux (groupes, classes etc...) ; pour régler le problème, vous devez ajouter le fichier <code>partage-linux.conf</code> dans le dossier <code>/etc/samba/conf.d/</code>
 
 puis éditez ce fichier avec vim ou nano et ajoutez : 
 
-<code>[eclairng]
-path = %H/.ftp
-comment = espace personnel
-read only = no
-browseable = no
-invalid users = nobody guest
-inherit permissions = yes
-inherit acls = yes
-create mask = 0664
-directory mask = 0775
-valid users = %U
-write list = %U
-guest ok = no
-hide files = /config_eole/</code> 
+<code>
+	[eclairng]
+	path = %H/.ftp
+	comment = espace personnel
+	read only = no
+	browseable = no
+	invalid users = nobody guest
+	inherit permissions = yes
+	inherit acls = yes
+	create mask = 0664
+	directory mask = 0775
+	valid users = %U
+	write list = %U
+	guest ok = no
+	hide files = /config_eole/
+</code> 
 
 Une fois la modification enregistré, il suffit de faire (ou programmer) un reconfigure pour prendre en compte le changement. 
 
