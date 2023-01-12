@@ -62,20 +62,20 @@ Si votre serveur Scribe est en version _2.4_ , _2.5_ ou _2.6_, par défaut vous 
 puis éditez ce fichier avec vim ou nano et ajoutez : 
 
 <code>
-	[eclairng]
-	path = %H/.ftp
-	comment = espace personnel
-	read only = no
-	browseable = no
-	invalid users = nobody guest
-	inherit permissions = yes
-	inherit acls = yes
-	create mask = 0664
-	directory mask = 0775
-	valid users = %U
-	write list = %U
-	guest ok = no
-	hide files = /config_eole/
+[eclairng]
+path = %H/.ftp
+comment = espace personnel
+read only = no
+browseable = no
+invalid users = nobody guest
+inherit permissions = yes
+inherit acls = yes
+create mask = 0664
+directory mask = 0775
+valid users = %U
+write list = %U
+guest ok = no
+hide files = /config_eole/
 </code> 
 
 Une fois la modification enregistré, il suffit de faire (ou programmer) un reconfigure pour prendre en compte le changement. 
